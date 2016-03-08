@@ -65,13 +65,14 @@ Example Json payload
 
     {
       "survey_id": "021",
+      "type" : "uk.gov.ons.edc.eq:surveyresponse",
+      "version" : "0.0.1",
+      "origin" : "uk.gov.ons.edc.eq"
       "collection":{
         "exercise_sid": "hfjdskf",
         "instrument_id": "yui789",
         "period": "2016-02-01"
       },
-      "version":"0.0.1",
-      "origin": "eq",
       "submitted_at": "2016-03-07T15:28:05Z",
       "metadata": {
         "user_id": "789473423",
