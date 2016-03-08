@@ -28,8 +28,8 @@ Schema definition
   version
     The version number of the schema definition used to generate and parse the
     schema. Will always be 3 numbers separated by two dots e.g. "10.2.33" with the 
-    intention being MAJOR.MINOR.PATCH MAJOR.MINOR.PATCH no guarantees are given to 
-    compatibility across version changes.
+    intention being MAJOR.MINOR.PATCH no guarantees are given to compatibility 
+    across version changes.
   origin
     The name or identifier of the data capture / data generator system. Currently,
     the only option for this is "uk.gov.ons.edc.eq" - however this allows us to 
