@@ -22,7 +22,18 @@ Low-level datatypes
 
 
 Schema definition
-
+  type
+    The unique type identifier of this JSON file.
+    Will always be "uk.gov.ons.edc.eq:surveyresponse"
+  version
+    The version number of the schema definition used to generate and parse the
+    schema. Will always be 3 numbers separated by two dots e.g. "10.2.33" with the 
+    intention being MAJOR.MINOR.PATCH MAJOR.MINOR.PATCH no guarantees are given to 
+    compatibility across version changes.
+  origin
+    The name or identifier of the data capture / data generator system. Currently,
+    the only option for this is "uk.gov.ons.edc.eq" - however this allows us to 
+    futureproof for new collection instruments.
   survey_id
     The numerical survey number as used across the ONS.
   collection
@@ -32,13 +43,7 @@ Schema definition
       The collection instrument ID - used by legacy downstream systems
     period
       The collection period date in ISO 8601
-  version
-    The version number of the schema definition used to generate and parse the
-    schema.
-  origin
-    The name or identifier of the data capture / data generator system. Currently,
-    the only option for this is "eq" - however this allows us to futureproof for
-    new collection instruments.
+
   submitted_at
     The datetime of submission by the respondent.
   metadata
@@ -64,10 +69,10 @@ Example Json payload
 .. code-block:: javascript
 
     {
-      "survey_id": "021",
       "type" : "uk.gov.ons.edc.eq:surveyresponse",
       "version" : "0.0.1",
-      "origin" : "uk.gov.ons.edc.eq"
+      "origin" : "uk.gov.ons.edc.eq",
+      "survey_id": "021",
       "collection":{
         "exercise_sid": "hfjdskf",
         "instrument_id": "yui789",
