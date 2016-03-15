@@ -28,12 +28,14 @@ Schema definition
     An end date for the relevant reference period
   form_type
     The particular form_type for a responding unit
+  complete_by
+    A date which represents the closing date for a particular collection exercise for a survey. Represented by a ISO_8601 date.
   iat
     JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard
   exp
     Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
 
-* All dates are represented in ISO_8607 and are assumed to be UTC unless a timezone element is supplied.
+* All dates are represented in ISO_8601 and are assumed to be UTC unless a timezone element is supplied.
 * All elements are required as part of the claim.
 
 
