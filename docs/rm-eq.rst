@@ -28,6 +28,7 @@ Schema definition
     The particular form_type for a responding unit
 
 * All dates are represented in ISO_8607 and are assumed to be UTC unless a timezone element is supplied.
+* All elements are required as part of the claim.
 
 
 

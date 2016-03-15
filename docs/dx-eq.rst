@@ -29,7 +29,8 @@ Schema definition
     exercise_sid
       Collection exercise ID
     instrument_id
-      The collection instrument ID - used by legacy downstream systems
+      The collection instrument ID - used by legacy downstream systems. Referenced by some systems
+      as the form_type.
     period
       The collection period date in ISO 8601
   version
