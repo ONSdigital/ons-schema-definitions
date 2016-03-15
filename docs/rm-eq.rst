@@ -12,6 +12,8 @@ Schema definition
     The id assigned by the respondent management system
   ru_ref
     The responding unit reference id.
+  ru_name
+    The name of the responding unit. Could be a business name or person name.
   eq_id
     The eQ questionnaire instance id.
   collection_exercise_sid
@@ -26,6 +28,10 @@ Schema definition
     An end date for the relevant reference period
   form_type
     The particular form_type for a responding unit
+  iat
+    JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard
+  exp
+    Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
 
 * All dates are represented in ISO_8607 and are assumed to be UTC unless a timezone element is supplied.
 * All elements are required as part of the claim.
@@ -47,7 +53,9 @@ An example JSON claim
     "period_str": "",
     "ref_p_start_date": "",
     "ref_p_end_date": "",
-    "form_type": ""
+    "form_type": "",
+    "iat":"1458047712",
+    "exp":"1458057712"
   }
 
 
@@ -56,6 +64,8 @@ JWT envelope / transport
 
 Each respondent session is encrypted and wrapped as a `json web token (JWT) <http://jwt.io/>`_ (RFC 7519) which
 is then appended to a url, issued via a http 302 redirect over ssl.
+
+The two relevant claims, `iat` & `exp` are included in our payload and given in the example above.
 
 URL schema
 ==========
