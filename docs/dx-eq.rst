@@ -43,7 +43,7 @@ Schema definition
       The collection instrument ID - used by legacy downstream systems. Referenced by some systems
       as the form_type.
     period
-      The collection period date in ISO 8601
+      The collection period, currently represented as a string due to downstream systems lack of support for correct date formats.
 
   submitted_at
     The datetime of submission by the respondent.
