@@ -28,8 +28,8 @@ Schema definition
     An end date for the relevant reference period
   form_type
     The particular form_type for a responding unit
-  complete_by
-    A date which represents the closing date for a particular collection exercise for a survey. Represented by a ISO_8601 date.
+  return_by
+    A date which represents the return date for a particular collection exercise for a survey. Represented by a ISO_8601 YYYY-MM-DD date.
   iat
     JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard
   exp
@@ -56,6 +56,7 @@ An example JSON claim
     "ref_p_start_date": "",
     "ref_p_end_date": "",
     "form_type": "",
+    "return_by": "YYYY-MM-DD",
     "iat":"1458047712",
     "exp":"1458057712"
   }
