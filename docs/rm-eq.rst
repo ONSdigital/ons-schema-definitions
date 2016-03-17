@@ -14,7 +14,7 @@ Schema definition
     The responding unit reference id - with checkletter appended.
   ru_name
     The name of the responding unit. Could be a business name or person name.
-  trad
+  trad_as
     The trading as name for a responding unit. Temporary until wider refactor.
   eq_id
     The eQ questionnaire instance id.
@@ -47,7 +47,7 @@ An example JSON claim
 
   {
     "user_id": "64389274239",
-    "ru_ref": "7897897",
+    "ru_ref": "7897897J",
     "ru_name": "",
     "eq_id": "678",
     "collection_exercise_sid": "789",
@@ -55,7 +55,7 @@ An example JSON claim
     "period_str": "",
     "ref_p_start_date": "",
     "ref_p_end_date": "",
-    "trad": "",
+    "trad_as": "",
     "form_type": "",
     "iat":"1458047712",
     "exp":"1458057712"
