@@ -55,7 +55,7 @@ An example JSON claim
     "period_str": "",
     "ref_p_start_date": "",
     "ref_p_end_date": "",
-    "trad_as": "",
+    "trad": "",
     "form_type": "",
     "iat":"1458047712",
     "exp":"1458057712"
