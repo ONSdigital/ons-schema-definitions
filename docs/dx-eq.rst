@@ -51,7 +51,7 @@ Schema definition
     user_id
       The respondent user_id as specified by the respondent management system in use.
     ru_ref
-      Respondent unit reference number to which the collected data represents. This
+      Reporting Unit reference number to which the collected data represents. This
       allows the downstream system to map the responses to individual business/household/person
       in the original sample as created by the survey team.
   paradata
