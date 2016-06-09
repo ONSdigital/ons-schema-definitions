@@ -28,6 +28,8 @@ Schema definition
     A start date for the relevant reference period
   ref_p_end_date
     An end date for the relevant reference period
+  employment_date
+    A specific date for the questionnaire to display to the respondent.
   form_type
     The particular form_type for a responding unit
   return_by
@@ -57,6 +59,7 @@ An example JSON claim
     "period_str": "",
     "ref_p_start_date": "",
     "ref_p_end_date": "",
+    "employment_date": "",
     "trad_as": "",
     "form_type": "",
     "return_by": "YYYY-MM-DD",
