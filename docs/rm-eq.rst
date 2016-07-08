@@ -38,6 +38,8 @@ Schema definition
     JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard
   exp
     Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
+  tx_id
+    Transaction ID used to trace a transaction through the whole system. Alphanumeric and 128 bits in length.
 
 * All dates are represented in ISO_8601 and are assumed to be UTC unless a timezone element is supplied.
 * All elements are required as part of the claim.
@@ -64,7 +66,8 @@ An example JSON claim
     "form_type": "",
     "return_by": "YYYY-MM-DD",
     "iat":"1458047712",
-    "exp":"1458057712"
+    "exp":"1458057712",
+    "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb"
   }
 
 

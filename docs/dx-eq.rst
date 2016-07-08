@@ -22,6 +22,8 @@ Low-level datatypes
 
 
 Schema definition
+  tx_id
+     Transaction ID used to trace a transaction through the whole system. Alphanumeric and 128 bits in length.
   type
     The unique type identifier of this JSON file.
     Will always be "uk.gov.ons.edc.eq:surveyresponse"
@@ -70,6 +72,7 @@ Example Json payload
 .. code-block:: javascript
 
     {
+      "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
       "type" : "uk.gov.ons.edc.eq:surveyresponse",
       "version" : "0.0.1",
       "origin" : "uk.gov.ons.edc.eq",
