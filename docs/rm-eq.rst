@@ -39,7 +39,7 @@ Schema definition
   exp
     Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
   tx_id
-    Transaction ID used to trace a transaction through the whole system. Alphanumeric and 128 bits in length.
+    Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128 bits in length.
 
 * All dates are represented in ISO_8601 and are assumed to be UTC unless a timezone element is supplied.
 * All elements are required as part of the claim.

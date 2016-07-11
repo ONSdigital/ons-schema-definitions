@@ -23,7 +23,7 @@ Low-level datatypes
 
 Schema definition
   tx_id
-     Transaction ID used to trace a transaction through the whole system. Alphanumeric and 128 bits in length.
+     Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128 bits in length.
   type
     The unique type identifier of this JSON file.
     Will always be "uk.gov.ons.edc.eq:surveyresponse"
