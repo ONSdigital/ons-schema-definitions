@@ -39,8 +39,8 @@ Schema definition
   exp
     Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
   tx_id
-    Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128 bits in length.
-
+     Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
+     
 * All dates are represented in ISO_8601 and are assumed to be UTC unless a timezone element is supplied.
 * All elements are required as part of the claim.
 
