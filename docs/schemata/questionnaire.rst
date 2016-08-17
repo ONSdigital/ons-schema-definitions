@@ -1,5 +1,5 @@
-Questionnaire Schemata
-=====================
+Questionnaire
+=============
 
 This schemata describes the structure and content of eq questionnaires, as accepted by the eq-author and eq-survey-runner. A questionnaire is asked as part of a survey.
 
@@ -54,13 +54,69 @@ Schema definition
     The theme that the survey will use when rendered.
   introduction
     description
+
   groups
-    Array of groups within a questionnaire
 
-.. toctree::
-   :maxdepth: 2
+    Array of elements
 
-   schemata/group
-   schemata/block
-   schemata/section
-   schemata/questions
+      id
+      title
+      blocks
+
+        Array of elements
+
+          id
+          title
+          sections
+
+            Array
+
+              id
+              title
+              description
+              questions
+
+                Array
+
+                  id
+                  title
+                  description
+                  skip_condition
+                    when
+                      id
+                      condition
+                      value
+
+                type
+                answers
+
+                  Array
+
+                    id
+                    q_code
+                    label
+                    guidance
+                    type
+                    options
+                    mandatory
+                    alias
+                    display
+                      properties
+                        max_length
+
+            routing_rules
+              Array of objects
+
+                goto
+
+                  id
+                  when
+                    id
+                    condition
+                    value
+
+                repeat
+                  answer_id
+                  goto
+
+
