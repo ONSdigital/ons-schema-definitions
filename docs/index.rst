@@ -14,6 +14,7 @@ Contents:
    start
    dx-eq
    rm-eq
+   schemata
 
 
 
