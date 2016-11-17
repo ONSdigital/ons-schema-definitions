@@ -45,7 +45,7 @@ Schema definition
   language_code
     Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en".
   variant_flags
-    JSON object containing key/value pairs describing variations in the questionnaire e.g. `{"flag_1": true, "flag_2": "something"}`
+    JSON object containing name:value pairs describing variations in the questionnaire e.g. `{"flag_1": true, "flag_2": false}`. The only value type allowed is boolean i.e. `true` or `false`.
 
 * All dates are represented in ISO_8601 and are assumed to be UTC unless a timezone element is supplied.
 * All elements not indicated as optional are required as part of the claim.
@@ -78,7 +78,7 @@ An example JSON claim
     "language_code": "en",
     "variant_flags": {
       "flag_1": true,
-      "flag_2": "something"
+      "flag_2": false
     }
   }
 
