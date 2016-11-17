@@ -1,7 +1,7 @@
-# EDC Documentation
+# Survey Data Collection Documentation
 
 This project is a sphinx documentation setup for sharing and agreeing interfaces
-between different components in the EDC suite of components.
+between different components in the SDC suite of components.
 
 ## How to build
 

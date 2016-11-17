@@ -39,12 +39,16 @@ Schema definition
   exp
     Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
   tx_id
-     Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
+    Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
   region_code
-     Region code identifier, used to change content for different regions. Format ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) e.g. GB-GBN. This parameter is currently optional, EQ will still work if it is not passed
+    Region code identifier, used to change content for different regions. Format ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) e.g. GB-GBN. This parameter is currently optional, EQ will still work if it is not passed
+  language_code
+    Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en".
+  variant_flags
+    JSON object containing key/value pairs describing variations in the questionnaire e.g. `{"flag_1": true, "flag_2": "something"}`
 
 * All dates are represented in ISO_8601 and are assumed to be UTC unless a timezone element is supplied.
-* All elements are required as part of the claim.
+* All elements not indicated as optional are required as part of the claim.
 
 
 
@@ -70,7 +74,12 @@ An example JSON claim
     "iat":"1458047712",
     "exp":"1458057712",
     "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
-    "region_code": "GB-GBN"
+    "region_code": "GB-GBN",
+    "language_code": "en",
+    "variant_flags": {
+      "flag_1": true,
+      "flag_2": "something"
+    }
   }
 
 
