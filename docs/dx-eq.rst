@@ -59,6 +59,16 @@ Schema definition
   data
     Version 0.0.1
         A key, value pairing of responses from a respondent, making use of the box_code / stat_var / q_code as the key to identify the captured respondence from a user.
+
+        **Version 0.0.1 data example**
+
+        .. code-block:: javascript
+
+            {
+              "001": "2016-01-01",
+              "002": "2016-03-30"
+            }
+
     Version 0.0.2
         A sorted array of answers in the order the questionnaire was answered.
 
@@ -71,18 +81,18 @@ Schema definition
         - group_instance: The sub-identifier of a group of block_id/pages if that group repeats.
         - answer_instance: The sub-identifier of an answer if that answer repeats.
 
-**Version 0.0.2 data example**
+        **Version 0.0.2 data example**
 
-.. code-block:: javascript
+        .. code-block:: javascript
 
-    [{
-        "value": "Joe Bloggs",
-        "block_id": "household-composition",
-        "answer_id": "household-full-name",
-        "group_id": "multiple-questions-group",
-        "group_instance": 0,
-        "answer_instance": 0
-    }]
+            [{
+                "value": "Joe Bloggs",
+                "block_id": "household-composition",
+                "answer_id": "household-full-name",
+                "group_id": "multiple-questions-group",
+                "group_instance": 0,
+                "answer_instance": 0
+            }]
 
 
 
