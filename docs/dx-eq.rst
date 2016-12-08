@@ -86,10 +86,18 @@ Schema definition
         .. code-block:: javascript
 
             [{
-                "value": "Joe Bloggs",
+                "value": "Joe Bloggs"
                 "block_id": "household-composition",
-                "answer_id": "household-full-name",
+                "answer_id": "household-first-name",
                 "group_id": "multiple-questions-group",
+                "group_instance": 0,
+                "answer_instance": 0
+            },
+            {
+                "value": ["Eggs", "Bacon", "Spam"]
+                "block_id": "breakfast-block",
+                "answer_id": "favourite-breakfast-food",
+                "group_id": "breakfast-group",
                 "group_instance": 0,
                 "answer_instance": 0
             }]
@@ -118,8 +126,20 @@ Example Json payload
         "user_id": "789473423",
         "ru_ref": "432423423423"
       },
-      "data": {
-        "001": "2016-01-01",
-        "002": "2016-03-30"
-      }
+      "data": [{
+        "value": "Joe Bloggs"
+        "block_id": "household-composition",
+        "answer_id": "household-first-name",
+        "group_id": "multiple-questions-group",
+        "group_instance": 0,
+        "answer_instance": 0
+      },
+      {
+        "value": ["Eggs", "Bacon", "Spam"]
+        "block_id": "breakfast-block",
+        "answer_id": "favourite-breakfast-food",
+        "group_id": "breakfast-group",
+        "group_instance": 0,
+        "answer_instance": 0
+      }]
     }
