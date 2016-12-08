@@ -95,7 +95,7 @@ Schema definition
             },
             {
                 // Example of multiple values for a checkbox question
-                "value": ["Eggs", "Bacon", "Spam"] 
+                "value": ["Eggs", "Bacon", "Spam"],
                 "block_id": "breakfast-block",
                 "answer_id": "favourite-breakfast-food",
                 "group_id": "breakfast-group",
