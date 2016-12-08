@@ -86,7 +86,7 @@ Schema definition
         .. code-block:: javascript
 
             [{
-                "value": "Joe Bloggs"
+                "value": "Joe",
                 "block_id": "household-composition",
                 "answer_id": "household-first-name",
                 "group_id": "multiple-questions-group",
@@ -94,7 +94,8 @@ Schema definition
                 "answer_instance": 0
             },
             {
-                "value": ["Eggs", "Bacon", "Spam"]
+                // Example of multiple values for a checkbox question
+                "value": ["Eggs", "Bacon", "Spam"] 
                 "block_id": "breakfast-block",
                 "answer_id": "favourite-breakfast-food",
                 "group_id": "breakfast-group",
@@ -127,7 +128,7 @@ Example Json payload
         "ru_ref": "432423423423"
       },
       "data": [{
-        "value": "Joe Bloggs"
+        "value": "Joe",
         "block_id": "household-composition",
         "answer_id": "household-first-name",
         "group_id": "multiple-questions-group",
@@ -135,7 +136,7 @@ Example Json payload
         "answer_instance": 0
       },
       {
-        "value": ["Eggs", "Bacon", "Spam"]
+        "value": ["Eggs", "Bacon", "Spam"],
         "block_id": "breakfast-block",
         "answer_id": "favourite-breakfast-food",
         "group_id": "breakfast-group",
