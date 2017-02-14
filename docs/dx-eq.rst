@@ -38,6 +38,8 @@ Schema definition
     futureproof for new collection instruments.
   survey_id
     The numerical survey number as used across the ONS.
+  completed
+    Whether the survey was completed or not. This will be `true` if a respondent submitted the survey and `false` if the partially completed survey has been flushed through EQ (some surveys will have their partially completed submissions flushed through at the end of their collection period).
   collection
     exercise_sid
       Collection exercise ID
@@ -117,6 +119,7 @@ Example Json payload
       "version" : "0.0.1",
       "origin" : "uk.gov.ons.edc.eq",
       "survey_id": "021",
+      "completed": true,
       "collection":{
         "exercise_sid": "hfjdskf",
         "instrument_id": "yui789",
