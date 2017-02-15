@@ -38,6 +38,8 @@ Schema definition
     JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard
   exp
     Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
+  roles
+    An array of roles that this token is allowed to assume. This parameter is currently optional, EQ will still work if it is not passed.
   tx_id
     Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
   region_code
@@ -79,7 +81,8 @@ An example JSON claim
     "variant_flags": {
       "flag_1": true,
       "flag_2": false
-    }
+    },
+    "roles": [ "role1", "role2" ]
   }
 
 
