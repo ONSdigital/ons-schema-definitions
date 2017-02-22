@@ -45,8 +45,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'EDC'
-copyright = u'2016, ONS Digital'
+project = u'ONS Schema Definitions'
+copyright = u'2017, ONS Digital'
 author = u'ONS Digital'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -272,8 +272,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'EDC', u'EDC Documentation',
-     author, 'EDC', 'One line description of project.',
+    (master_doc, 'ONS', u'ONS Documentation',
+     author, 'ONS', 'ONS Schema Definitions.',
      'Miscellaneous'),
 ]
 
