@@ -1,15 +1,12 @@
-EQ downstream data format for Data exchange
-===========================================
-
-
+Electronic Questionnaire to Survey Data Exchange
+------------------------------------------------
 All collected responses for a collection exercise (a questionnaire within a survey series) are transformed into
 the following described data format for downstream processing and refinement. The json document is encrypted using the
 public key of the downstream collection system at submission, placing the cyphertext onto a rabbitmq queue for consumption
 by eq-submitter component.
 
-
 Low-level datatypes
--------------------
+===================
 * All datetimes are expressed using ISO_8601 and are assumed to be normalised to UTC unless a timezone identifier is given. All
   character encoding is UTF-8.
 
@@ -21,7 +18,8 @@ Low-level datatypes
   or empty string entry for the downstream system.
 
 
-Schema definition
+Schema Definition
+=================
   tx_id
      Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
   type
@@ -108,8 +106,7 @@ Schema definition
 
 
 Example Json payload
---------------------
-
+====================
 
 .. code-block:: javascript
 
@@ -147,3 +144,7 @@ Example Json payload
         "answer_instance": 0
       }]
     }
+
+JWT envelope / transport
+========================
+This payload is part of a JWT as specified in :doc:`jwt_profile`.
