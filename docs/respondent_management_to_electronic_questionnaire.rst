@@ -1,5 +1,5 @@
-Respondent survey session schema
---------------------------------
+Respondent Management to Electronic Questionnaire
+-------------------------------------------------
 
 When a respondent is ready to take a survey hosted on the eq system, a set of details
 need to be passed to eq to setup the survey correctly. This data is wrapped inside a json web
@@ -7,7 +7,14 @@ token which is attached to the end of a url, digitally signed and authorised by 
 management system. This creates a clean interface for any respondent management system
 to integrate with the eq system.
 
-Schema definition
+Schema Definition
+=================
+  tx_id
+    see :doc:`jwt_profile`
+  iat
+    JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard.
+  exp
+    Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard.
   user_id
     The id assigned by the respondent management system
   ru_ref
@@ -34,14 +41,8 @@ Schema definition
     The particular form_type for a responding unit
   return_by
     A date which represents the return date for a particular collection exercise for a survey. Represented by a ISO_8601 YYYY-MM-DD date.
-  iat
-    JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard
-  exp
-    Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard
   roles
     An array of roles that this token is allowed to assume. This parameter is currently optional, EQ will still work if it is not passed.
-  tx_id
-    Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
   region_code
     Region code identifier, used to change content for different regions. Format ISO 3166-1 alpha-2 (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) e.g. GB-GBN. This parameter is currently optional, EQ will still work if it is not passed
   language_code
@@ -60,6 +61,9 @@ An example JSON claim
 .. code-block:: javascript
 
   {
+    "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
+    "iat":"1458047712",
+    "exp":"1458057712",
     "user_id": "64389274239",
     "ru_ref": "7897897J",
     "ru_name": "",
@@ -73,9 +77,6 @@ An example JSON claim
     "trad_as": "",
     "form_type": "",
     "return_by": "YYYY-MM-DD",
-    "iat":"1458047712",
-    "exp":"1458057712",
-    "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
     "region_code": "GB-GBN",
     "language_code": "en",
     "variant_flags": {
@@ -88,15 +89,7 @@ An example JSON claim
 
 JWT envelope / transport
 ========================
-
-Each respondent session is encrypted and wrapped as a `json web token (JWT) <http://jwt.io/>`_ (RFC 7519) which
-is then appended to a url, issued via a http 302 redirect over ssl.
-
-The two relevant claims, `iat` & `exp` are included in our payload and given in the example above.
-
-URL schema
-==========
+This payload is part of a JWT as specified in :doc:`jwt_profile`. The encoded
+JWT is appended to the URL of the receiving system as follows:
 
   https://<hostname>/session?token=<JWT>
-
-Where hostname is eq.edc.ons.gov.uk in production and preprod-surveys.eq.ons.digital in preprod.
