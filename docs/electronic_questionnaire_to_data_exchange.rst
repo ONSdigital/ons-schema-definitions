@@ -36,8 +36,8 @@ Schema Definition
     futureproof for new collection instruments.
   survey_id
     The numerical survey number as used across the ONS.
-  completed
-    Whether the survey was completed or not. This will be `true` if a respondent submitted the survey and `false` if the partially completed survey has been flushed through EQ (some surveys will have their partially completed submissions flushed through at the end of their collection period).
+  flushed
+    Whether the survey was flushed or not. This will be `true` if the partially completed survey has been flushed through EQ (surveys could have their partially completed submissions flushed through at the end of their collection period) and `false` otherwise.
   collection
     exercise_sid
       Collection exercise ID
