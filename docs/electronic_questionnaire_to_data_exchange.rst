@@ -116,7 +116,7 @@ Example Json payload
       "version" : "0.0.1",
       "origin" : "uk.gov.ons.edc.eq",
       "survey_id": "021",
-      "completed": true,
+      "flushed": false,
       "collection":{
         "exercise_sid": "hfjdskf",
         "instrument_id": "yui789",
