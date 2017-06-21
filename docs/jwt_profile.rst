@@ -28,7 +28,8 @@ JWS Protected Header **SHALL** contain the following claims:
 
 * 'typ' will be set to 'JWT'
 * 'alg' will be set to 'RS256'
-* 'kid' will be set to an appropriate value for the keys in use.
+* 'kid' will be set to the SHA-1 hash of the digest of the Public Key for the Private Key used to sign
+        (reference https://tools.ietf.org/html/rfc7517#section-4.5 and https://tools.ietf.org/html/rfc3280#section-4.2.1.2)
 
 JWT Payload
 ===========
@@ -59,6 +60,8 @@ JWE header will include the 'alg' and 'enc' claims:
 
 * 'alg' will be set to 'RSA-OAEP'
 * 'enc' will be set to 'A256GCM'
+* 'kid' will be set to the SHA-1 hash of the digest of the Public Key used to encrypt
+        (reference https://tools.ietf.org/html/rfc7517#section-4.5 and https://tools.ietf.org/html/rfc3280#section-4.2.1.2)
 
 Encrypting
 ==========
