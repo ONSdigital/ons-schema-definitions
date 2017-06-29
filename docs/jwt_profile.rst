@@ -11,16 +11,16 @@ All definitions are as per the RFCs unless otherwise stated.
 
 Note: All times will be UTC.
 
-GUID Definition
+UUID Definition
 ===============
-All references to GUIDs refer to GUID (version 4); 128-bits in length as defined
+All references to UUIDs refer to UUID (version 4); 128-bits in length as defined
 in RFC 4122 in their textual representation as defined in section 3
 "Namespace Registration Template" without the "urn:uuid:" prefix e.g.
 "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
 
-All GUIDs **MUST** be randomly generated such that there is negligible probability
+All UUIDs **MUST** be randomly generated such that there is negligible probability
 that the same value will be used twice, even across multiple servers. The same
-GUID value **MUST NOT** appear twice in the same JWT in any claim.
+UUID value **MUST NOT** appear twice in the same JWT in any claim.
 
 JWS Protected Header
 ====================
@@ -33,16 +33,16 @@ JWS Protected Header **SHALL** contain the following claims:
 JWT Payload
 ===========
 All JWT payloads **SHALL** include the follow claims:
-  'tx_id' - Set to a random GUID.
+  'tx_id' - Set to a random UUID.
     - Transaction ID used to trace a transaction through the whole system.
     - **MUST NOT** be the same as the 'jti' value if present.
 
 
 All JWT payloads **SHOULD** contain the follow claims:
 
-  'jti' - Set to a random GUID. See RFC 7519 definition of the 'jti' claim.
+  'jti' - Set to a random UUID. See RFC 7519 definition of the 'jti' claim.
     - If the 'jti' claim is present it **MUST NOT** be the same value as the
-      'tx_id' in the JWT Payload if present (see GUID Definition).
+      'tx_id' in the JWT Payload if present (see UUID Definition).
     - Note: This claim will become mandatory in future.
 
 The JWT payload can also contain specific other data (claims) defined in the
