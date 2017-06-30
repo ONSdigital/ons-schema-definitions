@@ -12,9 +12,9 @@ Schema Definition
   tx_id
     see :doc:`jwt_profile`
   iat
-    JWT Issued at timestamp (UNIX timestamp format) part of the JWT standard.
+    JWT Issued At claim, see https://tools.ietf.org/html/rfc7519#section-4.1.6
   exp
-    Expiry timestamp (UNIX timestamp format) for the JWT, part of the standard.
+    JWT Expiration Time claim, see https://tools.ietf.org/html/rfc7519#section-4.1.4
   user_id
     The id assigned by the respondent management system
   ru_ref
@@ -62,8 +62,8 @@ An example JSON claim
 
   {
     "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
-    "iat":"1458047712",
-    "exp":"1458057712",
+    "iat": 1458047712,
+    "exp": 1458057712,
     "user_id": "64389274239",
     "ru_ref": "7897897J",
     "ru_name": "",
