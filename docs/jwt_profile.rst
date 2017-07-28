@@ -36,15 +36,10 @@ JWT Payload
 All JWT payloads **SHALL** include the follow claims:
   'tx_id' - Set to a random UUID.
     - Transaction ID used to trace a transaction through the whole system.
-    - **MUST NOT** be the same as the 'jti' value if present.
-
-
-All JWT payloads **SHOULD** contain the follow claims:
-
+    - **MUST NOT** be the same as the 'jti' value.
   'jti' - Set to a random UUID. See RFC 7519 definition of the 'jti' claim.
-    - If the 'jti' claim is present it **MUST NOT** be the same value as the
-      'tx_id' in the JWT Payload if present (see UUID Definition).
-    - Note: This claim will become mandatory in future.
+    - 'jti' claim **MUST NOT** be the same value as the
+      'tx_id' in the JWT Payload (see UUID Definition).
 
 The JWT payload can also contain specific other data (claims) defined in the
 definitions within this website.
