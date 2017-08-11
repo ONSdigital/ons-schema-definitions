@@ -40,7 +40,7 @@ Schema Definition
   form_type
     The particular form_type for a responding unit
   survey_url
-    An optional URL for a survey JSON to run
+    An optional URL for a remote survey JSON. This claim is used to tell Survey Runner to load the schema JSON from a remote location
   return_by
     A date which represents the return date for a particular collection exercise for a survey. Represented by a ISO_8601 YYYY-MM-DD date.
   roles
