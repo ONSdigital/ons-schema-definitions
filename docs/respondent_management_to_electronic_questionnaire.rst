@@ -39,6 +39,8 @@ Schema Definition
     A specific date for the questionnaire to display to the respondent.
   form_type
     The particular form_type for a responding unit
+  survey_url
+    An optional URL for a survey JSON to run
   return_by
     A date which represents the return date for a particular collection exercise for a survey. Represented by a ISO_8601 YYYY-MM-DD date.
   roles
