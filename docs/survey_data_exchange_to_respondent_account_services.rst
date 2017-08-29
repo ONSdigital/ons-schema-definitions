@@ -18,3 +18,5 @@ Schema Definition
     The contents of the Collection Instrument base64 encoded
   filename
     The name of the collection instrument file
+  case_id
+    The case UUID
