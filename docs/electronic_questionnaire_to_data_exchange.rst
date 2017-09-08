@@ -54,10 +54,7 @@ Schema Definition
       The respondent user_id as specified by the respondent management system in use.
     ru_ref
       Reporting Unit reference number to which the collected data represents. This
-      allows the downstream system to map the 
-      
-      
-      s to individual business/household/person
+      allows the downstream system to map the responses to individual business/household/person
       in the original sample as created by the survey team.
   data
     Version 0.0.1
@@ -153,7 +150,6 @@ Example Json payloads
     {
       "type" : "uk.gov.ons.edc.eq:feedback",
       "origin" : "uk.gov.ons.edc.eq",
-      "invalid": "false",
       "metadata": {
         "user_id": "789473423",
         "ru_ref": "432423423423"
