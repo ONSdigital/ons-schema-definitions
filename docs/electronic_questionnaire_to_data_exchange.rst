@@ -24,7 +24,7 @@ Schema Definition
      Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
   type
     The unique type identifier of this JSON file.
-    Will always be "uk.gov.ons.edc.eq:surveyresponse"
+    Can be "uk.gov.ons.edc.eq:surveyresponse" or "uk.gov.ons.edc.eq:feedback"
   version
     The version number of the schema definition used to generate and parse the
     schema. Will always be 3 numbers separated by two dots e.g. "10.2.33" with the
@@ -105,8 +105,8 @@ Schema Definition
 
 
 
-Example Json payload
-====================
+Example Json payloads
+=====================
 
 .. code-block:: javascript
 
@@ -143,6 +143,32 @@ Example Json payload
         "group_instance": 0,
         "answer_instance": 0
       }]
+    }
+    
+.. code-block:: javascript
+
+    {
+      "type" : "uk.gov.ons.edc.eq:feedback",
+      "origin" : "uk.gov.ons.edc.eq",
+      "metadata": {
+        "user_id": "789473423",
+        "ru_ref": "432423423423"
+      },
+      "data": {
+        "url": "https://eq.onsdigital.uk/feedback",
+        "name": "John Appleseed",
+        "email": "john.appleseed@ons.gov.uk",
+        "message": "Feedback message string"
+      },
+      "submitted_at": "2016-03-07T15:28:05Z",
+      "collection": {
+        "instrument_id": "0001",
+        "exercise_sid": "739",
+        "period": "2016-02-01"
+      },
+      "survey_id": "021",
+      "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
+      "version" : "0.0.1"
     }
 
 JWT envelope / transport
