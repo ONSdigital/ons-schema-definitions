@@ -25,6 +25,10 @@ Schema Definition
     The trading as name for a responding unit. Temporary until wider refactor.
   eq_id
     The eQ questionnaire instance id.
+  case_id
+    The case UUID - used to identify a single instance of a survey collection for a respondent
+  account_service_url
+    The url of the account service (i.e. rrm or ras) to send the user back to once they've completed the EQ survey
   collection_exercise_sid
     A reference number used to represent the collection exercise inside the ONS
   period_id
