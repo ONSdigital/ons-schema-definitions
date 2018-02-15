@@ -36,6 +36,10 @@ Schema Definition
     futureproof for new collection instruments.
   survey_id
     The numerical survey number as used across the ONS.
+  case_id
+    The case UUID used to identify a single instance of a survey collection for a respondent [optional]
+  case_ref
+    The case reference identified by the above UUID (e.g. "1000000000000001") [optional]
   flushed
     Whether the survey was flushed or not. This will be `true` if the survey has been flushed through EQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
   collection
