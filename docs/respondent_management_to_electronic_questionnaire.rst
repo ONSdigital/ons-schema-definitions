@@ -26,11 +26,11 @@ Schema Definition
   eq_id
     The eQ questionnaire instance id.
   case_id
-    The case UUID used to identify a single instance of a survey collection for a respondent
+    The case UUID used to identify a single instance of a survey collection for a respondent [optional]
   case_ref
-    The case reference identified by the above UUID (e.g. "1000000000000001")
+    The case reference identified by the above UUID (e.g. "1000000000000001") [optional]
   account_service_url
-    The url of the account service (i.e. rrm or ras) to send the user back to once they've completed the EQ survey
+    The url of the account service (i.e. rrm or ras) used to launch the survey [optional]
   collection_exercise_sid
     A reference number used to represent the collection exercise inside the ONS
   period_id
