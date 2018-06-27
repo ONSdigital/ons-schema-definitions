@@ -79,9 +79,7 @@ Schema Definition
         **Dictionary of values**
 
         - value: The answer given in the questionnaire for the answer.
-        - block_id: The identifier of the page the answer appears on.
         - answer_id: The identifier of the answer.
-        - group_id: The identifier of the group of block_id/pages.
         - group_instance: The sub-identifier of a group of block_id/pages if that group repeats.
         - answer_instance: The sub-identifier of an answer if that answer repeats.
 
@@ -91,18 +89,14 @@ Schema Definition
 
             [{
                 "value": "Joe",
-                "block_id": "household-composition",
                 "answer_id": "household-first-name",
-                "group_id": "multiple-questions-group",
                 "group_instance": 0,
                 "answer_instance": 0
             },
             {
                 // Example of multiple values for a checkbox question
                 "value": ["Eggs", "Bacon", "Spam"],
-                "block_id": "breakfast-block",
                 "answer_id": "favourite-breakfast-food",
-                "group_id": "breakfast-group",
                 "group_instance": 0,
                 "answer_instance": 0
             }]
@@ -133,17 +127,13 @@ Example Json payloads
       },
       "data": [{
         "value": "Joe",
-        "block_id": "household-composition",
         "answer_id": "household-first-name",
-        "group_id": "multiple-questions-group",
         "group_instance": 0,
         "answer_instance": 0
       },
       {
         "value": ["Eggs", "Bacon", "Spam"],
-        "block_id": "breakfast-block",
         "answer_id": "favourite-breakfast-food",
-        "group_id": "breakfast-group",
         "group_instance": 0,
         "answer_instance": 0
       }]
