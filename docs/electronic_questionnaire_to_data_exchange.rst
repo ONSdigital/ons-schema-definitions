@@ -51,6 +51,8 @@ Schema Definition
     period
       The collection period, currently represented as a string due to downstream systems lack of support for correct date formats.
 
+  started_at
+    The datetime of the first answer saved in a survey
   submitted_at
     The datetime of submission by the respondent.
   metadata
@@ -120,6 +122,7 @@ Example Json payloads
         "instrument_id": "yui789",
         "period": "2016-02-01"
       },
+      "started_at": "2016-03-06T14:10:08Z",
       "submitted_at": "2016-03-07T15:28:05Z",
       "metadata": {
         "user_id": "789473423",
@@ -154,6 +157,7 @@ Example Json payloads
         "email": "john.appleseed@ons.gov.uk",
         "message": "Feedback message string"
       },
+      "started_at": "2016-03-07T14:00:59Z",
       "submitted_at": "2016-03-07T15:28:05Z",
       "collection": {
         "instrument_id": "0001",
