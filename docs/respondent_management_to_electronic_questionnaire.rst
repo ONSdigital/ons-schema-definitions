@@ -85,10 +85,7 @@ An example JSON claim
     "return_by": "YYYY-MM-DD",
     "region_code": "GB-GBN",
     "language_code": "en",
-    "variant_flags": {
-      "flag_1": true,
-      "flag_2": false
-    },
+    "flag_1": true,
     "roles": [ "role1", "role2" ]
   }
 
@@ -99,3 +96,10 @@ This payload is part of a JWT as specified in :doc:`jwt_profile`. The encoded
 JWT is appended to the URL of the receiving system as follows:
 
   https://<hostname>/session?token=<JWT>
+
+
+Flushing responses
+========================
+To flush responses to the downstream systems a ``/flush`` endpoint is available.
+This endpoint takes a JWT in the same way as ``/session`` but with ``roles``
+including the role of  ``flusher``
