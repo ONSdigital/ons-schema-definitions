@@ -39,6 +39,8 @@ The following metadata keys are always required for the survey runner, they do n
   The id assigned by the respondent management system
 ``period_id``
   A numerical reference to either a month or quarter time period
+``case_id``
+  The case UUID used to identify a single instance of a survey collection for a respondent
 ``account_service_url``
   The url of the account service (i.e. rrm or ras) used to launch the survey
 
@@ -52,8 +54,6 @@ The runner can optionally accept the following keys.
   Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en"
 ``survey_url``
   A URL for a remote survey JSON. This claim is used to tell Survey Runner to load the schema JSON from a remote location
-``case_id``
-  The case UUID used to identify a single instance of a survey collection for a respondent
 ``case_ref``
   The case reference identified by the above UUID (e.g. "1000000000000001")
 
