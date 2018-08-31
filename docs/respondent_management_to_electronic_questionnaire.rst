@@ -44,7 +44,7 @@ The following metadata keys are always required for the survey runner, they do n
 ``account_service_url``
   The url of the account service (i.e. rrm or ras) used to launch the survey
 ``response_id``
-  A unique identifier for the set of questionnaire responses - this will be a non-sequential value such as a base 64 encoded SHA-256 hash
+  A unique identifier for the questionnaire response
 
 Optional Fields
 ---------------
