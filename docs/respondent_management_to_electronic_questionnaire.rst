@@ -24,7 +24,7 @@ The following metadata keys are always required for the survey runner, they do n
 ``ru_ref``
   The responding unit reference id - with checkletter appended
 ``eq_id``
-  The eQ questionnaire instance id
+  The eQ questionnaire id
 ``collection_exercise_sid``
   A reference number used to represent the collection exercise inside the ONS
 ``form_type``
@@ -43,6 +43,8 @@ The following metadata keys are always required for the survey runner, they do n
   The case UUID used to identify a single instance of a survey collection for a respondent
 ``account_service_url``
   The url of the account service (i.e. rrm or ras) used to launch the survey
+``response_id``
+  A unique identifier for the questionnaire response
 
 Optional Fields
 ---------------
@@ -86,7 +88,8 @@ An example JSON claim
     "region_code": "GB-GBN",
     "language_code": "en",
     "flag_1": true,
-    "roles": [ "role1", "role2" ]
+    "roles": [ "role1", "role2" ],
+    "response_id": "QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="
   }
 
 
