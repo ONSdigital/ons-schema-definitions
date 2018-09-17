@@ -41,8 +41,8 @@ The following metadata keys are always required for the survey runner, they do n
   A numerical reference to either a month or quarter time period
 ``case_id``
   The case UUID used to identify a single instance of a survey collection for a respondent
-``account_service_url``
-  The url of the account service (i.e. rrm or ras) used to launch the survey
+``account_url``
+  The url of the account service (i.e. ras) used to launch the survey
 ``response_id``
   A unique identifier for the questionnaire response
 
