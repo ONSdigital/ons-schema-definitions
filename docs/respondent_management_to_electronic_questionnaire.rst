@@ -58,6 +58,8 @@ The runner can optionally accept the following keys.
   A URL for a remote survey JSON. This claim is used to tell Survey Runner to load the schema JSON from a remote location
 ``case_ref``
   The case reference identified by the above UUID (e.g. "1000000000000001")
+``account_service_log_out_url``
+  The logout url of the account service used to launch the survey.  Not required for services that don't have a log in function (i.e., respondent home)
 
 Per Survey Metadata
 ===================
