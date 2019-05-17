@@ -25,6 +25,8 @@ The following metadata keys are always required for the survey runner, they do n
   The responding unit reference id - with checkletter appended
 ``eq_id``
   The eQ questionnaire id
+``questionnaire_id``
+  The questionnaire id
 ``collection_exercise_sid``
   A reference number used to represent the collection exercise inside the ONS
 ``form_type``
@@ -39,8 +41,6 @@ The following metadata keys are always required for the survey runner, they do n
   The id assigned by the respondent management system
 ``period_id``
   A numerical reference to either a month or quarter time period
-``case_id``
-  The case UUID used to identify a single instance of a survey collection for a respondent
 ``account_service_url``
   The url of the account service (i.e. rrm or ras) used to launch the survey
 ``response_id``
@@ -50,6 +50,8 @@ Optional Fields
 ---------------
 The runner can optionally accept the following keys.
 
+``case_id``
+  The case UUID used to identify a single instance of a survey collection for a respondent
 ``period_str``
   A display name for the ``period_id`` referenced above
 ``language_code``
