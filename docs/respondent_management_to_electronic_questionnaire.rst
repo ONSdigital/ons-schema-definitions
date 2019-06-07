@@ -76,6 +76,7 @@ The runner can optionally accept the following keys.
 
 Per Survey Metadata
 ===================
+
 In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g. ``{"language_code": "en"}``.
 ``display_address``
   The case's address to be displayed
@@ -98,9 +99,9 @@ An example JSON claim
     "region_code": "GB-ENG",
     "language_code": "en",
     "channel": "rh",
-    "response_id": "2420000014903143"
-    "questionnaire_id": "2420000014903143"
-    "account_service_url": "http://localhost:9092"
+    "response_id": "2420000014903143",
+    "questionnaire_id": "2420000014903143",
+    "account_service_url": "http://localhost:9092",
     "display_address": "ONS, Segensworth Road",
   }
 
