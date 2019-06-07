@@ -1,55 +1,66 @@
-Respondent Management to Electronic Questionnaire
--------------------------------------------------
+Census Respondent Home to Census Electronic Questionnaire
+---------------------------------------------------------
 
 When a respondent is ready to take a survey hosted on the eq system, a set of details
 need to be passed to eq to setup the survey correctly. This data is wrapped inside a json web
-token which is attached to the end of a url, digitally signed and authorised by a respondent
-management system. This creates a clean interface for any respondent management system
+token which is attached to the end of a url, digitally signed and authorised by an appropriate
+client application. This creates a clean interface for any respondent management system
 to integrate with the eq system.
 
 Schema Definition
 =================
 
-Required Fields
----------------
+Census Required Runner Fields
+------------------------------
 
 The following metadata keys are always required for the survey runner, they do not appear in individual survey metadata definitions.
 
-``tx_id``
-  see :doc:`jwt_profile`
 ``iat``
   JWT Issued At claim, see https://tools.ietf.org/html/rfc7519#section-4.1.6
 ``exp``
   JWT Expiration Time claim, see https://tools.ietf.org/html/rfc7519#section-4.1.4
-``ru_ref``
-  The responding unit reference id - with checkletter appended
+``jti``
+   A unique identifier for the JWT
+``tx_id``
+  see :doc:`jwt_profile`
 ``eq_id``
-  The eQ questionnaire id
-``collection_exercise_sid``
-  A reference number used to represent the collection exercise inside the ONS
+  The eQ questionnaire schema id (to be removed, hardcoded by RH as census)
 ``form_type``
-  The particular form_type for a responding unit
-``ru_ref``
-  The responding unit reference id - with checkletter appended.
-``ru_name``
-  The name of the responding unit. Could be a business name or person name. Not required, however at least one of ``ru_name`` and ``trad_as`` **must** be present
-``trad_as``
-  Temporary until wider refactor. Not required, however at least one of ``ru_name`` and ``trad_as`` **must** be present
-``user_id``
-  The id assigned by the respondent management system
-``period_id``
-  A numerical reference to either a month or quarter time period
-``case_id``
-  The case UUID used to identify a single instance of a survey collection for a respondent
-``account_service_url``
-  The url of the account service (i.e. rrm or ras) used to launch the survey
+  The particular form_type for a responding unit (to be removed, hardcoded by RH as individual_gb_eng)
 ``response_id``
   A unique identifier for the questionnaire response
+``collection_exercise_sid``
+  A reference number used to represent the collection exercise inside the ONS
+``ru_ref``
+  The responding unit reference id (e.g. UPRN)
+``user_id``
+  The id assigned by the respondent management system (to be removed, hardcoded by RH as 1234567890)
+``period_id``
+  A numerical reference to either a month or quarter time period (hardcoded by RH as 1)
+``case_type``
+  The type of Census case (e.g. HH, HI, CE, CI)
+``region_code``
+  The Region Code of the questionnaire response
+``questionnaire_id``
+  The Census Questionnaire ID
+``account_service_url``
+  The url of the account service (i.e. rrm or ras) used to launch the survey
+
+
+Census Future Requried Fields
+-----------------------------
+The following metadata keys will be introduced in due course
+``survey``
+  The survey being launched (e.g census or ccs)
+``channel``
+  The channel (client) from which the questionnaire was launched
 
 Optional Fields
 ---------------
 The runner can optionally accept the following keys.
 
+``case_id``
+  The case UUID used to identify a single instance of a survey collection for a respondent
 ``period_str``
   A display name for the ``period_id`` referenced above
 ``language_code``
@@ -61,9 +72,12 @@ The runner can optionally accept the following keys.
 ``account_service_log_out_url``
   The logout url of the account service used to launch the survey.  Not required for services that don't have a log in function (i.e., respondent home)
 
+
 Per Survey Metadata
 ===================
 In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g. ``{"language_code": "en"}``.
+``display_address``
+  The case's address to be displayed
 
 An example JSON claim
 =====================
@@ -76,22 +90,17 @@ An example JSON claim
     "exp": 1458057712,
     "user_id": "64389274239",
     "ru_ref": "7897897J",
-    "ru_name": "",
-    "eq_id": "678",
+    "eq_id": "census",
     "collection_exercise_sid": "789",
-    "period_id": "",
-    "period_str": "",
-    "ref_p_start_date": "",
-    "ref_p_end_date": "",
-    "employment_date": "",
-    "trad_as": "",
-    "form_type": "",
-    "return_by": "YYYY-MM-DD",
-    "region_code": "GB-GBN",
+    "period_id": "1",
+    "form_type": "individual_gb_eng",
+    "region_code": "GB-ENG",
     "language_code": "en",
-    "flag_1": true,
-    "roles": [ "role1", "role2" ],
-    "response_id": "QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="
+    "channel": "rh",
+    "response_id": "2420000014903143"
+    "questionnaire_id": "2420000014903143"
+    "account_service_url": "http://localhost:9092"
+    "display_address": "ONS, Segensworth Road",
   }
 
 
