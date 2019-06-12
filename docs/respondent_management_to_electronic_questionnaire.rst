@@ -23,29 +23,28 @@ The following metadata keys are always required for the survey runner, they do n
    A unique identifier for the JWT
 ``tx_id``
   see :doc:`jwt_profile`
-``eq_id``
-  The eQ questionnaire schema id (to be removed, hardcoded by RH as census)
-``form_type``
-  The particular form_type for a responding unit (to be removed, hardcoded by RH as individual_gb_eng)
 ``response_id``
   A unique identifier for the questionnaire response
-``collection_exercise_sid``
-  A reference number used to represent the collection exercise inside the ONS
-``ru_ref``
-  The responding unit reference id (e.g. UPRN)
-``user_id``
-  The id assigned by the respondent management system (to be removed, hardcoded by RH as 1234567890)
-``period_id``
-  A numerical reference to either a month or quarter time period (hardcoded by RH as 1)
+``questionnaire_id``
+  The Census Questionnaire ID
 ``case_type``
   The type of Census case (e.g. HH, HI, CE, CI)
 ``region_code``
   The Region Code of the questionnaire response
-``questionnaire_id``
-  The Census Questionnaire ID
+``collection_exercise_sid``
+  A reference number used to represent the collection exercise inside the ONS
+``ru_ref``
+  The reporting unit reference id (e.g. UPRN)
 ``account_service_url``
   The url of the account service (i.e. rrm or ras) used to launch the survey
-
+``eq_id``
+  The eQ questionnaire schema id (to be removed, hardcoded by RH as census)
+``form_type``
+  The particular form_type for a responding unit (to be removed, hardcoded by RH as individual_gb_eng)
+``user_id``
+  The id assigned by the respondent management system (to be removed, hardcoded by RH as 1234567890)
+``period_id``
+  A numerical reference to either a month or quarter time period (hardcoded by RH as 1)
 
 Census Future Requried Fields
 -----------------------------
@@ -55,6 +54,14 @@ The following metadata keys will be introduced in due course
   The survey being launched (e.g census or ccs)
 ``channel``
   The channel (client) from which the questionnaire was launched
+
+Census Schema Metadata
+======================
+
+In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g. ``{"language_code": "en"}``.
+
+``display_address``
+  The case's address to be displayed
 
 Optional Fields
 ---------------
@@ -73,14 +80,6 @@ The runner can optionally accept the following keys.
 ``account_service_log_out_url``
   The logout url of the account service used to launch the survey.  Not required for services that don't have a log in function (i.e., respondent home)
 
-
-Per Survey Metadata
-===================
-
-In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g. ``{"language_code": "en"}``.
-``display_address``
-  The case's address to be displayed
-
 An example JSON claim
 =====================
 
@@ -90,19 +89,21 @@ An example JSON claim
     "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
     "iat": 1458047712,
     "exp": 1458057712,
-    "user_id": "64389274239",
-    "ru_ref": "7897897J",
-    "eq_id": "census",
-    "collection_exercise_sid": "789",
-    "period_id": "1",
-    "form_type": "individual_gb_eng",
-    "region_code": "GB-ENG",
-    "language_code": "en",
-    "channel": "rh",
     "response_id": "2420000014903143",
     "questionnaire_id": "2420000014903143",
+    "case_type": "HI"
+    "region_code": "GB-ENG",
+    "collection_exercise_sid": "789",
+    "ru_ref": "7897897J",
+    "language_code": "en",
     "account_service_url": "http://localhost:9092",
     "display_address": "ONS, Segensworth Road",
+    "channel": "rh",
+    "survey": "census",
+     "user_id": "64389274239",
+    "period_id": "1",
+    "form_type": "individual_gb_eng",
+    "eq_id": "census",
   }
 
 
