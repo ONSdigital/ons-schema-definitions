@@ -28,32 +28,32 @@ The following metadata keys are always required for the survey runner, they do n
 ``questionnaire_id``
   The Census Questionnaire ID
 ``case_type``
-  The type of Census case (e.g. HH, HI, CE, CI)
+  The type of Census case (HH | HI | CE | CI)
 ``region_code``
-  The Region Code of the questionnaire response
+  The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
 ``collection_exercise_sid``
   A reference number used to represent the collection exercise inside the ONS
 ``ru_ref``
   The reporting unit reference id (e.g. UPRN)
 ``account_service_url``
-  The url of the account service (i.e. rrm or ras) used to launch the survey
+  The url of the account service (e.g. RH) used to launch the survey
 ``eq_id``
   The eQ questionnaire schema id (to be removed, hardcoded by RH as census)
 ``form_type``
   The particular form_type for a responding unit (to be removed, hardcoded by RH as individual_gb_eng)
 ``user_id``
-  The id assigned by the respondent management system (to be removed, hardcoded by RH as 1234567890)
+  The id assigned by the respondent management system (hardcoded by RH as 1234567890, other channels to provide operators identifier)
 ``period_id``
-  A numerical reference to either a month or quarter time period (hardcoded by RH as 1)
+  A numerical reference to either a month or quarter time period (to be removed, hardcoded by RH as 1)
 
 Census Future Requried Fields
 -----------------------------
 The following metadata keys will be introduced in due course
 
 ``survey``
-  The survey being launched (e.g census or ccs)
+  The survey being launched (CENSUS | CCS)
 ``channel``
-  The channel (client) from which the questionnaire was launched
+  The channel (client) from which the questionnaire was launched (rh | ff | cc | ad | ce)
 
 Census Schema Metadata
 ======================
@@ -99,8 +99,8 @@ An example JSON claim
     "account_service_url": "http://localhost:9092",
     "display_address": "ONS, Segensworth Road",
     "channel": "rh",
-    "survey": "census",
-     "user_id": "64389274239",
+    "survey": "CENSUS",
+    "user_id": "1234567890",
     "period_id": "1",
     "form_type": "individual_gb_eng",
     "eq_id": "census",
