@@ -39,6 +39,7 @@ Schema Definition
     Whether the survey was flushed or not. This will be `true` if the survey has been flushed through eQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
   ``collection``
     A dictionary of data about the collction exercise the response is for
+
     ``exercise_sid``
       The Collection exercise UUID (generated in RM)
     ``instrument_id`` (to be replaced with eq_schema)
@@ -65,6 +66,7 @@ Schema Definition
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
   ``metadata``
     A dictionary of metadata provided for the purposes of rendering or routing the eQ schema
+
     ``display_address``
       The address displayed to the respondent (provided by RH)
   ``lists``
