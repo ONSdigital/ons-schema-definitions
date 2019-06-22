@@ -38,6 +38,7 @@ Schema Definition
   ``flushed``
     Whether the survey was flushed or not. This will be `true` if the survey has been flushed through eQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
   ``collection``
+    A dictionary of data about the collction exercise the response is for
     ``exercise_sid``
       The Collection exercise UUID (generated in RM)
     ``instrument_id`` (to be replaced with eq_schema)
@@ -63,16 +64,17 @@ Schema Definition
   ``region_code``
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
   ``metadata``
+    A dictionary of metadata provided for the purposes of rendering or routing the eQ schema
     ``display_address``
       The address displayed to the respondent (provided by RH)
   ``lists``
-      An array of lists objects built up during the survey completion
+      An array of lists objects built up during the questionnaire completion
 
         **list object**
 
-        - name: the name of the list (e.g. people-who-live-here)
-        - context: [optional] a dictionary of any associated information about given items in the list (e.g. primary-person)
-        - items: an array of the item identifieres in the list
+        - ``name``: the name of the list (e.g. people-who-live-here)
+        - ``context``: [optional] a dictionary of any associated information about given items in the list (e.g. primary-person)
+        - ``items``: an array of the item identifieres in the list
 
         **lists example**
 
@@ -97,9 +99,9 @@ Schema Definition
 
         **Dictionary of values**
 
-        - value: the answer given in the questionnaire for the answer.
-        - answer_id: the identifier of the answer.
-        - list_item_id: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
+        - ``value``: the answer given in the questionnaire for the answer.
+        - ``answer_id``: the identifier of the answer.
+        - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
 
         **Version 0.0.3 data example**
 
