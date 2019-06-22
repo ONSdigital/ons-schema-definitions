@@ -1,8 +1,13 @@
 Electronic Questionnaire to DAP
 ------------------------------------------------
+***Solutions to census requirements are still being designed, implemented, and iterated on.***
+***DST continue to work with PPP to communicate the principles and approaches being taken to deliver these solutions.***
+***As such, the following documentation is subject to change and should be viewed as a living/evolving document.***
+***DST have committed to maintaining this document to reflect the current implementation and, where possible, the target implementation for requirements yet to be delivered.***
+
 All submitted responses for a collection exercise (a questionnaire within a survey series) are transformed into
 the following described data format for downstream processing and analysis. The json document is encrypted using the
-public key of the downstream transport mechanimn at submission, placing the cyphertext onto message queue for downstream consumption
+public key of the downstream transport mechanism at submission, placing the cyphertext onto a message queue for downstream consumption.
 
 Low-level datatypes
 ===================
@@ -11,54 +16,56 @@ Low-level datatypes
 
 * All Boolean responses are matched to a "True" or "False" string representation.
 
-* Uanswered optional questions will not be included in submitted responses (i.e null or empty strings values are NOT included)
+* Unanswered optional questions are not be included in submitted responses (i.e null or empty strings values are NOT included)
 
 
 Schema Definition
 =================
 
-  tx_id
-     Transaction ID used to trace a transaction through the whole system. This will be a GUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
-  type
+  ``tx_id``
+     Transaction ID used to trace a transaction through the collection system. This will be a UUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
+  ``type``
     The unique type identifier of this JSON file.
     Can be "uk.gov.ons.edc.eq:surveyresponse" or "uk.gov.ons.edc.eq:feedback"
-  version
-    The version number of the schema definition used to generate and parse the
-    schema. Will always be 3 numbers separated by two dots e.g. "0.0.3" with the
-    intention being MAJOR.MINOR.PATCH no guarantees are given to compatibility
-    across version changes.
-  origin
-    The name or identifier of the data capture / data generator system. Currently "uk.gov.ons.edc.eq" - however this allows us to
-    futureproof for new collection instruments.
-  survey_id
-    The numerical survey identifier as used across the ONS.
-  case_id
-    The case UUID used to identify a single instance of a survey collection for a respondent [optional]
-  flushed
-    Whether the survey was flushed or not. This will be `true` if the survey has been flushed through EQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
-  collection
-    exercise_sid
-      Collection exercise ID
-    instrument_id (replace with eq_schema/eq_schema_id for ceneus and beyond !!!)
-      The collection instrument ID - used by legacy downstream systems (contains the form_type!)
-    period_id (rename from period and move to required runner metadata.. include or not for ceneus ??????)
-      A string representing the collection period
-  questionnaire_id
+  ``version``
+    The version number of the eQ data payload structure (e.g. "0.0.3" for census)
+  ``origin``
+    The name or identifier of the data capture system. Currently "uk.gov.ons.edc.eq" (historical named for Electronic Data Collection)
+  ``survey_id``
+    The numerical survey identifier as used across the ONS (e.g census | ccs )
+  ``case_id``
+    The case UUID used to identify an instance of a survey response request (generated in RM, may not be included if no case has been linked at submission time)
+  ``flushed``
+    Whether the survey was flushed or not. This will be `true` if the survey has been flushed through eQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
+  ``collection``
+    ``exercise_sid``
+      The Collection exercise UUID (generated in RM)
+    ``instrument_id`` (to be replaced with eq_schema)
+      The Collection Instrument ID (contains the legacy form_type value)
+    ``eq_schema`` (to replace instrument_id)
+      The eQ schema representing the question set presented to the respondent (e.g. census_individual_gb_eng.json)
+    ``period_id``
+      A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
+  ``questionnaire_id``
     A string containing the census Questionnaire ID
-  response_id
-    A string contining the RH response_id (not required ?)
-  started_at
+  ``response_id``
+    A string contining the RH response_id (a unique value used in part to generate a unique security key, unlikely to be required downstream)
+  ``started_at``
     The datetime of the first answer saved in a survey
-  submitted_at
-    The datetime of submission by the respondent.
-  metadata
-    user_id
-      The respondent user_id as specified by the channel in use (this will be the identifier of the staff operator)
-    ru_ref
-      Reporting Unit reference number to which the collected data represents. This
-      allows the downstream system to map the responses to individual business/household/person
-      in the original sample as created by the survey team.
-  lists
+  ``submitted_at``
+    The datetime of submission by the respondent
+  ``ru_ref``
+    The reporting unit reference responsible for the response id (e.g. UPRN)
+  ``user_id``
+    The id assigned by the respondent management system (hardcoded by RH as "1234567890", other channels to provide a staff member's identifier)
+  ``case_type``
+    The type of Census case (HH | HI | CE | CI)
+  ``region_code``
+    The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
+  ``metadata``
+    ``display_address``
+      The address displayed to the respondent (provided by RH)
+  ``lists``
       An array of lists objects built up during the survey completion
 
         **list object**
@@ -84,7 +91,7 @@ Schema Definition
             ]
 
 
-  data
+  ``data``
     Version 0.0.3
         A sorted array of answers in the order the questionnaire was answered* [Is this correct???????????????].
 
@@ -157,13 +164,16 @@ Example Json payloads
             "period_id": "2019"
         },
         "metadata": {
-            "user_id": "1234567890",
-            "ru_ref": "47850401631S"
+            "display_address": "68 Argile Avenue, Bath"
         },
         "response_id": "2111319119395635",
         "questionnaire_id": "4012828663560993",
         "started_at": "2019-06-21T16:33:30.665144",
         "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
+        "case_type": "HI",
+        "region_code": "GB-ENG",
+        "user_id": "1234567890",
+        "ru_ref": "47850401631S"
         "data": [...]
         "lists": [...]
     }
