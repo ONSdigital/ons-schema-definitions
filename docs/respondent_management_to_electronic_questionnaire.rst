@@ -38,13 +38,13 @@ The following metadata keys are always required for the survey runner, they do n
 ``account_service_url``
   The url of the account service (e.g. RH) used to launch the survey
 ``eq_id``
-  The eQ questionnaire schema id (to be removed, hardcoded by RH as census)
+  The eQ questionnaire schema id (to be removed, hardcoded by RH as "census")
 ``form_type``
-  The particular form_type for a responding unit (to be removed, hardcoded by RH as individual_gb_eng)
+  The particular form_type for a responding unit (to be removed, hardcoded by RH as "individual_gb_eng")
 ``user_id``
-  The id assigned by the respondent management system (hardcoded by RH as 1234567890, other channels to provide operators identifier)
+  The id assigned by the respondent management system (hardcoded by RH as "1234567890", other channels to provide a staff member's identifier)
 ``period_id``
-  A numerical reference to either a month or quarter time period (to be removed, hardcoded by RH as 1)
+  A string representing the business arrea recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
 
 Census Future Requried Fields
 -----------------------------
