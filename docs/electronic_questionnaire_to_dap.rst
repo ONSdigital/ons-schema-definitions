@@ -1,9 +1,9 @@
 Electronic Questionnaire to DAP
 ------------------------------------------------
-***Solutions to census requirements are still being designed, implemented, and iterated on.***
-***DST continue to work with PPP to communicate the principles and approaches being taken to deliver these solutions.***
-***As such, the following documentation is subject to change and should be viewed as a living/evolving document.***
-***DST have committed to maintaining this document to reflect the current implementation and, where possible, the target implementation for requirements yet to be delivered.***
+**Solutions to census requirements are still being designed, implemented, and iterated on.**
+**DST continue to work with PPP to communicate the principles and approaches being taken to deliver these solutions.**
+**As such, the following documentation is subject to change and should be viewed as a living/evolving document.**
+**DST have committed to maintaining this document to reflect the current implementation and, where possible, the target implementation for requirements yet to be delivered.**
 
 All submitted responses for a collection exercise (a questionnaire within a survey series) are transformed into
 the following described data format for downstream processing and analysis. The json document is encrypted using the
@@ -16,7 +16,7 @@ Low-level datatypes
 
 * All Boolean responses are matched to a "True" or "False" string representation.
 
-* Unanswered optional questions are not be included in submitted responses (i.e null or empty strings values are NOT included)
+* Unanswered optional questions are not included in submitted responses (i.e null or empty strings values are NOT included)
 
 
 Schema Definition
@@ -34,7 +34,7 @@ Schema Definition
   ``survey_id``
     The numerical survey identifier as used across the ONS (e.g census | ccs )
   ``case_id``
-    The case UUID used to identify an instance of a survey response request (generated in RM, may not be included if no case has been linked at submission time)
+    The case UUID used to identify an instance of a survey response request (generated in RM, may not be included if no case has been linked at launch time)
   ``flushed``
     Whether the survey was flushed or not. This will be `true` if the survey has been flushed through eQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
   ``collection``
@@ -49,7 +49,7 @@ Schema Definition
   ``questionnaire_id``
     A string containing the census Questionnaire ID
   ``response_id``
-    A string contining the RH response_id (a unique value used in part to generate a unique security key, unlikely to be required downstream)
+    A string contining the RH response_id (a unique value used in part to generate a unique security key, unlikely to be required downstream so confirm removal)
   ``started_at``
     The datetime of the first answer saved in a survey
   ``submitted_at``
@@ -71,7 +71,7 @@ Schema Definition
         **list object**
 
         - name: the name of the list (e.g. people-who-live-here)
-        - context: a dictionary of associated information about given items in the list (e.g. primary-person)
+        - context: [optional] a dictionary of any associated information about given items in the list (e.g. primary-person)
         - items: an array of the item identifieres in the list
 
         **lists example**
@@ -97,8 +97,9 @@ Schema Definition
 
         **Dictionary of values**
 
-        - value: The answer given in the questionnaire for the answer.
-        - answer_id: The identifier of the answer.
+        - value: the answer given in the questionnaire for the answer.
+        - answer_id: the identifier of the answer.
+        - list_item_id: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
 
         **Version 0.0.3 data example**
 
