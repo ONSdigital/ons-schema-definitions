@@ -43,13 +43,13 @@ Schema Definition
     A dictionary of data about the collction exercise the response is for
 
         ``exercise_sid``
-        The Collection exercise UUID (generated in RM)
+          The Collection exercise UUID (generated in RM)
         ``instrument_id`` (to be replaced with eq_schema)
-        The Collection Instrument ID (contains the legacy form_type value)
+          The Collection Instrument ID (contains the legacy form_type value)
         ``eq_schema`` (to replace instrument_id)
-        The eQ schema representing the question set presented to the respondent (e.g. census_individual_gb_eng.json)
+          The eQ schema representing the question set presented to the respondent (e.g. census_individual_gb_eng.json)
         ``period_id``
-        A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
+          A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
 
   ``questionnaire_id``
     A string containing the census Questionnaire ID
@@ -71,7 +71,7 @@ Schema Definition
     A dictionary of data required for the purposes of rendering or routing the given eQ schema
 
         ``display_address``
-        The address displayed to the respondent (provided by RH)
+          The address displayed to the respondent (provided by RH)
 
   ``lists``
         An array of list objects built up during the questionnaire completion
