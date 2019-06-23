@@ -5,9 +5,11 @@ Electronic Questionnaire to DAP
 **As such, the following documentation is subject to change and should be viewed as a living/evolving document.**
 **DST have committed to maintaining this document to reflect the current implementation and, where possible, the target implementation for requirements yet to be delivered.**
 
-All submitted responses for a collection exercise (a questionnaire within a survey series) are transformed into
-the following described data format for downstream processing and analysis. The json document is encrypted using the
-public key of the downstream transport mechanism at submission, placing the cyphertext onto a message queue for downstream consumption.
+All submitted responses for a collection exercise (a questionnaire within a survey series) are transformed into the following described data format for downstream processing and analysis.
+
+The data structures created by eQ (e.g the answer store) are designed and optimised primarily for the purposes of generic functionality within the survey runner product. As a general principle, the extent of the transform carried out by eQ over and above its native data models is minimal. It is not the responsibility of the eQ product to carry out bespoke data transforms. Historically SDX has been responsible for more extensive and complex data transforms.
+
+The json document is encrypted using the public key of the downstream transport mechanism at submission, placing the cyphertext onto a message queue for downstream consumption.
 
 Low-level datatypes
 ===================
@@ -23,7 +25,7 @@ Schema Definition
 =================
 
   ``tx_id``
-     Transaction ID used to trace a transaction through the collection system. This will be a UUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
+    Transaction ID used to trace a transaction through the collection system. This will be a UUID (version 4) and 128-bits in length as defined in RFC 4122 in its textual representation as defined in section 3 "Namespace Registration Template" without the "urn:uuid:" prefix e.g. "f81d4fae-7dec-11d0-a765-00a0c91e6bf6".
   ``type``
     The unique type identifier of this JSON file.
     Can be "uk.gov.ons.edc.eq:surveyresponse" or "uk.gov.ons.edc.eq:feedback"
@@ -40,13 +42,13 @@ Schema Definition
   ``collection``
     A dictionary of data about the collction exercise the response is for
 
-      ``exercise_sid``
+        ``exercise_sid``
         The Collection exercise UUID (generated in RM)
-      ``instrument_id`` (to be replaced with eq_schema)
+        ``instrument_id`` (to be replaced with eq_schema)
         The Collection Instrument ID (contains the legacy form_type value)
-      ``eq_schema`` (to replace instrument_id)
+        ``eq_schema`` (to replace instrument_id)
         The eQ schema representing the question set presented to the respondent (e.g. census_individual_gb_eng.json)
-      ``period_id``
+        ``period_id``
         A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
 
   ``questionnaire_id``
@@ -62,13 +64,13 @@ Schema Definition
   ``user_id``
     The id assigned by the respondent management system (hardcoded by RH as "1234567890", other channels to provide a staff member's identifier)
   ``case_type``
-    The type of Census case (HH | HI | CE | CI)
+    The type of case (e.g. HH | HI | CE | CI for census)
   ``region_code``
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
   ``metadata``
-    A dictionary of metadata provided for the purposes of rendering or routing the eQ schema
+    A dictionary of data required for the purposes of rendering or routing the given eQ schema
 
-      ``display_address``
+        ``display_address``
         The address displayed to the respondent (provided by RH)
 
   ``lists``
