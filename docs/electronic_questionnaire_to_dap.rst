@@ -1,13 +1,13 @@
 Electronic Questionnaire to DAP
 ------------------------------------------------
 **Solutions to census requirements are still being designed, implemented, and iterated on.**
-**DST continue to work with PPP to communicate the principles and approaches being taken to deliver these solutions.**
+**DST continue to work with colleagues from MDR and PPP to communicate the principles and approaches being taken to deliver these solutions.**
 **As such, the following documentation is subject to change and should be viewed as a living/evolving document.**
 **DST have committed to maintaining this document to reflect the current implementation and, where possible, the target implementation for requirements yet to be delivered.**
 
 All submitted responses for a collection exercise (a questionnaire within a survey series) are transformed into the following described data format for downstream processing and analysis.
 
-The data structures created by eQ (e.g the answer store) are designed and optimised primarily for the purposes of generic functionality within the survey runner product. As a general principle, the extent of the transform carried out by eQ over and above its native data models is minimal. It is not the responsibility of the eQ product to carry out bespoke data transforms. Historically SDX has been responsible for more extensive and complex data transforms.
+The data structures created by eQ (e.g the answer store) are designed and optimised primarily for the purposes of generic functionality within the survey runner product. As a general principle, the extent of the transform carried out by eQ on submitted response data beyond its native data models is minimal. It is not the responsibility of the eQ product to carry out bespoke data transforms. Historically SDX has been responsible for more extensive and complex data transforms.
 
 The json document is encrypted using the public key of the downstream transport mechanism at submission, placing the cyphertext onto a message queue for downstream consumption.
 
