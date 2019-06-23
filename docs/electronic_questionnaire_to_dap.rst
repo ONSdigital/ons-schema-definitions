@@ -72,7 +72,7 @@ Schema Definition
         The address displayed to the respondent (provided by RH)
 
   ``lists``
-      An array of lists objects built up during the questionnaire completion
+        An array of list objects built up during the questionnaire completion
 
         **list object**
 
@@ -80,81 +80,17 @@ Schema Definition
         - ``context``: [optional] a dictionary of any associated information about given items in the list (e.g. primary-person)
         - ``items``: an array of the item identifieres in the list
 
-        **lists example**
+  ``data`` version 0.0.3
+        A sorted array* of answers in the order the questionnaire was answered [*to be confirmed this is correct]
 
-         .. code-block:: javascript
-
-            "lists": [
-                {
-                 "name": "people-who-live-here",
-                 "context": {"primary_person": "AUZvFL"},
-                 "items": ["AUZvFL", "yuRiRs"]
-                 },
-                 {
-                  "name": "visitors",
-                  "items": ["vgeYGW"]
-                 }
-            ]
-
-
-  ``data``
-    Version 0.0.3
-        A sorted array of answers in the order the questionnaire was answered* [Is this correct???????????????].
-
-        **Dictionary of values**
+        **data object**
 
         - ``value``: the answer given in the questionnaire for the answer.
         - ``answer_id``: the identifier of the answer.
         - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
 
-        **Version 0.0.3 data example**
-
-        .. code-block:: javascript
-
-            "data": [
-                {
-                  // Example of a free text input box question
-                  "value": "piloting space shuttles",
-                  "answer_id": "job-description-answer",
-                },
-                {
-                  // Example of a single value for a radio button question
-                  "answer_id": "marriage-type-answer",
-                  "value": "Married"
-                },
-                {
-                  // Example of multiple values for a checkbox question
-                  "value": ["Eggs", "Bacon", "Spam"],
-                  "answer_id": "favourite-breakfast-food",
-                }
-                {
-                  "answer_id": "first-name",
-                  "value": "Colin",
-                  "list_item_id": "AUZvFL"
-                },
-                {
-                  "answer_id": "last-name",
-                  "value": "Cat",
-                  "list_item_id": "AUZvFL"
-                },
-                {
-                  "answer_id": "first-name",
-                  "value": "Dave",
-                  "list_item_id": "yuRiRs"
-                },
-                {
-                  "answer_id": "last-name",
-                  "value": "Dog",
-                  "list_item_id": "yuRiRs"
-                },
-            ]
-
-
-
-
 Example Json payloads
 =====================
-
 .. code-block:: javascript
 
    {
@@ -184,7 +120,64 @@ Example Json payloads
         "data": [...]
         "lists": [...]
     }
-    
+
+**lists example**
+
+.. code-block:: javascript
+
+ "lists": [
+    {
+     "name": "people-who-live-here",
+     "context": {"primary_person": "AUZvFL"},
+     "items": ["AUZvFL", "yuRiRs"]
+     },
+     {
+      "name": "visitors",
+      "items": ["vgeYGW"]
+     }
+ ]
+
+**data example** version 0.0.3
+
+.. code-block:: javascript
+
+    "data": [
+        {
+          // Example of a free text input box question
+          "value": "piloting space shuttles",
+          "answer_id": "job-description-answer",
+        },
+        {
+          // Example of a single value for a radio button question
+          "answer_id": "marriage-type-answer",
+          "value": "Married"
+        },
+        {
+          // Example of multiple values for a checkbox question
+          "value": ["Eggs", "Bacon", "Spam"],
+          "answer_id": "favourite-breakfast-food",
+        }
+        {
+          "answer_id": "first-name",
+          "value": "Colin",
+          "list_item_id": "AUZvFL"
+        },
+        {
+          "answer_id": "last-name",
+          "value": "Cat",
+          "list_item_id": "AUZvFL"
+        },
+        {
+          "answer_id": "first-name",
+          "value": "Dave",
+          "list_item_id": "yuRiRs"
+        },
+        {
+          "answer_id": "last-name",
+          "value": "Dog",
+          "list_item_id": "yuRiRs"
+        },
+    ]
 
 JWT envelope / transport
 ========================
