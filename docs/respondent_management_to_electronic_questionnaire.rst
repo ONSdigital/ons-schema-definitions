@@ -28,7 +28,7 @@ The following metadata keys are always required for the survey runner, they do n
 ``questionnaire_id``
   The Census Questionnaire ID
 ``case_type``
-  The type of Census case (HH | HI | CE | CI)
+  The type of case (HH | HI | CE | CI)
 ``region_code``
   The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
 ``collection_exercise_sid``
@@ -66,7 +66,8 @@ In addition to the above required fields, some surveys require other data be pas
 Optional Fields
 ---------------
 The runner can optionally accept the following keys.
-
+``schema_name``
+  The eQ schema to launch (e.g. census_individual_gb_eng)
 ``case_id``
   The case UUID used to identify a single instance of a survey collection for a respondent
 ``period_str``
@@ -102,6 +103,7 @@ An example JSON claim
     "survey": "CENSUS",
     "user_id": "1234567890",
     "period_id": "1",
+    "schema_name": "census_individual_gb_eng",
     "form_type": "individual_gb_eng",
     "eq_id": "census",
   }
