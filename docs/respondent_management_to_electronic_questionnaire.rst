@@ -27,6 +27,8 @@ The following metadata keys are always required for the survey runner, they do n
   A unique identifier for the questionnaire response
 ``questionnaire_id``
   The Census Questionnaire ID
+``survey``
+  The survey being launched (CENSUS | CCS)
 ``case_type``
   The type of case (HH | HI | CE | CI)
 ``region_code``
@@ -37,10 +39,6 @@ The following metadata keys are always required for the survey runner, they do n
   The reporting unit reference id (e.g. UPRN)
 ``account_service_url``
   The url of the account service (e.g. RH) used to launch the survey
-``eq_id``
-  The eQ questionnaire schema id (to be removed, hardcoded by RH as "census")
-``form_type``
-  The particular form_type for a responding unit (to be removed, hardcoded by RH as "individual_gb_eng")
 ``user_id``
   The id assigned by the respondent management system (hardcoded by RH as "1234567890", other channels to provide a staff member's identifier)
 ``period_id``
@@ -50,8 +48,6 @@ Census Future Requried Fields
 -----------------------------
 The following metadata keys will be introduced in due course
 
-``survey``
-  The survey being launched (CENSUS | CCS)
 ``channel``
   The channel (client) from which the questionnaire was launched (rh | ff | cc | ad | ce)
 
@@ -66,6 +62,7 @@ In addition to the above required fields, some surveys require other data be pas
 Optional Fields
 ---------------
 The runner can optionally accept the following keys.
+
 ``schema_name``
   The eQ schema to launch (e.g. census_individual_gb_eng)
 ``case_id``
@@ -80,6 +77,10 @@ The runner can optionally accept the following keys.
   The case reference identified by the above UUID (e.g. "1000000000000001")
 ``account_service_log_out_url``
   The logout url of the account service used to launch the survey.  Not required for services that don't have a log in function (i.e., respondent home)
+
+Launching an eQ schema
+----------------------
+If the schema_name claim is not included (explicitly specifying the questionnaire schema to launch) then the survey, case_type and region_code will be used to map to the corresponding schema. This is primarily intended to support the census.
 
 An example JSON claim
 =====================
