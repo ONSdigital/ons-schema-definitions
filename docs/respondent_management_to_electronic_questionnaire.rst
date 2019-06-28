@@ -105,8 +105,6 @@ An example JSON claim
     "user_id": "1234567890",
     "period_id": "1",
     "schema_name": "census_individual_gb_eng",
-    "form_type": "individual_gb_eng",
-    "eq_id": "census",
   }
 
 
