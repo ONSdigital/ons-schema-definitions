@@ -65,6 +65,8 @@ Schema Definition
     The type of case (e.g. HH | HI | CE | CI for census)
   ``region_code``
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
+  ``channel``
+    The channel used to launch the electronic questionnaire (ff | cc | ad | rh)
   ``metadata``
     A dictionary of data required for the purposes of rendering or routing the given eQ schema
 
@@ -116,6 +118,7 @@ Example Json payloads
         "case_type": "HI",
         "region_code": "GB-ENG",
         "user_id": "1234567890",
+        "channel": "rh"
         "ru_ref": "47850401631S"
         "data": [...]
         "lists": [...]
