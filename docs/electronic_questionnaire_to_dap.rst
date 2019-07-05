@@ -44,7 +44,7 @@ Schema Definition
 
         ``exercise_sid``
           The Collection exercise UUID (generated in RM)
-        ``schema_name`` (to replace instrument_id)
+        ``schema_name``
           The eQ schema representing the question set presented to the respondent (e.g. census_individual_gb_eng.json)
         ``period``
           A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
@@ -118,9 +118,9 @@ Example Json payloads
         "case_type": "HI",
         "region_code": "GB-ENG",
         "user_id": "1234567890",
-        "channel": "rh"
-        "ru_ref": "47850401631S"
-        "data": [...]
+        "channel": "rh",
+        "ru_ref": "47850401631S",
+        "data": [...],
         "lists": [...]
     }
 
