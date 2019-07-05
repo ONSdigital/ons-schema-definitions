@@ -85,7 +85,7 @@ Schema Definition
 
         **data object**
 
-        - ``value``: the answer given in the questionnaire for the answer.
+        - ``value``: the value of the answer(s) provided for the answer_id
         - ``answer_id``: the identifier of the answer.
         - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
 
@@ -177,6 +177,45 @@ Example Json payloads
           "value": "Dog",
           "list_item_id": "yuRiRs"
         },
+    ]
+
+.. code-block:: javascript
+
+    "data": [
+        {
+        // example of the list based relationship anwser value array
+        "answer_id": "relationship-answer",
+        "value": [
+            {
+                "from_list_item_id": "tkziBG",
+                "to_list_item_id": "jBlqGM",
+                "relationship": "Husband or Wife"
+            },
+            {
+                "from_list_item_id": "tkziBG",
+                "to_list_item_id": "CEMVLw",
+                "relationship": "Mother or Father"
+            },
+            {
+                "from_list_item_id": "tkziBG",
+                "to_list_item_id": "uknZxD",
+                "relationship": "Mother or Father"
+            },
+            {
+                "from_list_item_id": "jBlqGM",
+                "to_list_item_id": "CEMVLw",
+                "relationship": "Mother or Father"
+            },
+            {
+                "from_list_item_id": "jBlqGM",
+                "to_list_item_id": "uknZxD",
+                "relationship": "Mother or Father"
+            },
+            {
+                "from_list_item_id": "CEMVLw",
+                "to_list_item_id": "uknZxD",
+                "relationship": "Brother or Sister"
+            }
     ]
 
 JWT envelope / transport
