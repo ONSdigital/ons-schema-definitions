@@ -183,35 +183,42 @@ Example Json payloads
 
     "data": [
         {
-        // example of the list based relationship anwser value array
+        // example of the list based relationship answser value array
+        // based on a mother, father and 2 children
         "answer_id": "relationship-answer",
         "value": [
             {
+                // Father's relationship to mother
                 "from_list_item_id": "tkziBG",
                 "to_list_item_id": "jBlqGM",
                 "relationship": "Husband or Wife"
             },
             {
+                // Father's relationship to child 1
                 "from_list_item_id": "tkziBG",
                 "to_list_item_id": "CEMVLw",
                 "relationship": "Mother or Father"
             },
             {
+                // Father's relationship to child 2
                 "from_list_item_id": "tkziBG",
                 "to_list_item_id": "uknZxD",
                 "relationship": "Mother or Father"
             },
             {
+                // Mother's relationship to child 1
                 "from_list_item_id": "jBlqGM",
                 "to_list_item_id": "CEMVLw",
                 "relationship": "Mother or Father"
             },
             {
+                // Mother's relationship to child 2
                 "from_list_item_id": "jBlqGM",
                 "to_list_item_id": "uknZxD",
                 "relationship": "Mother or Father"
             },
             {
+                // Child 1's relationship to child 2
                 "from_list_item_id": "CEMVLw",
                 "to_list_item_id": "uknZxD",
                 "relationship": "Brother or Sister"
