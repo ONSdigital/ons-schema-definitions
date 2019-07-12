@@ -73,23 +73,36 @@ Schema Definition
         ``display_address``
           The address displayed to the respondent (provided by RH)
 
-  ``lists``
-        An array of list objects built up during the questionnaire completion
-
-        **list object**
-
-        - ``name``: the name of the list (e.g. people-who-live-here)
-        - ``context``: [optional] a dictionary of any associated information about given items in the list (e.g. primary-person)
-        - ``items``: an array of the item identifieres in the list
-
   ``data`` version 0.0.3
-        A sorted array* of answers in the order the questionnaire was answered [*to be confirmed this is correct]
+
+        An array containing the response's lists and answers
 
         **data object**
 
-        - ``value``: the value of the answer(s) provided for the answer_id
-        - ``answer_id``: the identifier of the answer.
-        - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
+        - ``lists``: the value of the answer(s) provided for the answer_id
+        - ``answers``: the identifier of the answer.
+
+
+        - ``lists``
+                An array of list objects built up during the questionnaire completion
+
+                **list object**
+
+                - ``name``: the name of the list (e.g. people-who-live-here)
+                - ``items``: an array of strings of the item identifieres in the list
+                - ``primary_person``: [optional] the item identifier of the primary person in the list
+
+        - ``answers``
+                A sorted array* of answers in the order the questionnaire was answered [*to be confirmed this is correct]
+
+                **answer object**
+
+                - ``value``: the value of the answer(s) provided for the answer_id
+                - ``answer_id``: the identifier of the answer.
+                - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
+
+
+
 
 Example Json payloads
 =====================
@@ -131,7 +144,7 @@ Example Json payloads
  "lists": [
     {
      "name": "people-who-live-here",
-     "context": {"primary_person": "AUZvFL"},
+     "primary_person": "AUZvFL",
      "items": ["AUZvFL", "yuRiRs"]
      },
      {
