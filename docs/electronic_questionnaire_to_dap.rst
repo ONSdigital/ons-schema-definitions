@@ -74,32 +74,25 @@ Schema Definition
           The address displayed to the respondent (provided by RH)
 
   ``data`` version 0.0.3
+    An object containing the response's lists and answers
 
-        An array containing the response's lists and answers
+        ``lists``
+          An array of list objects built up during the questionnaire completion
 
-        **data object**
+          **list object**
 
-        - ``lists``: the value of the answer(s) provided for the answer_id
-        - ``answers``: the identifier of the answer.
+          - ``name``: the name of the list (e.g. people-who-live-here)
+          - ``items``: an array of strings of the item identifieres in the list
+          - ``primary_person``: [optional] the item identifier of the primary person in the list
 
+        ``answers``
+          A sorted array* of answer objects
 
-        - ``lists``
-                An array of list objects built up during the questionnaire completion
+          **answer object**
 
-                **list object**
-
-                - ``name``: the name of the list (e.g. people-who-live-here)
-                - ``items``: an array of strings of the item identifieres in the list
-                - ``primary_person``: [optional] the item identifier of the primary person in the list
-
-        - ``answers``
-                A sorted array* of answers in the order the questionnaire was answered [*to be confirmed this is correct]
-
-                **answer object**
-
-                - ``value``: the value of the answer(s) provided for the answer_id
-                - ``answer_id``: the identifier of the answer.
-                - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
+          - ``value``: the value of the answer(s) provided for the answer_id
+          - ``answer_id``: the identifier of the answer.
+          - ``list_item_id``: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
 
 
 
@@ -133,8 +126,10 @@ Example Json payloads
         "user_id": "1234567890",
         "channel": "rh",
         "ru_ref": "47850401631S",
-        "data": [...],
-        "lists": [...]
+        "data": {
+            answers: [...],
+            lists: [...]
+        }
     }
 
 **lists example**
@@ -153,11 +148,11 @@ Example Json payloads
      }
  ]
 
-**data example** version 0.0.3
+**answers example**
 
 .. code-block:: javascript
 
-    "data": [
+    "answers": [
         {
           // Example of a free text input box question
           "value": "piloting space shuttles",
