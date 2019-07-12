@@ -67,7 +67,7 @@ Schema Definition
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
   ``channel``
     The channel used to launch the electronic questionnaire (ff | cc | ad | rh)
-  ``metadata``
+  ``metadata`` *TBC: outstanding question around the appropriateness of this name
     A dictionary of data required for the purposes of rendering or routing the given eQ schema
 
         ``display_address``
