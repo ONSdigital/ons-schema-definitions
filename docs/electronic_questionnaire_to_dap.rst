@@ -189,10 +189,11 @@ Example Json payloads
           "list_item_id": "yuRiRs"
         },
     ]
+**answers example (list based relationship type)**
 
 .. code-block:: javascript
 
-    "data": [
+    "answers": [
         {
         // example of the list based relationship answser value array
         // based on a mother, father and 2 children
