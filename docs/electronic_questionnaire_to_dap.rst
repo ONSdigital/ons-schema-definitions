@@ -86,7 +86,7 @@ Schema Definition
           - ``primary_person``: [optional] the item identifier of the primary person in the list
 
         ``answers``
-          A sorted array* of answer objects
+          A sorted array of answer objects
 
           **answer object**
 
