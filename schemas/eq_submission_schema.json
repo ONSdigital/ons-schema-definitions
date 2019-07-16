@@ -5,280 +5,269 @@
   "type": "object",
   "title": "ONS EQ Submission Schema",
   "required": [
-    "submission"
+    "tx_id",
+    "type",
+    "version",
+    "origin",
+    "survey_id",
+    "flushed",
+    "submitted_at",
+    "collection",
+    "metadata",
+    "response_id",
+    "questionnaire_id",
+    "started_at",
+    "data"
   ],
   "properties": {
-    "submission": {
-      "$id": "#/properties/submission",
+    "tx_id": {
+      "$id": "#/properties/tx_id",
+      "type": "string",
+      "title": "Transaction ID",
+      "description": "Used to trace a transaction through the whole system",
+      "default": "",
+      "examples": [
+        "f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+      ],
+      "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
+    },
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "Type",
+      "description": "The unique type identifier of this JSON file. Can be \"uk.gov.ons.edc.eq:surveyresponse\" or \"uk.gov.ons.edc.eq:feedback\"",
+      "default": "",
+      "examples": [
+        "uk.gov.ons.edc.eq:surveyresponse"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "version": {
+      "$id": "#/properties/version",
+      "type": "string",
+      "title": "Version",
+      "description": "The version number of the schema definition used to generate and parse the schema. Will always be 3 numbers separated by two dots e.g. \"10.2.33\"",
+      "default": "",
+      "examples": [
+        "0.0.3"
+      ],
+      "pattern": "^0.0.3$"
+    },
+    "origin": {
+      "$id": "#/properties/origin",
+      "type": "string",
+      "title": "Origin",
+      "description": "The origin of the submission",
+      "default": "",
+      "examples": [
+        "uk.gov.ons.edc.eq"
+      ],
+      "pattern": "^uk.gov.ons.edc.eq$"
+    },
+    "survey_id": {
+      "$id": "#/properties/survey_id",
+      "type": "string",
+      "title": "Survey_id",
+      "default": "",
+      "examples": [
+        "census"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "flushed": {
+      "$id": "#/properties/flushed",
+      "type": "boolean",
+      "title": "Flushed",
+      "description": "Whether the survey was flushed or not. This will be true if the survey has been flushed through EQ",
+      "default": false,
+      "examples": [
+        false,
+        true
+      ]
+    },
+    "submitted_at": {
+      "$id": "#/properties/submitted_at",
+      "type": "string",
+      "title": "submitted_at",
+      "description": "The datetime of submission by the respondent.",
+      "default": "",
+      "examples": [
+        "2019-07-12T11:44:13.255527"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "collection": {
+      "$id": "#/properties/collection",
       "type": "object",
-      "title": "The Submission Schema",
+      "title": "The Collection Schema",
       "required": [
-        "tx_id",
-        "type",
-        "version",
-        "origin",
-        "survey_id",
-        "flushed",
-        "submitted_at",
-        "collection",
-        "metadata",
-        "response_id",
-        "questionnaire_id",
-        "started_at",
-        "case_id",
-        "data"
+        "exercise_sid",
+        "schema_name",
+        "period"
       ],
       "properties": {
-        "tx_id": {
-          "$id": "#/properties/submission/properties/tx_id",
+        "exercise_sid": {
+          "$id": "#/properties/collection/properties/exercise_sid",
           "type": "string",
-          "title": "Transaction ID",
-          "description": "Used to trace a transaction through the whole system",
+          "title": "Collection exercise ID",
           "default": "",
           "examples": [
-            "f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
+            "fe1f6c57-2fde-4657-b395-b2c3fa4c21a0"
           ],
           "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
         },
-        "type": {
-          "$id": "#/properties/submission/properties/type",
+        "schema_name": {
+          "$id": "#/properties/collection/properties/schema_name",
           "type": "string",
-          "title": "Type",
-          "description": "The unique type identifier of this JSON file. Can be \"uk.gov.ons.edc.eq:surveyresponse\" or \"uk.gov.ons.edc.eq:feedback\"",
+          "title": "Schema Name",
           "default": "",
           "examples": [
-            "uk.gov.ons.edc.eq:surveyresponse"
+            "census_household_gb_eng",
+            "census_household_gb_nir",
+            "census_individual_gb_wls"
           ],
           "pattern": "^(.*)$"
         },
-        "version": {
-          "$id": "#/properties/submission/properties/version",
+        "period": {
+          "$id": "#/properties/collection/properties/period",
           "type": "string",
-          "title": "Version",
-          "description": "The version number of the schema definition used to generate and parse the schema. Will always be 3 numbers separated by two dots e.g. \"10.2.33\"",
+          "title": "Period",
           "default": "",
           "examples": [
-            "0.0.3"
+            "201605"
           ],
-          "pattern": "^0.0.3$"
-        },
-        "origin": {
-          "$id": "#/properties/submission/properties/origin",
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "metadata": {
+      "$id": "#/properties/metadata",
+      "type": "object",
+      "title": "The Metadata Schema",
+      "required": [
+        "user_id",
+        "ru_ref"
+      ],
+      "properties": {
+        "user_id": {
+          "$id": "#/properties/metadata/properties/user_id",
           "type": "string",
-          "title": "Origin",
-          "description": "The origin of the submission",
+          "title": "User ID",
           "default": "",
           "examples": [
-            "uk.gov.ons.edc.eq"
-          ],
-          "pattern": "^uk.gov.ons.edc.eq$"
-        },
-        "survey_id": {
-          "$id": "#/properties/submission/properties/survey_id",
-          "type": "string",
-          "title": "Survey_id",
-          "default": "",
-          "examples": [
-            "census"
+            "UNKNOWN"
           ],
           "pattern": "^(.*)$"
         },
-        "flushed": {
-          "$id": "#/properties/submission/properties/flushed",
-          "type": "boolean",
-          "title": "Flushed",
-          "description": "Whether the survey was flushed or not. This will be true if the survey has been flushed through EQ",
-          "default": false,
-          "examples": [
-            false,
-            true
-          ]
-        },
-        "submitted_at": {
-          "$id": "#/properties/submission/properties/submitted_at",
+        "ru_ref": {
+          "$id": "#/properties/metadata/properties/ru_ref",
           "type": "string",
-          "title": "submitted_at",
-          "description": "The datetime of submission by the respondent.",
+          "title": "Reporting Unit",
           "default": "",
           "examples": [
-            "2019-07-12T11:44:13.255527"
+            "33581872181D"
           ],
           "pattern": "^(.*)$"
-        },
-        "collection": {
-          "$id": "#/properties/submission/properties/collection",
-          "type": "object",
-          "title": "The Collection Schema",
-          "required": [
-            "exercise_sid",
-            "schema_name",
-            "period"
-          ],
-          "properties": {
-            "exercise_sid": {
-              "$id": "#/properties/submission/properties/collection/properties/exercise_sid",
-              "type": "string",
-              "title": "Collection exercise ID",
-              "default": "",
-              "examples": [
-                "fe1f6c57-2fde-4657-b395-b2c3fa4c21a0"
-              ],
-              "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
-            },
-            "schema_name": {
-              "$id": "#/properties/submission/properties/collection/properties/schema_name",
-              "type": "string",
-              "title": "Schema Name",
-              "default": "",
-              "examples": [
-                "census_household_gb_eng",
-                "census_household_gb_nir",
-                "census_individual_gb_wls"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "period": {
-              "$id": "#/properties/submission/properties/collection/properties/period",
-              "type": "string",
-              "title": "Period",
-              "default": "",
-              "examples": [
-                "201605"
-              ],
-              "pattern": "^(.*)$"
-            }
-          }
-        },
-        "metadata": {
-          "$id": "#/properties/submission/properties/metadata",
-          "type": "object",
-          "title": "The Metadata Schema",
-          "required": [
-            "user_id",
-            "ru_ref"
-          ],
-          "properties": {
-            "user_id": {
-              "$id": "#/properties/submission/properties/metadata/properties/user_id",
-              "type": "string",
-              "title": "User ID",
-              "default": "",
-              "examples": [
-                "UNKNOWN"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "ru_ref": {
-              "$id": "#/properties/submission/properties/metadata/properties/ru_ref",
-              "type": "string",
-              "title": "Reporting Unit",
-              "default": "",
-              "examples": [
-                "33581872181D"
-              ],
-              "pattern": "^(.*)$"
-            }
-          }
-        },
-        "response_id": {
-          "$id": "#/properties/submission/properties/response_id",
-          "type": "string",
-          "title": "Response ID",
-          "default": "",
-          "examples": [
-            "7579781590275801"
-          ],
-          "pattern": "^(.*)$"
-        },
-        "questionnaire_id": {
-          "$id": "#/properties/submission/properties/questionnaire_id",
-          "type": "string",
-          "title": "Questionnaire ID",
-          "default": "",
-          "examples": [
-            "4782576236675773"
-          ],
-          "pattern": "^(.*)$"
-        },
-        "started_at": {
-          "$id": "#/properties/submission/properties/started_at",
-          "type": "string",
-          "title": "Started At",
-          "description": "The datetime of the first answer saved in a survey",
-          "default": "",
-          "examples": [
-            "2019-07-12T11:41:51.979942"
-          ],
-          "pattern": "^(.*)$"
-        },
-        "case_id": {
-          "$id": "#/properties/submission/properties/case_id",
-          "type": "string",
-          "title": "Case ID",
-          "default": "",
-          "examples": [
-            "42d78898-7e7a-40b9-9500-757bb546e358"
-          ],
-          "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
-        },
-        "data": {
-          "$id": "#/properties/submission/properties/data",
-          "type": "array",
-          "title": "Submitted Data",
-          "items": {
-            "$id": "#/properties/submission/properties/data/items",
-            "type": "object",
-            "title": "The answers submitted",
-            "required": [
-              "answer_id",
-              "value"
+        }
+      }
+    },
+    "response_id": {
+      "$id": "#/properties/response_id",
+      "type": "string",
+      "title": "Response ID",
+      "default": "",
+      "examples": [
+        "7579781590275801"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "questionnaire_id": {
+      "$id": "#/properties/questionnaire_id",
+      "type": "string",
+      "title": "Questionnaire ID",
+      "default": "",
+      "examples": [
+        "4782576236675773"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "started_at": {
+      "$id": "#/properties/started_at",
+      "type": "string",
+      "title": "Started At",
+      "description": "The datetime of the first answer saved in a survey",
+      "default": "",
+      "examples": [
+        "2019-07-12T11:41:51.979942"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "case_id": {
+      "$id": "#/properties/case_id",
+      "type": "string",
+      "title": "Case ID",
+      "default": "",
+      "examples": [
+        "42d78898-7e7a-40b9-9500-757bb546e358"
+      ],
+      "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
+    },
+    "data": {
+      "$id": "#/properties/data",
+      "type": "array",
+      "title": "Submitted Data",
+      "items": {
+        "$id": "#/properties/data/items",
+        "type": "object",
+        "title": "The answers submitted",
+        "required": [
+          "answer_id",
+          "value"
+        ],
+        "properties": {
+          "answer_id": {
+            "$id": "#/properties/data/items/properties/answer_id",
+            "type": "string",
+            "title": "Answer ID",
+            "default": "",
+            "examples": [
+              "accommodation-type-answer",
+              "first-name",
+              "ethnic-group-answer"
             ],
-            "properties": {
-              "answer_id": {
-                "$id": "#/properties/submission/properties/data/items/properties/answer_id",
-                "type": "string",
-                "title": "Answer ID",
-                "default": "",
-                "examples": [
-                  "accommodation-type-answer",
-                  "first-name",
-                  "ethnic-group-answer"
-                ],
-                "pattern": "^(.*)$"
-              },
-              "value": {
-                "$id": "#/properties/submission/properties/data/items/properties/value",
-                "type": ["string", "array"],
-                "title": "The response value",
-                "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
-                "pattern": "^(.*)$",
-                "items": {
-                  "$id": "#/properties/submission/properties/data/items/properties/value/items",
-                  "type": "string",
-                  "title": "answer value items",
-                  "default": "",
-                  "examples": [
-                    "Christian",
-                    "Buddhist",
-                    "Yes",
-                    "No"
-                  ],
-                  "pattern": "^(.*)$"
-                }
-              },
-              "list_item_id": {
-                "$id": "#/properties/submission/properties/data/items/properties/list_item_id",
-                "type": "string",
-                "title": "List Item ID",
-                "description": "Related items will have the same ID e.g. first name and last name for the same person",
-                "default": "",
-                "examples": [
-                  "LvxBCq",
-                  "Hjkues"                  
-                ],
-                "pattern": "^(.*)$"
-              }
+            "pattern": "^(.*)$"
+          },
+          "value": {
+            "$id": "#/properties/data/items/properties/value",
+            "type": ["string", "array"],
+            "title": "The response value",
+            "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
+            "pattern": "^(.*)$",
+            "items": {
+              "$id": "#/properties/data/items/properties/value/items",
+              "type": "string",
+              "title": "answer value items",
+              "default": "",
+              "examples": [
+                "Christian",
+                "Buddhist",
+                "Yes",
+                "No"
+              ],
+              "pattern": "^(.*)$"
             }
+          },
+          "list_item_id": {
+            "$id": "#/properties/data/items/properties/list_item_id",
+            "type": "string",
+            "title": "List Item ID",
+            "description": "Related items will have the same ID e.g. first name and last name for the same person",
+            "default": "",
+            "examples": [
+              "LvxBCq",
+              "Hjkues"                  
+            ],
+            "pattern": "^(.*)$"
           }
         }
       }
