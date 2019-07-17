@@ -1,208 +1,206 @@
 {
-    "submission": {
-        "tx_id": "1d08aa23-42fa-4825-bfe1-bb9708f59093",
-        "type": "uk.gov.ons.edc.eq:surveyresponse",
-        "version": "0.0.3",
-        "origin": "uk.gov.ons.edc.eq",
-        "survey_id": "census",
-        "flushed": false,
-        "submitted_at": "2019-07-12T16:37:34.826725",
-        "collection": {
-            "exercise_sid": "d133f595-f1de-479c-9da8-2be7a69f2289",
-            "schema_name": "census_household_gb_eng",
-            "period": "201605"
+    "tx_id": "1d08aa23-42fa-4825-bfe1-bb9708f59093",
+    "type": "uk.gov.ons.edc.eq:surveyresponse",
+    "version": "0.0.3",
+    "origin": "uk.gov.ons.edc.eq",
+    "survey_id": "census",
+    "flushed": false,
+    "submitted_at": "2019-07-12T16:37:34.826725",
+    "collection": {
+        "exercise_sid": "d133f595-f1de-479c-9da8-2be7a69f2289",
+        "schema_name": "census_household_gb_eng",
+        "period": "201605"
+    },
+    "metadata": {
+        "user_id": "UNKNOWN",
+        "ru_ref": "58682679334u"
+    },
+    "response_id": "7863675602300568",
+    "questionnaire_id": "8258531582413918",
+    "started_at": "2019-07-12T16:35:31.068047",
+    "case_id": "982445c0-7afd-49f5-a74e-5bb2a05faf1a",
+    "data": [
+        {
+            "answer_id": "accommodation-type-answer",
+            "value": "A private or family household"
         },
-        "metadata": {
-            "user_id": "UNKNOWN",
-            "ru_ref": "58682679334u"
+        {
+            "answer_id": "proxy-answer",
+            "value": "No"
         },
-        "response_id": "7863675602300568",
-        "questionnaire_id": "8258531582413918",
-        "started_at": "2019-07-12T16:35:31.068047",
-        "case_id": "982445c0-7afd-49f5-a74e-5bb2a05faf1a",
-        "data": [
-            {
-                "answer_id": "accommodation-type-answer",
-                "value": "A private or family household"
-            },
-            {
-                "answer_id": "proxy-answer",
-                "value": "No"
-            },
-            {
-                "answer_id": "first-name",
-                "value": "John"
-            },
-            {
-                "answer_id": "middle-names",
-                "value": "Bob"
-            },
-            {
-                "answer_id": "last-name",
-                "value": "Smith"
-            },
-            {
-                "answer_id": "date-of-birth-answer",
-                "value": "1975-01-01"
-            },
-            {
-                "answer_id": "confirm-date-of-birth-answer",
-                "value": "Yes"
-            },
-            {
-                "answer_id": "sex-answer",
-                "value": "Male"
-            },
-            {
-                "answer_id": "marriage-type-answer",
-                "value": "Surviving partner from a registered civil partnership"
-            },
-            {
-                "answer_id": "previous-partnership-status-answer",
-                "value": "Someone of the opposite sex"
-            },
-            {
-                "answer_id": "another-address-answer",
-                "value": "No"
-            },
-            {
-                "answer_id": "in-education-answer",
-                "value": "No"
-            },
-            {
-                "answer_id": "country-of-birth-answer",
-                "value": "Wales"
-            },
-            {
-                "answer_id": "language-answer",
-                "value": "English"
-            },
-            {
-                "answer_id": "national-identity-answer",
-                "value": [
-                    "English",
-                    "Welsh"
-                ]
-            },
-            {
-                "answer_id": "ethnic-group-answer",
-                "value": "Mixed or Multiple ethnic groups"
-            },
-            {
-                "answer_id": "mixed-ethnic-group-answer",
-                "value": "White and Black African"
-            },
-            {
-                "answer_id": "religion-answer",
-                "value": [
-                    "Christian",
-                    "Buddhist"
-                ]
-            },
-            {
-                "answer_id": "past-usual-address-household-answer",
-                "value": "household-address"
-            },
-            {
-                "answer_id": "passports-answer",
-                "value": [
-                    "United Kingdom"
-                ]
-            },
-            {
-                "answer_id": "health-answer",
-                "value": "Very good"
-            },
-            {
-                "answer_id": "disability-answer",
-                "value": "No"
-            },
-            {
-                "answer_id": "carer-answer",
-                "value": "Yes, 9 hours a week or less"
-            },
-            {
-                "answer_id": "birth-gender-answer",
-                "value": [
-                    "Yes"
-                ]
-            },
-            {
-                "answer_id": "apprenticeship-answer",
-                "value": "Yes"
-            },
-            {
-                "answer_id": "degree-answer",
-                "value": "Yes"
-            },
-            {
-                "answer_id": "nvq-level-answer",
-                "value": [
-                    "NVQ level 2 or equivalent",
-                    "NVQ level 1 or equivalent"
-                ]
-            },
-            {
-                "answer_id": "a-level-answer",
-                "value": [
-                    "2 or more A levels",
-                    "1 A level"
-                ]
-            },
-            {
-                "answer_id": "gcse-answer",
-                "value": [
-                    "5 or more GCSEs"
-                ]
-            },
-            {
-                "answer_id": "armed-forces-answer",
-                "value": [
-                    "No"
-                ]
-            },
-            {
-                "answer_id": "employment-status-answer",
-                "value": [
-                    "Working as an employee"
-                ]
-            },
-            {
-                "answer_id": "main-job-type-answer",
-                "value": "Employee"
-            },
-            {
-                "answer_id": "business-name-answer",
-                "value": "Bob's Business"
-            },
-            {
-                "answer_id": "job-title-answer",
-                "value": "Bobber"
-            },
-            {
-                "answer_id": "job-description-answer",
-                "value": "Bobbing Stuff"
-            },
-            {
-                "answer_id": "employers-business-answer",
-                "value": "Bobery"
-            },
-            {
-                "answer_id": "supervise-answer",
-                "value": "No"
-            },
-            {
-                "answer_id": "hours-worked-answer",
-                "value": "31 to 48 hours"
-            },
-            {
-                "answer_id": "work-travel-answer",
-                "value": "Work mainly at or from home"
-            },
-            {
-                "answer_id": "employer-type-of-address-answer",
-                "value": "At or from home"
-            }
-        ]
-    }
+        {
+            "answer_id": "first-name",
+            "value": "John"
+        },
+        {
+            "answer_id": "middle-names",
+            "value": "Bob"
+        },
+        {
+            "answer_id": "last-name",
+            "value": "Smith"
+        },
+        {
+            "answer_id": "date-of-birth-answer",
+            "value": "1975-01-01"
+        },
+        {
+            "answer_id": "confirm-date-of-birth-answer",
+            "value": "Yes"
+        },
+        {
+            "answer_id": "sex-answer",
+            "value": "Male"
+        },
+        {
+            "answer_id": "marriage-type-answer",
+            "value": "Surviving partner from a registered civil partnership"
+        },
+        {
+            "answer_id": "previous-partnership-status-answer",
+            "value": "Someone of the opposite sex"
+        },
+        {
+            "answer_id": "another-address-answer",
+            "value": "No"
+        },
+        {
+            "answer_id": "in-education-answer",
+            "value": "No"
+        },
+        {
+            "answer_id": "country-of-birth-answer",
+            "value": "Wales"
+        },
+        {
+            "answer_id": "language-answer",
+            "value": "English"
+        },
+        {
+            "answer_id": "national-identity-answer",
+            "value": [
+                "English",
+                "Welsh"
+            ]
+        },
+        {
+            "answer_id": "ethnic-group-answer",
+            "value": "Mixed or Multiple ethnic groups"
+        },
+        {
+            "answer_id": "mixed-ethnic-group-answer",
+            "value": "White and Black African"
+        },
+        {
+            "answer_id": "religion-answer",
+            "value": [
+                "Christian",
+                "Buddhist"
+            ]
+        },
+        {
+            "answer_id": "past-usual-address-household-answer",
+            "value": "household-address"
+        },
+        {
+            "answer_id": "passports-answer",
+            "value": [
+                "United Kingdom"
+            ]
+        },
+        {
+            "answer_id": "health-answer",
+            "value": "Very good"
+        },
+        {
+            "answer_id": "disability-answer",
+            "value": "No"
+        },
+        {
+            "answer_id": "carer-answer",
+            "value": "Yes, 9 hours a week or less"
+        },
+        {
+            "answer_id": "birth-gender-answer",
+            "value": [
+                "Yes"
+            ]
+        },
+        {
+            "answer_id": "apprenticeship-answer",
+            "value": "Yes"
+        },
+        {
+            "answer_id": "degree-answer",
+            "value": "Yes"
+        },
+        {
+            "answer_id": "nvq-level-answer",
+            "value": [
+                "NVQ level 2 or equivalent",
+                "NVQ level 1 or equivalent"
+            ]
+        },
+        {
+            "answer_id": "a-level-answer",
+            "value": [
+                "2 or more A levels",
+                "1 A level"
+            ]
+        },
+        {
+            "answer_id": "gcse-answer",
+            "value": [
+                "5 or more GCSEs"
+            ]
+        },
+        {
+            "answer_id": "armed-forces-answer",
+            "value": [
+                "No"
+            ]
+        },
+        {
+            "answer_id": "employment-status-answer",
+            "value": [
+                "Working as an employee"
+            ]
+        },
+        {
+            "answer_id": "main-job-type-answer",
+            "value": "Employee"
+        },
+        {
+            "answer_id": "business-name-answer",
+            "value": "Bob's Business"
+        },
+        {
+            "answer_id": "job-title-answer",
+            "value": "Bobber"
+        },
+        {
+            "answer_id": "job-description-answer",
+            "value": "Bobbing Stuff"
+        },
+        {
+            "answer_id": "employers-business-answer",
+            "value": "Bobery"
+        },
+        {
+            "answer_id": "supervise-answer",
+            "value": "No"
+        },
+        {
+            "answer_id": "hours-worked-answer",
+            "value": "31 to 48 hours"
+        },
+        {
+            "answer_id": "work-travel-answer",
+            "value": "Work mainly at or from home"
+        },
+        {
+            "answer_id": "employer-type-of-address-answer",
+            "value": "At or from home"
+        }
+    ]
 }
