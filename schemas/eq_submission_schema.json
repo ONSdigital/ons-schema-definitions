@@ -222,8 +222,7 @@
             "title": "The Items Schema",
             "required": [
               "answer_id",
-              "value",
-              "list_item_id"
+              "value"
             ],
             "properties": {
               "answer_id": {
@@ -238,7 +237,7 @@
               },
               "value": {
                 "$id": "#/properties/data/properties/answers/items/properties/value",
-                "type": "string",
+                "type": ["string", "array"],
                 "title": "The Value Schema",
                 "default": "",
                 "examples": [
@@ -261,49 +260,43 @@
         },
         "lists": {
           "$id": "#/properties/data/properties/lists",
-          "type": "object",
+          "type": "array",
           "title": "The Lists Schema",
-          "required": [
-            "name",
-            "items",
-            "primary_person"
-          ],
-          "properties": {
-            "name": {
-              "$id": "#/properties/data/properties/lists/properties/name",
-              "type": "string",
-              "title": "The Name Schema",
-              "default": "",
-              "examples": [
-                "people"
-              ],
-              "pattern": "^(.*)$"
-            },
-            "items": {
-              "$id": "#/properties/data/properties/lists/properties/items",
-              "type": "array",
-              "title": "The Items Schema",
+          "items": {
+            "$id": "#/properties/data/properties/lists/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "items",
+              "name"
+            ],
+            "properties": {
               "items": {
-                "$id": "#/properties/data/properties/lists/properties/items/items",
-                "type": "string",
+                "$id": "#/properties/data/properties/lists/items/properties/items",
+                "type": "array",
                 "title": "The Items Schema",
+                "items": {
+                  "$id": "#/properties/data/properties/lists/items/properties/items/items",
+                  "type": "string",
+                  "title": "The Items Schema",
+                  "default": "",
+                  "examples": [
+                    "zGBdpb",
+                    "cWGwcF"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              },
+              "name": {
+                "$id": "#/properties/data/properties/lists/items/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
                 "default": "",
                 "examples": [
-                  "yIluIy",
-                  "jOqNLu"
+                  "people"
                 ],
                 "pattern": "^(.*)$"
               }
-            },
-            "primary_person": {
-              "$id": "#/properties/data/properties/lists/properties/primary_person",
-              "type": "string",
-              "title": "The Primary_person Schema",
-              "default": "",
-              "examples": [
-                "yIluIy"
-              ],
-              "pattern": "^(.*)$"
             }
           }
         }

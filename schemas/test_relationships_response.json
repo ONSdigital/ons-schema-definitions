@@ -1,0 +1,69 @@
+{
+    "tx_id": "a8e1d41d-728c-47c4-89b2-2d087e6e01a4",
+    "type": "uk.gov.ons.edc.eq:surveyresponse",
+    "version": "0.0.3",
+    "origin": "uk.gov.ons.edc.eq",
+    "survey_id": "0",
+    "flushed": false,
+    "submitted_at": "2019-08-20T11:05:44.541979",
+    "collection": {
+        "exercise_sid": "ae62cb63-be41-4160-8bff-eb2a3bab5c6e",
+        "schema_name": "test_relationships",
+        "period": "201605"
+    },
+    "metadata": {
+        "user_id": "UNKNOWN",
+        "ru_ref": "74117071486i"
+    },
+    "response_id": "6148064303271080",
+    "questionnaire_id": "9150293245728665",
+    "started_at": "2019-08-20T11:05:25.604330",
+    "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d",
+    "data": {
+        "answers": [
+            {
+                "answer_id": "first-name",
+                "value": "John",
+                "list_item_id": "zGBdpb"
+            },
+            {
+                "answer_id": "last-name",
+                "value": "Doe",
+                "list_item_id": "zGBdpb"
+            },
+            {
+                "answer_id": "first-name",
+                "value": "Marie",
+                "list_item_id": "cWGwcF"
+            },
+            {
+                "answer_id": "last-name",
+                "value": "Doe",
+                "list_item_id": "cWGwcF"
+            },
+            {
+                "answer_id": "anyone-else",
+                "value": "No"
+            },
+            {
+                "answer_id": "relationship-answer",
+                "value": [
+                    {
+                        "list_item_id": "zGBdpb",
+                        "to_list_item_id": "cWGwcF",
+                        "relationship": "Husband or Wife"
+                    }
+                ]
+            }
+        ],
+        "lists": [
+            {
+                "items": [
+                    "zGBdpb",
+                    "cWGwcF"
+                ],
+                "name": "people"
+            }
+        ]
+    }
+}
