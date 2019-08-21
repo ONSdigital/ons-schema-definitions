@@ -16,6 +16,8 @@
     "metadata",
     "response_id",
     "questionnaire_id",
+    "case_type",
+    "region_code",
     "started_at",
     "case_id",
     "data"
@@ -27,7 +29,7 @@
       "title": "The Tx_id Schema",
       "default": "",
       "examples": [
-        "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+        "411e12a2-e57f-4f07-917d-76c93b422460"
       ],
       "pattern": "^(.*)$"
     },
@@ -37,7 +39,7 @@
       "title": "The Type Schema",
       "default": "",
       "examples": [
-        "xxxx"
+        "xxxxx"
       ],
       "pattern": "^(.*)$"
     },
@@ -57,7 +59,7 @@
       "title": "The Origin Schema",
       "default": "",
       "examples": [
-        "yyyy"
+        "yyyyy"
       ],
       "pattern": "^(.*)$"
     },
@@ -86,7 +88,7 @@
       "title": "The Submitted_at Schema",
       "default": "",
       "examples": [
-        "2019-08-19T11:25:43.145876"
+        "2019-08-21T12:51:57.119678"
       ],
       "pattern": "^(.*)$"
     },
@@ -106,7 +108,7 @@
           "title": "The Exercise_sid Schema",
           "default": "",
           "examples": [
-            "8505f4a5-21cc-4b52-aa79-8930e9e9a888"
+            "1be356de-bde7-48bf-b169-00e0b3822a9c"
           ],
           "pattern": "^(.*)$"
         },
@@ -116,7 +118,7 @@
           "title": "The Schema_name Schema",
           "default": "",
           "examples": [
-            "test_relationships_primary"
+            "test_relationships"
           ],
           "pattern": "^(.*)$"
         },
@@ -157,7 +159,7 @@
           "title": "The Ru_ref Schema",
           "default": "",
           "examples": [
-            "68881731801T"
+            "34942807969m"
           ],
           "pattern": "^(.*)$"
         }
@@ -169,7 +171,7 @@
       "title": "The Response_id Schema",
       "default": "",
       "examples": [
-        "7822783472717202"
+        "3387746373631872"
       ],
       "pattern": "^(.*)$"
     },
@@ -179,7 +181,27 @@
       "title": "The Questionnaire_id Schema",
       "default": "",
       "examples": [
-        "3131347216561302"
+        "7539657418968524"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "case_type": {
+      "$id": "#/properties/case_type",
+      "type": "string",
+      "title": "The Case_type Schema",
+      "default": "",
+      "examples": [
+        "HI"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "region_code": {
+      "$id": "#/properties/region_code",
+      "type": "string",
+      "title": "The Region_code Schema",
+      "default": "",
+      "examples": [
+        "GB-ENG"
       ],
       "pattern": "^(.*)$"
     },
@@ -189,7 +211,7 @@
       "title": "The Started_at Schema",
       "default": "",
       "examples": [
-        "2019-08-19T11:25:18.676780"
+        "2019-08-21T12:51:18.332714"
       ],
       "pattern": "^(.*)$"
     },
@@ -199,105 +221,52 @@
       "title": "The Case_id Schema",
       "default": "",
       "examples": [
-        "91b9ae45-2f56-4f9c-a923-56718c6a4b7d"
+        "5515cd5f-fcff-44f0-ac02-3530477693ea"
       ],
       "pattern": "^(.*)$"
     },
     "data": {
       "$id": "#/properties/data",
-      "type": "object",
+      "type":  "object",
       "title": "The Data Schema",
-      "required": [
-        "answers",
-        "lists"
-      ],
-      "properties": {
-        "answers": {
-          "$id": "#/properties/data/properties/answers",
-          "type": "array",
-          "title": "The Answers Schema",
-          "items": {
-            "$id": "#/properties/data/properties/answers/items",
-            "type": "object",
-            "title": "The Items Schema",
-            "required": [
-              "answer_id",
-              "value"
+      "items": {
+        "$id": "#/properties/data/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "answer_id",
+          "value"
+        ],
+        "properties": {
+          "answer_id": {
+            "$id": "#/properties/data/items/properties/answer_id",
+            "type": "string",
+            "title": "The Answer_id Schema",
+            "default": "",
+            "examples": [
+              "first-name"
             ],
-            "properties": {
-              "answer_id": {
-                "$id": "#/properties/data/properties/answers/items/properties/answer_id",
-                "type": "string",
-                "title": "The Answer_id Schema",
-                "default": "",
-                "examples": [
-                  "first-name"
-                ],
-                "pattern": "^(.*)$"
-              },
-              "value": {
-                "$id": "#/properties/data/properties/answers/items/properties/value",
-                "type": ["string", "array"],
-                "title": "The Value Schema",
-                "default": "",
-                "examples": [
-                  "John"
-                ],
-                "pattern": "^(.*)$"
-              },
-              "list_item_id": {
-                "$id": "#/properties/data/properties/answers/items/properties/list_item_id",
-                "type": "string",
-                "title": "The List_item_id Schema",
-                "default": "",
-                "examples": [
-                  "yIluIy"
-                ],
-                "pattern": "^(.*)$"
-              }
-            }
-          }
-        },
-        "lists": {
-          "$id": "#/properties/data/properties/lists",
-          "type": "array",
-          "title": "The Lists Schema",
-          "items": {
-            "$id": "#/properties/data/properties/lists/items",
-            "type": "object",
-            "title": "The Items Schema",
-            "required": [
-              "items",
-              "name"
+            "pattern": "^(.*)$"
+          },
+          "value": {
+            "$id": "#/properties/data/items/properties/value",
+            "type": ["array","string"],
+            "title": "The Value Schema",
+            "default": "",
+            "examples": [
+              "Joe"
             ],
-            "properties": {
-              "items": {
-                "$id": "#/properties/data/properties/lists/items/properties/items",
-                "type": "array",
-                "title": "The Items Schema",
-                "items": {
-                  "$id": "#/properties/data/properties/lists/items/properties/items/items",
-                  "type": "string",
-                  "title": "The Items Schema",
-                  "default": "",
-                  "examples": [
-                    "zGBdpb",
-                    "cWGwcF"
-                  ],
-                  "pattern": "^(.*)$"
-                }
-              },
-              "name": {
-                "$id": "#/properties/data/properties/lists/items/properties/name",
-                "type": "string",
-                "title": "The Name Schema",
-                "default": "",
-                "examples": [
-                  "people"
-                ],
-                "pattern": "^(.*)$"
-              }
-            }
+            "pattern": "^(.*)$"
+          },
+          "list_item_id": {
+            "$id": "#/properties/data/items/properties/list_item_id",
+            "type": "string",
+            "title": "The List_item_id Schema",
+            "default": "",
+            "examples": [
+              "Whujql"
+            ],
+            "pattern": "^(.*)$"
           }
         }
       }
