@@ -1,9 +1,9 @@
 {
   "definitions": {},
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://example.com/root.json",
+  "$id": "https://edc.ons.gov.uk/schemas/eq_submission.json",
   "type": "object",
-  "title": "The Root Schema",
+  "title": "ONS EQ Submission Schema",
   "required": [
     "tx_id",
     "type",
@@ -26,66 +26,73 @@
     "tx_id": {
       "$id": "#/properties/tx_id",
       "type": "string",
-      "title": "The Tx_id Schema",
+      "title": "Transaction ID",
+      "description": "Used to trace a transaction through the whole system",
       "default": "",
       "examples": [
         "411e12a2-e57f-4f07-917d-76c93b422460"
       ],
-      "pattern": "^(.*)$"
+      "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
     },
     "type": {
       "$id": "#/properties/type",
       "type": "string",
-      "title": "The Type Schema",
+      "title": "Type",
+      "description": "The unique type identifier of this JSON file. Can be \"uk.gov.ons.edc.eq:surveyresponse\" or \"uk.gov.ons.edc.eq:feedback\"",
       "default": "",
       "examples": [
-        "xxxxx"
+        "uk.gov.ons.edc.eq:surveyresponse"
       ],
       "pattern": "^(.*)$"
     },
     "version": {
       "$id": "#/properties/version",
       "type": "string",
-      "title": "The Version Schema",
+      "title": "Version",
+      "description": "The version number of the schema definition used to generate and parse the schema. Will always be 3 numbers separated by two dots e.g. \"10.2.33\"",
       "default": "",
       "examples": [
         "0.0.3"
       ],
-      "pattern": "^(.*)$"
+      "pattern": "^0.0.3$"
     },
     "origin": {
       "$id": "#/properties/origin",
       "type": "string",
-      "title": "The Origin Schema",
+      "title": "Origin",
+      "description": "The origin of the submission",
       "default": "",
       "examples": [
-        "yyyyy"
+        "uk.gov.ons.edc.eq"
       ],
       "pattern": "^(.*)$"
     },
     "survey_id": {
       "$id": "#/properties/survey_id",
       "type": "string",
-      "title": "The Survey_id Schema",
+      "title": "Survey_id",
       "default": "",
       "examples": [
-        "0"
+        "census"
       ],
       "pattern": "^(.*)$"
     },
     "flushed": {
       "$id": "#/properties/flushed",
       "type": "boolean",
-      "title": "The Flushed Schema",
+      "title": "Flushed",
+      "description": "Whether the survey was flushed or not. This will be true if the survey has been flushed through EQ",
       "default": false,
       "examples": [
-        false
+        false,
+        true
       ]
     },
     "submitted_at": {
       "$id": "#/properties/submitted_at",
       "type": "string",
-      "title": "The Submitted_at Schema",
+      "title": "submitted_at",
+      "description": "The datetime of submission by the respondent.",
       "default": "",
       "examples": [
         "2019-08-21T12:51:57.119678"
@@ -105,27 +112,29 @@
         "exercise_sid": {
           "$id": "#/properties/collection/properties/exercise_sid",
           "type": "string",
-          "title": "The Exercise_sid Schema",
+          "title": "Collection exercise ID",
           "default": "",
           "examples": [
             "1be356de-bde7-48bf-b169-00e0b3822a9c"
           ],
-          "pattern": "^(.*)$"
+          "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
         },
         "schema_name": {
           "$id": "#/properties/collection/properties/schema_name",
           "type": "string",
-          "title": "The Schema_name Schema",
+          "title": "Schema name",
           "default": "",
           "examples": [
-            "test_relationships"
+            "census_household_gb_eng",
+            "census_household_gb_nir",
+            "census_individual_gb_wls"
           ],
           "pattern": "^(.*)$"
         },
         "period": {
           "$id": "#/properties/collection/properties/period",
           "type": "string",
-          "title": "The Period Schema",
+          "title": "Period",
           "default": "",
           "examples": [
             "201605"
@@ -146,7 +155,7 @@
         "user_id": {
           "$id": "#/properties/metadata/properties/user_id",
           "type": "string",
-          "title": "The User_id Schema",
+          "title": "User ID",
           "default": "",
           "examples": [
             "UNKNOWN"
@@ -156,7 +165,7 @@
         "ru_ref": {
           "$id": "#/properties/metadata/properties/ru_ref",
           "type": "string",
-          "title": "The Ru_ref Schema",
+          "title": "Reporting Unit",
           "default": "",
           "examples": [
             "34942807969m"
@@ -168,7 +177,7 @@
     "response_id": {
       "$id": "#/properties/response_id",
       "type": "string",
-      "title": "The Response_id Schema",
+      "title": "Response ID",
       "default": "",
       "examples": [
         "3387746373631872"
@@ -178,7 +187,7 @@
     "questionnaire_id": {
       "$id": "#/properties/questionnaire_id",
       "type": "string",
-      "title": "The Questionnaire_id Schema",
+      "title": "Questionnaire ID",
       "default": "",
       "examples": [
         "7539657418968524"
@@ -208,7 +217,8 @@
     "started_at": {
       "$id": "#/properties/started_at",
       "type": "string",
-      "title": "The Started_at Schema",
+      "title": "Started At",
+      "description": "The datetime of the first answer saved in a survey",
       "default": "",
       "examples": [
         "2019-08-21T12:51:18.332714"
@@ -218,21 +228,21 @@
     "case_id": {
       "$id": "#/properties/case_id",
       "type": "string",
-      "title": "The Case_id Schema",
+      "title": "Case ID",
       "default": "",
       "examples": [
         "5515cd5f-fcff-44f0-ac02-3530477693ea"
       ],
-      "pattern": "^(.*)$"
+      "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
     },
     "data": {
       "$id": "#/properties/data",
       "type":  "object",
-      "title": "The Data Schema",
+      "title": "Submitted Data",
       "items": {
         "$id": "#/properties/data/items",
         "type": "object",
-        "title": "The Items Schema",
+        "title": "The answers submitted",
         "required": [
           "answer_id",
           "value"
@@ -241,27 +251,40 @@
           "answer_id": {
             "$id": "#/properties/data/items/properties/answer_id",
             "type": "string",
-            "title": "The Answer_id Schema",
+            "title": "Answer ID",
             "default": "",
             "examples": [
-              "first-name"
+              "accommodation-type-answer",
+              "first-name",
+              "ethnic-group-answer"
             ],
             "pattern": "^(.*)$"
           },
           "value": {
             "$id": "#/properties/data/items/properties/value",
-            "type": ["array","string"],
-            "title": "The Value Schema",
-            "default": "",
-            "examples": [
-              "Joe"
-            ],
-            "pattern": "^(.*)$"
+            "type": ["string", "array"],
+            "title": "The response value",
+            "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
+            "pattern": "^(.*)$",
+            "items": {
+              "$id": "#/properties/data/items/properties/value/items",
+              "type": "string",
+              "title": "answer value items",
+              "default": "",
+              "examples": [
+                "Christian",
+                "Buddhist",
+                "Yes",
+                "No"
+              ],
+              "pattern": "^(.*)$"
+            }
           },
           "list_item_id": {
             "$id": "#/properties/data/items/properties/list_item_id",
             "type": "string",
-            "title": "The List_item_id Schema",
+            "title": "List Item ID",
+            "description": "Related items will have the same ID e.g. first name and last name for the same person",
             "default": "",
             "examples": [
               "Whujql"
