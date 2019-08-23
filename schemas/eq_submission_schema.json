@@ -65,7 +65,7 @@
       "examples": [
         "uk.gov.ons.edc.eq"
       ],
-      "pattern": "^(.*)$"
+      "pattern": "^uk.gov.ons.edc.eq$"
     },
     "survey_id": {
       "$id": "#/properties/survey_id",
@@ -122,7 +122,7 @@
         "schema_name": {
           "$id": "#/properties/collection/properties/schema_name",
           "type": "string",
-          "title": "Schema name",
+          "title": "Schema Name",
           "default": "",
           "examples": [
             "census_household_gb_eng",
