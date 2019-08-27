@@ -276,12 +276,16 @@
                 "title": "The response value",
                 "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
                 "default": "",
-                "examples": [
+                "items": {
+                  "$id": "#/properties/data/properties/answers/items/properties/value/items",
+                  "type": "object",
+                  "examples": [
                   "Christian",
                   "Buddhist",
                   "Yes",
                   "No"
-                ],
+                ]
+                },
                 "pattern": "^(.*)$"
               },
               "list_item_id": {
