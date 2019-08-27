@@ -197,22 +197,27 @@
     "case_type": {
       "$id": "#/properties/case_type",
       "type": "string",
+      "items": {
+        "type": "array",
+        "enum": ["HH", "HI", "CE", "CI"]
+      },
       "title": "The Case_type Schema",
       "default": "",
       "examples": [
         "HI"
       ],
-      "pattern": "^(.*)$"
+      "pattern": "^[A-Z]{2}$"
     },
     "region_code": {
       "$id": "#/properties/region_code",
       "type": "string",
       "title": "The Region_code Schema",
+      "description": "A region code defined as per ISO 3166-2:GB",
       "default": "",
       "examples": [
         "GB-ENG"
       ],
-      "pattern": "^(.*)$"
+      "pattern": "^(GB-)[A-Z]{3}$"
     },
     "started_at": {
       "$id": "#/properties/started_at",
