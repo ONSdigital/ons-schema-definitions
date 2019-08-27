@@ -197,10 +197,7 @@
     "case_type": {
       "$id": "#/properties/case_type",
       "type": "string",
-      "items": {
-        "type": "string",
-        "enum": ["HH", "HI", "CE", "CI"]
-      },
+      "enum": ["HH", "HI", "CE", "CI"],
       "title": "The Case_type Schema",
       "default": "",
       "examples": [
