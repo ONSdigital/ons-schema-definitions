@@ -198,7 +198,7 @@
       "$id": "#/properties/case_type",
       "type": "string",
       "items": {
-        "type": "array",
+        "type": "string",
         "enum": ["HH", "HI", "CE", "CI"]
       },
       "title": "The Case_type Schema",
@@ -206,7 +206,7 @@
       "examples": [
         "HI"
       ],
-      "pattern": "^[A-Z]{2}$"
+      "pattern": "^(.*)$"
     },
     "region_code": {
       "$id": "#/properties/region_code",
