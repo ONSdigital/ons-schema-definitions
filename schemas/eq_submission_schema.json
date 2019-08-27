@@ -202,8 +202,7 @@
       "default": "",
       "examples": [
         "HI"
-      ],
-      "pattern": "^(.*)$"
+      ]
     },
     "region_code": {
       "$id": "#/properties/region_code",
@@ -239,59 +238,120 @@
     },
     "data": {
       "$id": "#/properties/data",
-      "type":  "object",
+      "type": "object",
       "title": "Submitted Data",
-      "items": {
-        "$id": "#/properties/data/items",
-        "type": "object",
-        "title": "The answers submitted",
-        "required": [
-          "answer_id",
-          "value"
-        ],
-        "properties": {
-          "answer_id": {
-            "$id": "#/properties/data/items/properties/answer_id",
-            "type": "string",
-            "title": "Answer ID",
-            "default": "",
-            "examples": [
-              "accommodation-type-answer",
-              "first-name",
-              "ethnic-group-answer"
+      "required": [
+        "answers",
+        "lists"
+      ],
+      "properties": {
+        "answers": {
+          "$id": "#/properties/data/properties/answers",
+          "type": "array",
+          "title": "Answer",
+          "items": {
+            "$id": "#/properties/data/properties/answers/items",
+            "type": "object",
+            "title": "The answers submitted",
+            "required": [
+              "answer_id",
+              "value"
             ],
-            "pattern": "^(.*)$"
-          },
-          "value": {
-            "$id": "#/properties/data/items/properties/value",
-            "type": ["string", "array"],
-            "title": "The response value",
-            "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
-            "pattern": "^(.*)$",
-            "items": {
-              "$id": "#/properties/data/items/properties/value/items",
-              "type": "string",
-              "title": "answer value items",
-              "default": "",
-              "examples": [
-                "Christian",
-                "Buddhist",
-                "Yes",
-                "No"
-              ],
-              "pattern": "^(.*)$"
+            "properties": {
+              "answer_id": {
+                "$id": "#/properties/data/properties/answers/items/properties/answer_id",
+                "type": "string",
+                "title": "Answer ID",
+                "default": "",
+                "examples": [
+                  "accommodation-type-answer",
+                  "first-name",
+                  "ethnic-group-answer"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "value": {
+                "$id": "#/properties/data/properties/answers/items/properties/value",
+                "type": ["string", "array"],
+                "title": "The response value",
+                "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
+                "default": "",
+                "examples": [
+                  "Christian",
+                  "Buddhist",
+                  "Yes",
+                  "No"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "list_item_id": {
+                "$id": "#/properties/data/properties/answers/items/properties/list_item_id",
+                "type": "string",
+                "title": "List Item ID",
+                "description": "Related item will have the same ID e.g. first name and last name for the same person",
+                "default": "",
+                "examples": [
+                  "zGBdpb"
+                ],
+                "pattern": "^(.*)$"
+              }
             }
-          },
-          "list_item_id": {
-            "$id": "#/properties/data/items/properties/list_item_id",
-            "type": "string",
-            "title": "List Item ID",
-            "description": "Related items will have the same ID e.g. first name and last name for the same person",
-            "default": "",
-            "examples": [
-              "Whujql"
+          }
+        },
+        "lists": {
+          "$id": "#/properties/data/properties/lists",
+          "type": "array",
+          "title": "Lists",
+          "description": "The lists collected",
+          "items": {
+            "$id": "#/properties/data/properties/lists/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "items",
+              "name"
             ],
-            "pattern": "^(.*)$"
+            "properties": {
+              "items": {
+                "$id": "#/properties/data/properties/lists/items/properties/items",
+                "type": "array",
+                "title": "Items",
+                "description": "A list of the collected items from the schema",
+                "items": {
+                  "$id": "#/properties/data/properties/lists/items/properties/items/items",
+                  "type": "string",
+                  "title": "Items list",
+                  "default": "",
+                  "examples": [
+                    "zGBdpb",
+                    "cWGwcF"
+                  ],
+                  "pattern": "^(.*)$"
+                }
+              },
+              "name": {
+                "$id": "#/properties/data/properties/lists/items/properties/name",
+                "type": "string",
+                "title": "Name",
+                "description": "The name of the list being collected",
+                "default": "",
+                "examples": [
+                  "people"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "primary_person": {
+                "$id": "#/properties/data/properties/lists/items/properties/name",
+                "type": "string",
+                "title": "Primary person ID",
+                "description": "Optional ID of the primary person in a list being collected",
+                "default": "",
+                "examples": [
+                  "zGBdpb"
+                ],
+                "pattern": "^(.*)$"
+              }
+            }
           }
         }
       }
