@@ -57,10 +57,6 @@ Schema Definition
     The datetime of the first answer saved in a survey
   ``submitted_at``
     The datetime of submission by the respondent
-  ``ru_ref``
-    The reporting unit reference responsible for the response id (e.g. UPRN)
-  ``user_id``
-    The id assigned by the respondent management system (hardcoded by RH as "1234567890", other channels to provide a staff member's identifier)
   ``case_type``
     The type of case (e.g. HH | HI | CE | CI for census)
   ``region_code``
@@ -70,8 +66,10 @@ Schema Definition
   ``metadata`` *TBC: outstanding question around the appropriateness of this name
     A dictionary of data required for the purposes of rendering or routing the given eQ schema
 
-        ``display_address``
-          The address displayed to the respondent (provided by RH)
+        ``ru_ref``
+          The reporting unit reference responsible for the response id (e.g. UPRN)
+        ``user_id``
+          The id assigned by the respondent management system (hardcoded by RH as empty "", other channels to provide a staff member's identifier)
 
   ``data`` version 0.0.3
     An object containing the response's lists and answers
@@ -115,7 +113,8 @@ Example Json payloads
             "period": "2019"
         },
         "metadata": {
-            "display_address": "68 Argile Avenue, Bath"
+            "user_id": "1234567890",
+            "ru_ref": "47850401631S",
         },
         "response_id": "2111319119395635",
         "questionnaire_id": "4012828663560993",
@@ -123,9 +122,7 @@ Example Json payloads
         "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
         "case_type": "HI",
         "region_code": "GB-ENG",
-        "user_id": "1234567890",
         "channel": "rh",
-        "ru_ref": "47850401631S",
         "data": {
             answers: [...],
             lists: [...]
@@ -138,12 +135,12 @@ Example Json payloads
 
  "lists": [
     {
-     "name": "people-who-live-here",
+     "name": "household",
      "primary_person": "AUZvFL",
      "items": ["AUZvFL", "yuRiRs"]
      },
      {
-      "name": "visitors",
+      "name": "visitor",
       "items": ["vgeYGW"]
      }
  ]
@@ -201,37 +198,37 @@ Example Json payloads
         "value": [
             {
                 // Father's relationship to mother
-                "from_list_item_id": "tkziBG",
+                "list_item_id": "tkziBG",
                 "to_list_item_id": "jBlqGM",
                 "relationship": "Husband or Wife"
             },
             {
                 // Father's relationship to child 1
-                "from_list_item_id": "tkziBG",
+                "list_item_id": "tkziBG",
                 "to_list_item_id": "CEMVLw",
                 "relationship": "Mother or Father"
             },
             {
                 // Father's relationship to child 2
-                "from_list_item_id": "tkziBG",
+                "list_item_id": "tkziBG",
                 "to_list_item_id": "uknZxD",
                 "relationship": "Mother or Father"
             },
             {
                 // Mother's relationship to child 1
-                "from_list_item_id": "jBlqGM",
+                "list_item_id": "jBlqGM",
                 "to_list_item_id": "CEMVLw",
                 "relationship": "Mother or Father"
             },
             {
                 // Mother's relationship to child 2
-                "from_list_item_id": "jBlqGM",
+                "list_item_id": "jBlqGM",
                 "to_list_item_id": "uknZxD",
                 "relationship": "Mother or Father"
             },
             {
                 // Child 1's relationship to child 2
-                "from_list_item_id": "CEMVLw",
+                "list_item_id": "CEMVLw",
                 "to_list_item_id": "uknZxD",
                 "relationship": "Brother or Sister"
             }
