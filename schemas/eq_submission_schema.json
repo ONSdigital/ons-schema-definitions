@@ -18,7 +18,6 @@
     "questionnaire_id",
     "case_type",
     "region_code",
-    "channel",
     "started_at",
     "case_id",
     "data"
