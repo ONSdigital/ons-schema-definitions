@@ -174,7 +174,7 @@
           "pattern": "^(.*)$"
         },
          "display_address": {
-          "$id": "#/properties/display_address",
+          "$id": "#/properties/metadata/display_address",
           "type": "string",
           "title": "Display Address",
           "default": "",
