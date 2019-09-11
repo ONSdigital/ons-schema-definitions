@@ -20,6 +20,7 @@
     "region_code",
     "started_at",
     "case_id",
+    "display_address",
     "data"
   ],
   "properties": {
@@ -248,6 +249,16 @@
         "5515cd5f-fcff-44f0-ac02-3530477693ea"
       ],
       "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
+    },
+    "display_address": {
+      "$id": "#/properties/display_address",
+      "type": "string",
+      "title": "Display Address",
+      "default": "",
+      "examples": [
+        "68 Abingdon Road, Goathill"
+      ],
+      "pattern": "^(.*)$"
     },
     "data": {
       "$id": "#/properties/data",
