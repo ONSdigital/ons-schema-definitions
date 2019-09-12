@@ -149,7 +149,8 @@
       "title": "The Metadata Schema",
       "required": [
         "user_id",
-        "ru_ref"
+        "ru_ref",
+        "display_address"
       ],
       "properties": {
         "user_id": {
@@ -169,6 +170,16 @@
           "default": "",
           "examples": [
             "34942807969m"
+          ],
+          "pattern": "^(.*)$"
+        },
+         "display_address": {
+          "$id": "#/properties/metadata/display_address",
+          "type": "string",
+          "title": "Display Address",
+          "default": "",
+          "examples": [
+          "68 Abingdon Road, Goathill"
           ],
           "pattern": "^(.*)$"
         }
