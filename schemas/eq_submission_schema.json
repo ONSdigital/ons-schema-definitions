@@ -296,13 +296,11 @@
               },
               "value": {
                 "$id": "#/properties/data/properties/answers/items/properties/value",
-                "type": ["string", "array"],
                 "title": "The response value",
                 "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
                 "default": "",
                 "items": {
                   "$id": "#/properties/data/properties/answers/items/properties/value/items",
-                  "type": "object",
                   "examples": [
                   "Christian",
                   "Buddhist",
