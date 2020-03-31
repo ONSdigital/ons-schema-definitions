@@ -65,6 +65,8 @@ Schema Definition
           The reporting unit reference responsible for the response id (e.g. UPRN)
         ``user_id``
           The id assigned by the respondent management system (hardcoded by RH as empty "", other channels to provide a staff member's identifier)
+        ``display_address``
+          The address displayed to the respondent when completing the questionnaire
 
   ``data`` version 0.0.3
     An object containing the response's lists and answers
