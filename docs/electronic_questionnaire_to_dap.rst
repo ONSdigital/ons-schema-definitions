@@ -53,14 +53,15 @@ Schema Definition
   ``submitted_at``
     The datetime of submission by the respondent
   ``case_type``
-    The type of case (e.g. HH | HI | CE | CI for census)
+    The type of case (e.g. HH | HI | CE | SPG for census)
+  ``form_type``
+    The type of questionnaire form (e.g. H | I | C for census)
   ``region_code``
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
   ``channel``
-    The channel used to launch the electronic questionnaire (ff | cc | ad | rh)
-  ``metadata`` *TBC: outstanding question around the appropriateness of this name
+    The channel used to launch the electronic questionnaire (FIELD | CC | AD | RH for census)
+  ``metadata``
     A dictionary of data required for the purposes of rendering or routing the given eQ schema
-
         ``ru_ref``
           The reporting unit reference responsible for the response id (e.g. UPRN)
         ``user_id``
@@ -117,9 +118,10 @@ Example Json payloads
         "questionnaire_id": "4012828663560993",
         "started_at": "2019-06-21T16:33:30.665144",
         "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
-        "case_type": "HI",
+        "case_type": "SPG",
+        "form_type": "H",
         "region_code": "GB-ENG",
-        "channel": "rh",
+        "channel": "RH",
         "data": {
             answers: [...],
             lists: [...]
