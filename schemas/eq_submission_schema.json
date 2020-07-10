@@ -205,6 +205,26 @@
       ],
       "pattern": "^(.*)$"
     },
+    "launch_language_code": {
+      "$id": "#/properties/launch_language_code",
+      "type": "string",
+      "title": "Launch language code",
+      "default": "",
+      "examples": [
+        "en"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "submission_language_code": {
+      "$id": "#/properties/submission_language_code",
+      "type": "string",
+      "title": "Submission language code",
+      "default": "",
+      "examples": [
+        "cy"
+      ],
+      "pattern": "^(.*)$"
+    },
     "case_type": {
       "$id": "#/properties/case_type",
       "type": "string",
