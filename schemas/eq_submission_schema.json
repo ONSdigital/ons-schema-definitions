@@ -16,6 +16,7 @@
     "metadata",
     "response_id",
     "questionnaire_id",
+    "launch_language_code",
     "case_type",
     "region_code",
     "started_at",
@@ -208,8 +209,8 @@
     "launch_language_code": {
       "$id": "#/properties/launch_language_code",
       "type": "string",
+      "enum": ["en", "cy", "ga", "eo"],
       "title": "Launch language code",
-      "default": "",
       "examples": [
         "en"
       ],
@@ -218,8 +219,8 @@
     "submission_language_code": {
       "$id": "#/properties/submission_language_code",
       "type": "string",
+      "enum": ["en", "cy", "ga", "eo"],
       "title": "Submission language code",
-      "default": "",
       "examples": [
         "cy"
       ],
