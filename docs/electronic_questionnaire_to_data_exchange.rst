@@ -55,6 +55,10 @@ Schema Definition
     The datetime of the first answer saved in a survey
   submitted_at
     The datetime of submission by the respondent.
+  launch_language_code
+    The language code that the questionnaire was launched with (e.g. "en")
+  submission_language_code
+    The language code that was being used on submission (e.g. "en")
   metadata
     user_id
       The respondent user_id as specified by the respondent management system in use.
@@ -124,6 +128,8 @@ Example Json payloads
       },
       "started_at": "2016-03-06T14:10:08Z",
       "submitted_at": "2016-03-07T15:28:05Z",
+      "launch_language_code": 'en',
+      "submission_language_code": 'en',
       "metadata": {
         "user_id": "789473423",
         "ru_ref": "432423423423"

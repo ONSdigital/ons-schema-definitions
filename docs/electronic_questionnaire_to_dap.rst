@@ -52,6 +52,10 @@ Schema Definition
     The datetime of the first answer saved in a survey
   ``submitted_at``
     The datetime of submission by the respondent
+  ``launch_language_code``
+    The language code that the questionnaire was launched with (e.g. en | cy | ga | eo)
+  ``submission_language_code``
+    The language code that was being used on submission (e.g. en | cy | ga | eo)
   ``case_type``
     The type of case (e.g. HH | HI | CE | SPG for census)
   ``form_type``
@@ -105,6 +109,8 @@ Example Json payloads
         "survey_id": "census",
         "flushed": false,
         "submitted_at": "2019-06-21T16:37:56.551086",
+        "launch_language_code": 'en',
+        "submission_language_code": 'en',
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "census_individual_gb_eng.json",
