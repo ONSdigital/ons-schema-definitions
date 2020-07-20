@@ -18,6 +18,8 @@
     },
     "response_id": "6148064303271080",
     "questionnaire_id": "9150293245728665",
+    "launch_language_code": "en",
+    "submission_language_code": "cy",
     "case_type": "HI",
     "region_code": "GB-ENG",
     "started_at": "2019-08-20T11:05:25.604330",
