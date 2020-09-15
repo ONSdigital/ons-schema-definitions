@@ -239,6 +239,35 @@ Example Json payloads
             }
     ]
 
+**answers example (address type)**
+
+.. code-block:: javascript
+
+    "answers": [
+        // example of 2 address question answers
+        {
+        "answer_id": "other-address-uk-answer",
+        "value":
+            {
+                "line1": "20 My Street",
+                "line2": "Middleton",
+                "town": "Mint Town"
+                "postcode": "AB12 CD1"
+            }
+        },
+        {
+        "answer_id": "workplace-address-answer",
+        "value":
+            {
+                "line1": "55 Your Street",
+                "line2": "Lowerton",
+                "town": "Ice Town"
+                "postcode": "XY12 VW1"
+            }
+        }
+    ]
+
+
 JWT envelope / transport
 ========================
 This payload is part of a JWT as specified in :doc:`jwt_profile`.
