@@ -251,8 +251,10 @@ Example Json payloads
             {
                 "line1": "20 My Street",
                 "line2": "Middleton",
-                "town": "Mint Town"
-                "postcode": "AB12 CD1"
+                "town": "Mint Town",
+                "postcode": "AB12 CD1",
+                "uprn": "722100964321"
+
             }
         },
         {
@@ -261,7 +263,7 @@ Example Json payloads
             {
                 "line1": "55 Your Street",
                 "line2": "Lowerton",
-                "town": "Ice Town"
+                "town": "Ice Town",
                 "postcode": "XY12 VW1"
             }
         }
