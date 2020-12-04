@@ -194,6 +194,16 @@
       ],
       "pattern": "^(.*)$"
     },
+    "case_type": {
+      "$id": "#/properties/case_type",
+      "type": "string",
+      "enum": ["HH", "HI", "CE", "CI"],
+      "title": "Case Type",
+      "default": "",
+      "examples": [
+        "HI"
+      ]
+    },
     "launch_language_code": {
       "$id": "#/properties/launch_language_code",
       "type": "string",
