@@ -382,15 +382,23 @@
                                   }
                               ],
                               "required": [
-                                  "line1",
-                                  "town",
-                                  "postcode"
+                                  "line1"
                               ],
                               "properties": {
                                   "line1": {
                                       "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/line1",
                                       "type": "string",
                                       "title": "Address line 1",
+                                      "default": "",
+                                      "examples": [
+                                          "1 Example Street"
+                                      ],
+                                      "pattern": "^(.*)$"
+                                  },
+                                  "line2": {
+                                      "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/line2",
+                                      "type": "string",
+                                      "title": "Address line 2",
                                       "default": "",
                                       "examples": [
                                           "1 Example Street"
