@@ -284,9 +284,9 @@
           "title": "Answer",
           "items": {
               "$id": "#/properties/data/properties/answers/items",
-              "anyOf": [
+              "oneOf": [
                   {
-                      "$id": "#/properties/data/properties/answers/items/anyOf/0",
+                      "$id": "#/properties/data/properties/answers/items/oneOf/0",
                       "type": "object",
                       "title": "General Answer Type",
                       "required": [
@@ -310,6 +310,7 @@
                           "$id": "#/properties/data/properties/answers/items/properties/value",
                           "title": "The response value",
                           "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
+                          "type": ["array", "string", "integer"],
                           "default": "",
                           "items": {
                             "$id": "#/properties/data/properties/answers/items/properties/value/items",
@@ -338,7 +339,7 @@
 
                   },
                   {
-                      "$id": "#/properties/data/properties/answers/items/anyOf/1",
+                      "$id": "#/properties/data/properties/answers/items/oneOf/1",
                       "type": "object",
                       "title": "Address Answer Type",
                       "examples": [
@@ -359,7 +360,7 @@
                       ],
                       "properties": {
                           "answer_id": {
-                              "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/answer_id",
+                              "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/answer_id",
                               "type": "string",
                               "title": "Answer ID",
                               "default": "",
@@ -369,7 +370,7 @@
                               "pattern": "^(.*)$"
                           },
                           "value": {
-                              "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value",
+                              "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value",
                               "type": "object",
                               "title": "Address Answer Value",
                               "default": {},
@@ -386,7 +387,7 @@
                               ],
                               "properties": {
                                   "line1": {
-                                      "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/line1",
+                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/line1",
                                       "type": "string",
                                       "title": "Address line 1",
                                       "default": "",
@@ -396,17 +397,17 @@
                                       "pattern": "^(.*)$"
                                   },
                                   "line2": {
-                                      "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/line2",
+                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/line2",
                                       "type": "string",
                                       "title": "Address line 2",
                                       "default": "",
                                       "examples": [
-                                          "1 Example Street"
+                                          ""
                                       ],
                                       "pattern": "^(.*)$"
                                   },
                                   "town": {
-                                      "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/town",
+                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/town",
                                       "type": "string",
                                       "title": "Town",
                                       "default": "",
@@ -416,7 +417,7 @@
                                       "pattern": "^(.*)$"
                                   },
                                   "postcode": {
-                                      "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/postcode",
+                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/postcode",
                                       "type": "string",
                                       "title": "Post Code",
                                       "default": "",
@@ -426,7 +427,7 @@
                                       "pattern": "^(.*)$"
                                   },
                                   "uprn": {
-                                      "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/value/properties/uprn",
+                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/uprn",
                                       "type": "string",
                                       "title": "UPRN",
                                       "default": "",
@@ -439,7 +440,7 @@
                               "additionalProperties": false
                           },
                           "list_item_id": {
-                              "$id": "#/properties/data/properties/answers/items/anyOf/1/properties/list_item_id",
+                              "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/list_item_id",
                               "type": "string",
                               "title": "The list_item_id schema",
                               "description": "An explanation about the purpose of this instance.",
@@ -453,7 +454,7 @@
                       "additionalProperties": false
                   },
                   {
-                      "$id": "#/properties/data/properties/answers/items/anyOf/2",
+                      "$id": "#/properties/data/properties/answers/items/oneOf/2",
                       "type": "object",
                       "title": "Relationship Answer Type",
                       "default": {},
@@ -475,7 +476,7 @@
                       ],
                       "properties": {
                           "answer_id": {
-                              "$id": "#/properties/data/properties/answers/items/anyOf/2/properties/answer_id",
+                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/answer_id",
                               "type": "string",
                               "title": "Answer ID",
                               "default": "",
@@ -485,7 +486,7 @@
                               "pattern": "^(.*)$"
                           },
                           "value": {
-                              "$id": "#/properties/data/properties/answers/items/anyOf/2/properties/value",
+                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value",
                               "type": "array",
                               "uniqueItems": true,
                               "title": "Relationships Answer Value",
@@ -501,9 +502,9 @@
                               ],
                               "additionalItems": false,
                               "items": {
-                                  "$id": "#/properties/data/properties/answers/items/anyOf/2/properties/value/items",
+                                  "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items",
                                   "type": "object",
-                                  "title": "The first anyOf schema",
+                                  "title": "The first oneOf schema",
                                   "default": {},
                                   "required": [
                                       "list_item_id",
@@ -512,7 +513,7 @@
                                   ],
                                   "properties": {
                                       "list_item_id": {
-                                          "$id": "#/properties/data/properties/answers/items/anyOf/2/properties/value/items/properties/list_item_id",
+                                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/list_item_id",
                                           "type": "string",
                                           "title": "List Item ID",
                                           "default": "",
@@ -522,7 +523,7 @@
                                           "pattern": "^(.*)$"
                                       },
                                       "to_list_item_id": {
-                                          "$id": "#/properties/data/properties/answers/items/anyOf/2/properties/value/items/properties/to_list_item_id",
+                                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/to_list_item_id",
                                           "type": "string",
                                           "title": "To List Item ID",
                                           "default": "",
@@ -532,7 +533,7 @@
                                           "pattern": "^(.*)$"
                                       },
                                       "relationship": {
-                                          "$id": "#/properties/data/properties/answers/items/anyOf/2/properties/value/items/properties/relationship",
+                                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/relationship",
                                           "type": "string",
                                           "title": "Relationship",
                                           "default": "",
@@ -605,7 +606,7 @@
                 "pattern": "^(.*)$"
               },
               "same_name_items": {
-                "$id": "#/properties/data/properties/lists/items/anyOf/0/properties/same_name_items",
+                "$id": "#/properties/data/properties/lists/items/oneOf/0/properties/same_name_items",
                 "type": "array",
                 "title": "Same Name Items",
                 "description": "A list of item ids with the same first and last names",
