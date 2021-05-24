@@ -45,6 +45,8 @@ The following metadata keys are always required for the survey runner, they do n
   The url of the account service (i.e. rrm or ras) used to launch the survey
 ``response_id``
   A unique identifier for the questionnaire response
+``party_id``
+  The ID of the party allocated to the responding unit.
 
 Optional Fields
 ---------------
@@ -77,6 +79,7 @@ An example JSON claim
     "user_id": "64389274239",
     "ru_ref": "7897897J",
     "ru_name": "",
+    "party_id": "be3483c3-f5c9-4b13-bdd7-244db78ff687",
     "eq_id": "678",
     "collection_exercise_sid": "789",
     "period_id": "",
