@@ -46,7 +46,7 @@ The following metadata keys are always required for the survey runner, they do n
 ``response_id``
   A unique identifier for the questionnaire response
 ``party_id``
-  The ID of the party allocated to the responding unit.
+  The ID of the party allocated to the reporting unit.
 
 Optional Fields
 ---------------
