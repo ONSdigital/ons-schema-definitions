@@ -25,33 +25,26 @@ The following metadata keys are always required for the survey runner, they do n
   see :doc:`jwt_profile`
 ``response_id``
   A unique identifier for the questionnaire response
-``questionnaire_id``
-  The Census Questionnaire ID
 ``survey``
-  The survey being launched (CENSUS | CCS)
+  The survey being launched
 ``case_type``
-  The type of case (HH | HI | CE | CI)
+  The type of case
 ``region_code``
   The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
 ``collection_exercise_sid``
   A reference number used to represent the collection exercise inside the ONS
 ``ru_ref``
-  The reporting unit reference id (e.g. UPRN)
+  The reporting unit reference
 ``account_service_url``
-  The url of the account service (e.g. RH) used to launch the survey
+  The url of the account service used to launch the survey
 ``user_id``
-  The id assigned by the respondent management system (hardcoded by RH as "1234567890", other channels to provide a staff member's identifier)
+  The id assigned by the respondent management system
 ``period_id``
-  A string representing the business arrea recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
-
-Census Future Requried Fields
------------------------------
-The following metadata keys will be introduced in due course
-
+  A string representing the business arrea recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey
 ``channel``
-  The channel (client) from which the questionnaire was launched (rh | ff | cc | ad | ce)
+  The channel (client) from which the questionnaire was launched
 
-Census Schema Metadata
+Schema Metadata
 ======================
 
 In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g. ``{"language_code": "en"}``.
