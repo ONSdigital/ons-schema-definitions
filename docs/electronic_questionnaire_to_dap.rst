@@ -25,11 +25,11 @@ Schema Definition
     The unique type identifier of this JSON file.
     Can be "uk.gov.ons.edc.eq:surveyresponse" or "uk.gov.ons.edc.eq:feedback"
   ``version``
-    The version number of the eQ data payload structure (e.g. "0.0.3" for census)
+    The version number of the eQ data payload structure (e.g. "0.0.3")
   ``origin``
     The name or identifier of the data capture system. Currently "uk.gov.ons.edc.eq" (historical named for Electronic Data Collection)
   ``survey_id``
-    The numerical survey identifier as used across the ONS (e.g census | ccs )
+    The numerical survey identifier as used across the ONS
   ``case_id``
     The case UUID used to identify an instance of a survey response request (generated in RM, may not be included if no case has been linked at launch time)
   ``flushed``
@@ -40,14 +40,9 @@ Schema Definition
         ``exercise_sid``
           The Collection exercise UUID (generated in RM)
         ``schema_name``
-          The eQ schema representing the question set presented to the respondent (e.g. census_individual_gb_eng.json)
+          The eQ schema representing the question set presented to the respondent
         ``period``
           A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey (currently hardcoded by RH as 1, to be changed to "2019")
-
-  ``questionnaire_id``
-    A string containing the census Questionnaire ID
-  ``response_id``
-    A string contining the RH response_id (a unique value used in part to generate a unique security key, unlikely to be required downstream so confirm removal)
   ``started_at``
     The datetime of the first answer saved in a survey
   ``submitted_at``
@@ -57,19 +52,19 @@ Schema Definition
   ``submission_language_code``
     The language code that was being used on submission (e.g. en | cy | ga | eo)
   ``case_type``
-    The type of case (e.g. HH | HI | CE | SPG for census)
+    The type of case (e.g. B | BI)
   ``form_type``
-    The type of questionnaire form (e.g. H | I | C for census)
+    The type of questionnaire form
   ``region_code``
     The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR
   ``channel``
-    The channel used to launch the electronic questionnaire (FIELD | CC | AD | RH for census)
+    The channel used to launch the electronic questionnaire
   ``metadata``
-    A dictionary of data required for the purposes of rendering or routing the given eQ schema
+    A dictionary of data required for the purposes of rendering or routing the given eQ schema (e.g.)
         ``ru_ref``
-          The reporting unit reference responsible for the response id (e.g. UPRN)
+          The reporting unit reference responsible for the response id
         ``user_id``
-          The id assigned by the respondent management system (hardcoded by RH as empty "", other channels to provide a staff member's identifier)
+          The id assigned by the respondent management system
         ``display_address``
           The address displayed to the respondent when completing the questionnaire
 
@@ -106,28 +101,27 @@ Example Json payloads
         "type": "uk.gov.ons.edc.eq:surveyresponse",
         "version": "0.0.3",
         "origin": "uk.gov.ons.edc.eq",
-        "survey_id": "census",
+        "survey_id": "",
         "flushed": false,
         "submitted_at": "2019-06-21T16:37:56.551086",
         "launch_language_code": 'en',
         "submission_language_code": 'en',
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
-            "schema_name": "census_individual_gb_eng.json",
-            "period": "2019"
+            "schema_name": "mbs_0201",
+            "period": "JAN2019"
         },
         "metadata": {
             "user_id": "1234567890",
             "ru_ref": "47850401631S",
         },
         "response_id": "2111319119395635",
-        "questionnaire_id": "4012828663560993",
         "started_at": "2019-06-21T16:33:30.665144",
         "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
-        "case_type": "SPG",
+        "case_type": "",
         "form_type": "H",
         "region_code": "GB-ENG",
-        "channel": "RH",
+        "channel": "RAS",
         "data": {
             answers: [...],
             lists: [...]
