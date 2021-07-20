@@ -101,7 +101,7 @@ Example Json payloads
         "type": "uk.gov.ons.edc.eq:surveyresponse",
         "version": "0.0.3",
         "origin": "uk.gov.ons.edc.eq",
-        "survey_id": "",
+        "survey_id": "001",
         "flushed": false,
         "submitted_at": "2019-06-21T16:37:56.551086",
         "launch_language_code": 'en',
