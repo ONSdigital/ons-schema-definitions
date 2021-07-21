@@ -36,20 +36,28 @@ The following metadata keys are always required for the survey runner, they do n
 ``period_id``
   A string representing the business arrea recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey
 
-Optional Fields
----------------
-The runner can optionally accept the following keys.
+Schema Selection Fields
+=======================
 
-``survey``
-  The survey being launched
-``region_code``
-  The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR. This is used in tactical legacy solutions for Individual Response, Email and Feedback features.
+``schema_name``
+  The eQ schema to launch
 ``form_type``
   The particular form_type for a responding unit
 ``eq_id``
   The eQ questionnaire id
-``schema_name``
-  The eQ schema to launch
+
+* if the `schema_name` claim is included this will be used to select the specified questionnaire schema to launch
+* if the `schema_name` claim is omitted both `eq_id` AND `form_type` must be included to map to the corresponding schema to launch
+
+Optional Runner Fields
+----------------------
+
+The runner can optionally accept the following keys.
+
+``survey``
+  The survey being launched (deprecated)
+``region_code``
+  The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR. This is used in tactical legacy solutions for Individual Response, Email and Feedback features.
 ``period_str``
   A display name for the ``period_id`` referenced above
 ``language_code``
@@ -67,8 +75,8 @@ The runner can optionally accept the following keys.
 ``channel``
   The channel (client) from which the questionnaire was launched
 
-Schema Metadata
-----------------------
+Schema Defined Fields
+---------------------
 
 In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g.
 
