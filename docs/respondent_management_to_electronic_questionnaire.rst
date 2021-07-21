@@ -45,9 +45,9 @@ The runner can optionally accept the following keys.
 ``region_code``
   The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. GB-ENG | GB-WLS | GB-NIR. This is used in tactical legacy solutions for Individual Response, Email and Feedback features.
 ``form_type``
-The particular form_type for a responding unit
+  The particular form_type for a responding unit
 ``eq_id``
-The eQ questionnaire id
+  The eQ questionnaire id
 ``schema_name``
   The eQ schema to launch
 ``period_str``
