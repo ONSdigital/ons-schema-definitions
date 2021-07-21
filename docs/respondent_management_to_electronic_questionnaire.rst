@@ -68,7 +68,7 @@ The eQ questionnaire id
   The channel (client) from which the questionnaire was launched
 
 Schema Metadata
-======================
+----------------------
 
 In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g.
 
