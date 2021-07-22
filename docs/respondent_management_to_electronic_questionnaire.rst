@@ -34,7 +34,7 @@ The following metadata keys are always required for the survey runner, they do n
 ``user_id``
   The id assigned by the respondent management system
 ``period_id``
-  A string representing the business arrea recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey
+  A string representing the business area recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey
 
 Schema Selection Fields
 =======================
