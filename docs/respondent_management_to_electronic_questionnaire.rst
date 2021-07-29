@@ -46,8 +46,8 @@ Schema Selection Fields
 ``eq_id``
   The eQ questionnaire id
 
-* if the `schema_name` claim is included this will be used to select the specified questionnaire schema to launch
-* if the `schema_name` claim is omitted both `eq_id` AND `form_type` must be included to map to the corresponding schema to launch
+* if the ``schema_name`` claim is included this will be used to select the specified questionnaire schema to launch
+* if the ``schema_name`` claim is omitted both ``eq_id`` AND ``form_type`` must be included to map to the corresponding schema to launch
 
 Optional Runner Fields
 ----------------------
