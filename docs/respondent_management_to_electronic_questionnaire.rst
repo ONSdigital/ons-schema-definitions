@@ -1,4 +1,4 @@
-Respondent Management Calling System to Electronic Questionnaire
+Respondent Management to Electronic Questionnaire
 ----------------------------------------------------------------
 
 When a respondent is ready to take a survey hosted on the eq system, a set of details
