@@ -83,10 +83,6 @@ In addition to the above required fields, some surveys require other data be pas
 ``display_address``
   The case's address to be displayed
 
-Launching an eQ schema
-----------------------
-If the `schema_name` claim is not included (explicitly specifying the questionnaire schema to launch) then the survey, `eq_id` and `form_type` will be used to map to the corresponding schema in Runner.
-
 An example JSON claim
 =====================
 

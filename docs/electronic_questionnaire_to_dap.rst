@@ -35,7 +35,7 @@ Schema Definition
   ``flushed``
     Whether the survey was flushed or not. This will be `true` if the survey has been flushed through eQ (surveys that haven't been submitted could be flushed through at the end of their collection period) and `false` otherwise.
   ``collection``
-    A dictionary of data about the collction exercise the response is for
+    An object about the collection exercise the response is for
 
         ``exercise_sid``
           The Collection exercise UUID (generated in RM)
