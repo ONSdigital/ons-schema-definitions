@@ -171,8 +171,8 @@ Example 0.0.3 surveyresponse JSON payload (inc. data lists and answers)
         "region_code": "GB-ENG",
         "channel": "RAS",
         "data": {
-            answers: [...],
-            lists: [...]
+            "answers": [...],
+            "lists": [...]
         }
     }
 
@@ -180,17 +180,17 @@ Example 0.0.3 surveyresponse JSON payload (inc. data lists and answers)
 
 .. code-block:: javascript
 
- "lists": [
-    {
-     "name": "household",
-     "primary_person": "AUZvFL",
-     "items": ["AUZvFL", "yuRiRs"]
-     },
-     {
-      "name": "visitor",
-      "items": ["vgeYGW"]
-     }
- ]
+     "lists": [
+        {
+         "name": "household",
+         "primary_person": "AUZvFL",
+         "items": ["AUZvFL", "yuRiRs"]
+         },
+         {
+          "name": "visitor",
+          "items": ["vgeYGW"]
+         }
+     ]
 
 **answers example**
 
