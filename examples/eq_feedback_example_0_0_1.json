@@ -7,7 +7,8 @@
   "data": {
     "feedback_text": "Page design feedback",
     "feedback_type": "Page design and structure",
-    "feedback_count": 7
+    "feedback_count": "7",
+    "feedback_type_question_category": "Household and accommodation"
   },
   "metadata": {
     "ref_period_end_date": "2021-03-29",
@@ -23,5 +24,8 @@
   "type": "uk.gov.ons.edc.eq:feedback",
   "launch_language_code": "en",
   "submission_language_code": "en",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "flushed": false,
+  "started_at": "2021-10-12T10:41:23+00:00",
+  "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d"
 }

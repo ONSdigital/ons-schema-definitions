@@ -14,9 +14,7 @@
     "submitted_at",
     "collection",
     "metadata",
-    "questionnaire_id",
     "launch_language_code",
-    "region_code",
     "started_at",
     "case_id",
     "data"
@@ -40,9 +38,13 @@
       "description": "The unique type identifier of this JSON file. Can be \"uk.gov.ons.edc.eq:surveyresponse\" or \"uk.gov.ons.edc.eq:feedback\"",
       "default": "",
       "examples": [
-        "uk.gov.ons.edc.eq:surveyresponse"
+        "uk.gov.ons.edc.eq:surveyresponse",
+        "uk.gov.ons.edc.eq:feedback"
       ],
-      "pattern": "^(.*)$"
+      "enum": [
+        "uk.gov.ons.edc.eq:surveyresponse",
+        "uk.gov.ons.edc.eq:feedback"
+      ]
     },
     "version": {
       "$id": "#/properties/version",
@@ -51,9 +53,13 @@
       "description": "The version number of the schema definition used to generate and parse the schema. Will always be 3 numbers separated by two dots e.g. \"10.2.33\"",
       "default": "",
       "examples": [
-        "0.0.3"
+        "0.0.3",
+        "0.0.1"
       ],
-      "pattern": "^0.0.3$"
+      "enum": [
+        "0.0.1",
+        "0.0.3"
+      ]
     },
     "origin": {
       "$id": "#/properties/origin",
@@ -146,11 +152,6 @@
       "$id": "#/properties/metadata",
       "type": "object",
       "title": "The Metadata Schema",
-      "required": [
-        "user_id",
-        "ru_ref",
-        "display_address"
-      ],
       "properties": {
         "user_id": {
           "$id": "#/properties/metadata/properties/user_id",
@@ -183,16 +184,6 @@
           "pattern": "^(.*)$"
         }
       }
-    },
-    "questionnaire_id": {
-      "$id": "#/properties/questionnaire_id",
-      "type": "string",
-      "title": "Questionnaire ID",
-      "default": "",
-      "examples": [
-        "7539657418968524"
-      ],
-      "pattern": "^(.*)$"
     },
     "case_type": {
       "$id": "#/properties/case_type",
@@ -285,13 +276,29 @@
       "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
     },
     "data": {
-      "$id": "#/properties/data",
-      "type": "object",
-      "title": "Submitted Data",
       "oneOf": [
         {
+          "$id": "#/properties/data",
+          "type": "object",
+          "title": "Submitted Data",
+          "patternProperties": {
+            "^.*$": {
+              "anyOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "$id": "#/properties/data",
+          "type": "object",
+          "title": "Submitted Data",
           "required": [
-            "answers"
+            "answers",
+            "lists"
           ],
           "properties": {
             "answers": {
@@ -392,7 +399,8 @@
                         "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value",
                         "type": "object",
                         "title": "Address Answer Value",
-                        "default": {},
+                        "default": {
+                        },
                         "examples": [
                           {
                             "line1": "Address Line 1",
@@ -476,7 +484,8 @@
                     "$id": "#/properties/data/properties/answers/items/oneOf/2",
                     "type": "object",
                     "title": "Relationship Answer Type",
-                    "default": {},
+                    "default": {
+                    },
                     "examples": [
                       {
                         "answer_id": "relationship-answer",
@@ -509,7 +518,8 @@
                         "type": "array",
                         "uniqueItems": true,
                         "title": "Relationships Answer Value",
-                        "default": [],
+                        "default": [
+                        ],
                         "examples": [
                           [
                             {
@@ -524,7 +534,8 @@
                           "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items",
                           "type": "object",
                           "title": "The first oneOf schema",
-                          "default": {},
+                          "default": {
+                          },
                           "required": [
                             "list_item_id",
                             "to_list_item_id",
@@ -629,7 +640,8 @@
                     "type": "array",
                     "title": "Same Name Items",
                     "description": "A list of item ids with the same first and last names",
-                    "default": [],
+                    "default": [
+                    ],
                     "examples": [
                       [
                         "TLXLDb",
@@ -640,10 +652,8 @@
                 }
               }
             }
-          }
-        },
-        {
-          "type": "string"
+          },
+          "additionalProperties": false
         }
       ]
     }
