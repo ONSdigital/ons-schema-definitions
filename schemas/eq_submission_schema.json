@@ -172,13 +172,13 @@
           ],
           "pattern": "^(.*)$"
         },
-         "display_address": {
+        "display_address": {
           "$id": "#/properties/metadata/display_address",
           "type": "string",
           "title": "Display Address",
           "default": "",
           "examples": [
-          "68 Abingdon Road, Goathill"
+            "68 Abingdon Road, Goathill"
           ],
           "pattern": "^(.*)$"
         }
@@ -197,7 +197,12 @@
     "case_type": {
       "$id": "#/properties/case_type",
       "type": "string",
-      "enum": ["HH", "HI", "CE", "CI"],
+      "enum": [
+        "HH",
+        "HI",
+        "CE",
+        "CI"
+      ],
       "title": "Case Type",
       "default": "",
       "examples": [
@@ -207,7 +212,12 @@
     "launch_language_code": {
       "$id": "#/properties/launch_language_code",
       "type": "string",
-      "enum": ["en", "cy", "ga", "eo"],
+      "enum": [
+        "en",
+        "cy",
+        "ga",
+        "eo"
+      ],
       "title": "Launch language code",
       "examples": [
         "en"
@@ -217,7 +227,12 @@
     "submission_language_code": {
       "$id": "#/properties/submission_language_code",
       "type": "string",
-      "enum": ["en", "cy", "ga", "eo"],
+      "enum": [
+        "en",
+        "cy",
+        "ga",
+        "eo"
+      ],
       "title": "Submission language code",
       "examples": [
         "cy"
@@ -273,355 +288,364 @@
       "$id": "#/properties/data",
       "type": "object",
       "title": "Submitted Data",
-      "required": [
-        "answers",
-        "lists"
-      ],
-      "properties": {
-        "answers": {
-          "$id": "#/properties/data/properties/answers",
-          "type": "array",
-          "title": "Answer",
-          "items": {
-              "$id": "#/properties/data/properties/answers/items",
-              "oneOf": [
+      "oneOf": [
+        {
+          "required": [
+            "answers"
+          ],
+          "properties": {
+            "answers": {
+              "$id": "#/properties/data/properties/answers",
+              "type": "array",
+              "title": "Answer",
+              "items": {
+                "$id": "#/properties/data/properties/answers/items",
+                "oneOf": [
                   {
-                      "$id": "#/properties/data/properties/answers/items/oneOf/0",
-                      "type": "object",
-                      "title": "General Answer Type",
-                      "required": [
-                        "answer_id",
-                        "value"
-                      ],
-                      "properties": {
-                        "answer_id": {
-                          "$id": "#/properties/data/properties/answers/items/properties/answer_id",
+                    "$id": "#/properties/data/properties/answers/items/oneOf/0",
+                    "type": "object",
+                    "title": "General Answer Type",
+                    "required": [
+                      "answer_id",
+                      "value"
+                    ],
+                    "properties": {
+                      "answer_id": {
+                        "$id": "#/properties/data/properties/answers/items/properties/answer_id",
+                        "type": "string",
+                        "title": "Answer ID",
+                        "default": "",
+                        "examples": [
+                          "accommodation-type-answer",
+                          "first-name",
+                          "ethnic-group-answer"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "value": {
+                        "$id": "#/properties/data/properties/answers/items/properties/value",
+                        "title": "The response value",
+                        "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
+                        "type": [
+                          "array",
+                          "string",
+                          "integer"
+                        ],
+                        "default": "",
+                        "items": {
+                          "$id": "#/properties/data/properties/answers/items/properties/value/items",
                           "type": "string",
-                          "title": "Answer ID",
-                          "default": "",
                           "examples": [
-                            "accommodation-type-answer",
-                            "first-name",
-                            "ethnic-group-answer"
-                          ],
-                          "pattern": "^(.*)$"
+                            "Christian",
+                            "Buddhist",
+                            "Yes",
+                            "No"
+                          ]
                         },
+                        "pattern": "^(.*)$"
+                      },
+                      "list_item_id": {
+                        "$id": "#/properties/data/properties/answers/items/properties/list_item_id",
+                        "type": "string",
+                        "title": "List Item ID",
+                        "description": "Related item will have the same ID e.g. first name and last name for the same person",
+                        "default": "",
+                        "examples": [
+                          "zGBdpb"
+                        ],
+                        "pattern": "^(.*)$"
+                      }
+                    }
+                  },
+                  {
+                    "$id": "#/properties/data/properties/answers/items/oneOf/1",
+                    "type": "object",
+                    "title": "Address Answer Type",
+                    "examples": [
+                      {
+                        "answer_id": "address-answer",
                         "value": {
-                          "$id": "#/properties/data/properties/answers/items/properties/value",
-                          "title": "The response value",
-                          "description": "Can be a single string or multiple strings (e.g. for checkboxes)",
-                          "type": ["array", "string", "integer"],
-                          "default": "",
-                          "items": {
-                            "$id": "#/properties/data/properties/answers/items/properties/value/items",
-                            "type": "string",
-                            "examples": [
-                              "Christian",
-                              "Buddhist",
-                              "Yes",
-                              "No"
-                            ]
-                          },
-                          "pattern": "^(.*)$"
+                          "line1": "Address Line 1",
+                          "town": "Town",
+                          "postcode": "WA10 1AB",
+                          "uprn": "1"
                         },
-                        "list_item_id": {
-                          "$id": "#/properties/data/properties/answers/items/properties/list_item_id",
-                          "type": "string",
-                          "title": "List Item ID",
-                          "description": "Related item will have the same ID e.g. first name and last name for the same person",
-                          "default": "",
-                          "examples": [
-                            "zGBdpb"
+                        "list_item_id": "abcde"
+                      }
+                    ],
+                    "required": [
+                      "answer_id",
+                      "value"
+                    ],
+                    "properties": {
+                      "answer_id": {
+                        "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/answer_id",
+                        "type": "string",
+                        "title": "Answer ID",
+                        "default": "",
+                        "examples": [
+                          "address-answer"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "value": {
+                        "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value",
+                        "type": "object",
+                        "title": "Address Answer Value",
+                        "default": {},
+                        "examples": [
+                          {
+                            "line1": "Address Line 1",
+                            "town": "Town",
+                            "postcode": "NP10 8XG",
+                            "uprn": "12345678912"
+                          }
+                        ],
+                        "required": [
+                          "line1"
+                        ],
+                        "properties": {
+                          "line1": {
+                            "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/line1",
+                            "type": "string",
+                            "title": "Address line 1",
+                            "default": "",
+                            "examples": [
+                              "1 Example Street"
+                            ],
+                            "pattern": "^(.*)$"
+                          },
+                          "line2": {
+                            "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/line2",
+                            "type": "string",
+                            "title": "Address line 2",
+                            "default": "",
+                            "examples": [
+                              ""
+                            ],
+                            "pattern": "^(.*)$"
+                          },
+                          "town": {
+                            "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/town",
+                            "type": "string",
+                            "title": "Town",
+                            "default": "",
+                            "examples": [
+                              "London"
+                            ],
+                            "pattern": "^(.*)$"
+                          },
+                          "postcode": {
+                            "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/postcode",
+                            "type": "string",
+                            "title": "Post Code",
+                            "default": "",
+                            "examples": [
+                              "WA10 1AB"
+                            ],
+                            "pattern": "^(.*)$"
+                          },
+                          "uprn": {
+                            "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/uprn",
+                            "type": "string",
+                            "title": "UPRN",
+                            "default": "",
+                            "examples": [
+                              "12345678912"
+                            ],
+                            "pattern": "^(.*)$"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "list_item_id": {
+                        "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/list_item_id",
+                        "type": "string",
+                        "title": "The list_item_id schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                          "cWGwcF"
+                        ],
+                        "pattern": "^(.*)$"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  {
+                    "$id": "#/properties/data/properties/answers/items/oneOf/2",
+                    "type": "object",
+                    "title": "Relationship Answer Type",
+                    "default": {},
+                    "examples": [
+                      {
+                        "answer_id": "relationship-answer",
+                        "value": [
+                          {
+                            "list_item_id": "zGBdpb",
+                            "to_list_item_id": "cWGwcF",
+                            "relationship": "Husband or Wife"
+                          }
+                        ]
+                      }
+                    ],
+                    "required": [
+                      "answer_id",
+                      "value"
+                    ],
+                    "properties": {
+                      "answer_id": {
+                        "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/answer_id",
+                        "type": "string",
+                        "title": "Answer ID",
+                        "default": "",
+                        "examples": [
+                          "relationship-answer"
+                        ],
+                        "pattern": "^(.*)$"
+                      },
+                      "value": {
+                        "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value",
+                        "type": "array",
+                        "uniqueItems": true,
+                        "title": "Relationships Answer Value",
+                        "default": [],
+                        "examples": [
+                          [
+                            {
+                              "list_item_id": "zGBdpb",
+                              "to_list_item_id": "cWGwcF",
+                              "relationship": "Husband or Wife"
+                            }
+                          ]
+                        ],
+                        "additionalItems": false,
+                        "items": {
+                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items",
+                          "type": "object",
+                          "title": "The first oneOf schema",
+                          "default": {},
+                          "required": [
+                            "list_item_id",
+                            "to_list_item_id",
+                            "relationship"
                           ],
-                          "pattern": "^(.*)$"
+                          "properties": {
+                            "list_item_id": {
+                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/list_item_id",
+                              "type": "string",
+                              "title": "List Item ID",
+                              "default": "",
+                              "examples": [
+                                "zGBdpb"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "to_list_item_id": {
+                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/to_list_item_id",
+                              "type": "string",
+                              "title": "To List Item ID",
+                              "default": "",
+                              "examples": [
+                                "cWGwcF"
+                              ],
+                              "pattern": "^(.*)$"
+                            },
+                            "relationship": {
+                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/relationship",
+                              "type": "string",
+                              "title": "Relationship",
+                              "default": "",
+                              "examples": [
+                                "Husband or Wife"
+                              ],
+                              "pattern": "^(.*)$"
+                            }
+                          },
+                          "additionalProperties": false
                         }
                       }
-
-                  },
-                  {
-                      "$id": "#/properties/data/properties/answers/items/oneOf/1",
-                      "type": "object",
-                      "title": "Address Answer Type",
-                      "examples": [
-                          {
-                              "answer_id": "address-answer",
-                              "value": {
-                                  "line1": "Address Line 1",
-                                  "town": "Town",
-                                  "postcode": "WA10 1AB",
-                                  "uprn": "1"
-                              },
-                              "list_item_id": "abcde"
-                          }
-                      ],
-                      "required": [
-                          "answer_id",
-                          "value"
-                      ],
-                      "properties": {
-                          "answer_id": {
-                              "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/answer_id",
-                              "type": "string",
-                              "title": "Answer ID",
-                              "default": "",
-                              "examples": [
-                                  "address-answer"
-                              ],
-                              "pattern": "^(.*)$"
-                          },
-                          "value": {
-                              "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value",
-                              "type": "object",
-                              "title": "Address Answer Value",
-                              "default": {},
-                              "examples": [
-                                  {
-                                      "line1": "Address Line 1",
-                                      "town": "Town",
-                                      "postcode": "NP10 8XG",
-                                      "uprn": "12345678912"
-                                  }
-                              ],
-                              "required": [
-                                  "line1"
-                              ],
-                              "properties": {
-                                  "line1": {
-                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/line1",
-                                      "type": "string",
-                                      "title": "Address line 1",
-                                      "default": "",
-                                      "examples": [
-                                          "1 Example Street"
-                                      ],
-                                      "pattern": "^(.*)$"
-                                  },
-                                  "line2": {
-                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/line2",
-                                      "type": "string",
-                                      "title": "Address line 2",
-                                      "default": "",
-                                      "examples": [
-                                          ""
-                                      ],
-                                      "pattern": "^(.*)$"
-                                  },
-                                  "town": {
-                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/town",
-                                      "type": "string",
-                                      "title": "Town",
-                                      "default": "",
-                                      "examples": [
-                                          "London"
-                                      ],
-                                      "pattern": "^(.*)$"
-                                  },
-                                  "postcode": {
-                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/postcode",
-                                      "type": "string",
-                                      "title": "Post Code",
-                                      "default": "",
-                                      "examples": [
-                                          "WA10 1AB"
-                                      ],
-                                      "pattern": "^(.*)$"
-                                  },
-                                  "uprn": {
-                                      "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/value/properties/uprn",
-                                      "type": "string",
-                                      "title": "UPRN",
-                                      "default": "",
-                                      "examples": [
-                                          "12345678912"
-                                      ],
-                                      "pattern": "^(.*)$"
-                                  }
-                              },
-                              "additionalProperties": false
-                          },
-                          "list_item_id": {
-                              "$id": "#/properties/data/properties/answers/items/oneOf/1/properties/list_item_id",
-                              "type": "string",
-                              "title": "The list_item_id schema",
-                              "description": "An explanation about the purpose of this instance.",
-                              "default": "",
-                              "examples": [
-                                  "cWGwcF"
-                              ],
-                              "pattern": "^(.*)$"
-                          }
-                      },
-                      "additionalProperties": false
-                  },
-                  {
-                      "$id": "#/properties/data/properties/answers/items/oneOf/2",
-                      "type": "object",
-                      "title": "Relationship Answer Type",
-                      "default": {},
-                      "examples": [
-                          {
-                              "answer_id": "relationship-answer",
-                              "value": [
-                                  {
-                                      "list_item_id": "zGBdpb",
-                                      "to_list_item_id": "cWGwcF",
-                                      "relationship": "Husband or Wife"
-                                  }
-                              ]
-                          }
-                      ],
-                      "required": [
-                          "answer_id",
-                          "value"
-                      ],
-                      "properties": {
-                          "answer_id": {
-                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/answer_id",
-                              "type": "string",
-                              "title": "Answer ID",
-                              "default": "",
-                              "examples": [
-                                  "relationship-answer"
-                              ],
-                              "pattern": "^(.*)$"
-                          },
-                          "value": {
-                              "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value",
-                              "type": "array",
-                              "uniqueItems": true,
-                              "title": "Relationships Answer Value",
-                              "default": [],
-                              "examples": [
-                                  [
-                                      {
-                                          "list_item_id": "zGBdpb",
-                                          "to_list_item_id": "cWGwcF",
-                                          "relationship": "Husband or Wife"
-                                      }
-                                  ]
-                              ],
-                              "additionalItems": false,
-                              "items": {
-                                  "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items",
-                                  "type": "object",
-                                  "title": "The first oneOf schema",
-                                  "default": {},
-                                  "required": [
-                                      "list_item_id",
-                                      "to_list_item_id",
-                                      "relationship"
-                                  ],
-                                  "properties": {
-                                      "list_item_id": {
-                                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/list_item_id",
-                                          "type": "string",
-                                          "title": "List Item ID",
-                                          "default": "",
-                                          "examples": [
-                                              "zGBdpb"
-                                          ],
-                                          "pattern": "^(.*)$"
-                                      },
-                                      "to_list_item_id": {
-                                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/to_list_item_id",
-                                          "type": "string",
-                                          "title": "To List Item ID",
-                                          "default": "",
-                                          "examples": [
-                                              "cWGwcF"
-                                          ],
-                                          "pattern": "^(.*)$"
-                                      },
-                                      "relationship": {
-                                          "$id": "#/properties/data/properties/answers/items/oneOf/2/properties/value/items/properties/relationship",
-                                          "type": "string",
-                                          "title": "Relationship",
-                                          "default": "",
-                                          "examples": [
-                                              "Husband or Wife"
-                                          ],
-                                          "pattern": "^(.*)$"
-                                      }
-                                  },
-                                  "additionalProperties": false
-                              }
-                          }
-                      },
-                      "additionalProperties": false
+                    },
+                    "additionalProperties": false
                   }
-              ]
-          }
-        },
-        "lists": {
-          "$id": "#/properties/data/properties/lists",
-          "type": "array",
-          "title": "Lists",
-          "description": "The lists collected",
-          "items": {
-            "$id": "#/properties/data/properties/lists/items",
-            "type": "object",
-            "title": "The Items Schema",
-            "required": [
-              "items",
-              "name"
-            ],
-            "properties": {
-              "items": {
-                "$id": "#/properties/data/properties/lists/items/properties/items",
-                "type": "array",
-                "title": "Items",
-                "description": "A list of the collected items from the schema",
-                "items": {
-                  "$id": "#/properties/data/properties/lists/items/properties/items/items",
-                  "type": "string",
-                  "title": "Items list",
-                  "default": "",
-                  "examples": [
-                    "zGBdpb",
-                    "cWGwcF"
-                  ],
-                  "pattern": "^(.*)$"
-                }
-              },
-              "name": {
-                "$id": "#/properties/data/properties/lists/items/properties/name",
-                "type": "string",
-                "title": "Name",
-                "description": "The name of the list being collected",
-                "default": "",
-                "examples": [
-                  "people"
-                ],
-                "pattern": "^(.*)$"
-              },
-              "primary_person": {
-                "$id": "#/properties/data/properties/lists/items/properties/name",
-                "type": "string",
-                "title": "Primary person ID",
-                "description": "Optional ID of the primary person in a list being collected",
-                "default": "",
-                "examples": [
-                  "zGBdpb"
-                ],
-                "pattern": "^(.*)$"
-              },
-              "same_name_items": {
-                "$id": "#/properties/data/properties/lists/items/oneOf/0/properties/same_name_items",
-                "type": "array",
-                "title": "Same Name Items",
-                "description": "A list of item ids with the same first and last names",
-                "default": [],
-                "examples": [
-                    [
-                      "TLXLDb",
-                      "EINoLs"
-                    ]
                 ]
+              }
+            },
+            "lists": {
+              "$id": "#/properties/data/properties/lists",
+              "type": "array",
+              "title": "Lists",
+              "description": "The lists collected",
+              "items": {
+                "$id": "#/properties/data/properties/lists/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                  "items",
+                  "name"
+                ],
+                "properties": {
+                  "items": {
+                    "$id": "#/properties/data/properties/lists/items/properties/items",
+                    "type": "array",
+                    "title": "Items",
+                    "description": "A list of the collected items from the schema",
+                    "items": {
+                      "$id": "#/properties/data/properties/lists/items/properties/items/items",
+                      "type": "string",
+                      "title": "Items list",
+                      "default": "",
+                      "examples": [
+                        "zGBdpb",
+                        "cWGwcF"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  },
+                  "name": {
+                    "$id": "#/properties/data/properties/lists/items/properties/name",
+                    "type": "string",
+                    "title": "Name",
+                    "description": "The name of the list being collected",
+                    "default": "",
+                    "examples": [
+                      "people"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "primary_person": {
+                    "$id": "#/properties/data/properties/lists/items/properties/name",
+                    "type": "string",
+                    "title": "Primary person ID",
+                    "description": "Optional ID of the primary person in a list being collected",
+                    "default": "",
+                    "examples": [
+                      "zGBdpb"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "same_name_items": {
+                    "$id": "#/properties/data/properties/lists/items/oneOf/0/properties/same_name_items",
+                    "type": "array",
+                    "title": "Same Name Items",
+                    "description": "A list of item ids with the same first and last names",
+                    "default": [],
+                    "examples": [
+                      [
+                        "TLXLDb",
+                        "EINoLs"
+                      ]
+                    ]
+                  }
+                }
               }
             }
           }
+        },
+        {
+          "type": "string"
         }
-      }
+      ]
     }
   }
 }

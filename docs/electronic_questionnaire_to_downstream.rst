@@ -1,6 +1,6 @@
 Electronic Questionnaire Response
 ------------------------------------------------
-All submitted responses for a collection exercise (a questionnaire within a survey series) are transformed into data format described below for downstream processing and analysis.
+All submitted responses for a collection exercise (a periodic questionnaire within a survey series) are transformed into data format described below for downstream processing and analysis.
 
 The data structures created by Runner (e.g the answer store) are designed and optimised primarily for the purposes of generic functionality within the Runner application. As a general principle, the extent of the transform carried out by Runner on submitted response data beyond its native data models, as well as on claims received by the launching system, is minimal. It is not the responsibility of Runner to carry out bespoke data transforms. Historically SDX has been responsible for more extensive and complex data transforms.
 
