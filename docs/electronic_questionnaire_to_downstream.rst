@@ -311,7 +311,7 @@ Example 0.0.3 surveyresponse JSON payload (inc. data lists and answers)
         }
     ]
 
-Example 0.0.1 and 0.0.3 feedback JSON payload
+Example 0.0.1 feedback JSON payload
 =====
 
 .. code-block:: javascript
@@ -338,7 +338,10 @@ Example 0.0.1 and 0.0.3 feedback JSON payload
         "survey_id": "0007",
         "tx_id": "5d4e1a37-ed21-440a-8c4d-3054a124a104",
         "type": "uk.gov.ons.edc.eq:feedback",
-        "version": "0.0.1"
+        "version": "0.0.1",
+        "flushed": false,
+        "started_at": "2021-10-12T10:41:23+00:00",
+        "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d"
     }
 
 JWT envelope / transport
