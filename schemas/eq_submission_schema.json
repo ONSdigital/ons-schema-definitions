@@ -5,6 +5,7 @@
   "type": "object",
   "title": "ONS EQ Submission Schema",
   "required": [
+    "case_id",
     "tx_id",
     "type",
     "version",
@@ -16,7 +17,6 @@
     "metadata",
     "launch_language_code",
     "started_at",
-    "case_id",
     "data"
   ],
   "properties": {
@@ -274,6 +274,16 @@
         "5515cd5f-fcff-44f0-ac02-3530477693ea"
       ],
       "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$"
+    },
+    "form_type": {
+      "$id": "#/properties/form_type",
+      "type": "string",
+      "title": "Form Type",
+      "default": "",
+      "examples": [
+        "0001"
+      ],
+      "pattern": "^(.*)$"
     },
     "data": {
       "oneOf": [
