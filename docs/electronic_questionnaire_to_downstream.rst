@@ -1,6 +1,6 @@
 Electronic Questionnaire Response
 ------------------------------------------------
-All submitted responses for a collection exercise (a periodic questionnaire within a survey series) are transformed into data format described below for downstream processing and analysis.
+All submitted survey responses and feedback for a collection exercise (a periodic questionnaire within a survey series) are transformed into data format described below for downstream processing and analysis.
 
 The data structures created by Runner (e.g the answer store) are designed and optimised primarily for the purposes of generic functionality within the Runner application. As a general principle, the extent of the transform carried out by Runner on submitted response data beyond its native data models, as well as on claims received by the launching system, is minimal. It is not the responsibility of Runner to carry out bespoke data transforms. Historically SDX has been responsible for more extensive and complex data transforms.
 
@@ -8,7 +8,7 @@ The response JSON is encrypted using the public key of the downstream transport 
 
 When the Runner Rabbit MQ submitter is used, the cyphertext message is published to the designated queue for downstream consumption.
 
-When the Runner GCS submitter is used, an object containing the response cyphertext, named for the response `tx_id`, is written to a bucket for downstream consumption. The GCS response object contains associated metadata which can be used in a Pub/Sub messaging strategy for further event driven processes (e.g receipting and triggering ingestion flow).
+When the Runner GCS submitter is used, an object containing the response cyphertext is written to a bucket for downstream consumption. For surveyresponse objects, the object ID is named for the response's `tx_id`. For feedback, the object ID is named with a uniquely generated UUID. The GCS response object contains associated metadata which can be used in a Pub/Sub messaging strategy for further event driven processes (e.g receipting and triggering ingestion flow).
 
 .. code-block:: javascript
 
@@ -59,9 +59,9 @@ Schema Definition
   ``case_type``
     The type of case (e.g. ``B`` | ``BI``)
   ``started_at``
-    The datetime of the first answer saved in a survey
+    The datetime of the first answer saved in the survey the response is for
   ``submitted_at``
-    The datetime of submission by the respondent
+    The datetime of the submitted survey response or feedback by the respondent
   ``launch_language_code``
     The language code that the questionnaire was launched with (e.g. en | cy | ga | eo)
   ``submission_language_code``
@@ -80,7 +80,15 @@ Schema Definition
           The address displayed to the respondent when completing the questionnaire
 
   ``data`` version 0.0.1
-    An object of key, value pairings of answer responses using the business defined q_code as the key for each answer
+    An object of key, value pairings. Depending on the ``surveyresponse`` or ``feedback`` type these will typically contain either;
+
+    - answer responses using the business defined q_code as the key for each answer
+    - survey feedback form properties with corresponding user entered values
+
+          - ``feedback_text``
+          - ``feedback_type``
+          - ``feedback_type_question_category``
+          - ``feedback_count``
 
   ``data`` version 0.0.3
     An object of lists and answers arrays
