@@ -69,7 +69,7 @@ Schema Definition
   ``channel``
     The channel used to launch the electronic questionnaire
   ``flushed``
-    Whether the survey was flushed or not. This will be ``true`` if the survey has been flushed through Runner (surveys that haven't been submitted could be flushed through at the end of their collection period) and ``false`` otherwise.
+    Whether the surveyresponse or feedback was flushed or not. This will be ``true`` if the surveyresponse has been flushed through Runner and ``false`` otherwise. It is not currently possible for feedback to be flushed.
   ``metadata``
     A dictionary of data required for the purposes of rendering or routing the given Runner schema (e.g.)
         ``ru_ref``
