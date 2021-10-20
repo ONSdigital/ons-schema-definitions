@@ -324,32 +324,36 @@ Example 0.0.1 feedback JSON payload
 
 .. code-block:: javascript
 
-    {
+   {
+        "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
+        "type": "uk.gov.ons.edc.eq:surveyresponse",
+        "version": "0.0.1",
+        "origin": "uk.gov.ons.edc.eq",
+        "survey_id": "009",
+        "flushed": false,
+        "submitted_at": "2019-06-21T16:37:56.551086",
+        "launch_language_code": 'en',
+        "submission_language_code": 'en',
         "collection": {
-            "exercise_sid": "eedbdf46-adac-49f7-b4c3-2251807381c3",
-            "schema_name": "carbon_0007",
-            "period": "3003"
-        },
-        "data": {
-                "feedback_text": "Page design feedback",
-                "feedback_type": "Page design and structure",
-                "feedback_count": 7,
+            "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
+            "schema_name": "mbs_0203",
+            "period": "JAN2019"
         },
         "metadata": {
-            "ref_period_end_date": "2021-03-29",
-            "ref_period_start_date": "2021-03-01",
-            "ru_ref": "11110000022H",
-            "user_id": "d98d78eb-d23a-494d-b67c-e770399de383"
+            "user_id": "1234567890",
+            "ru_ref": "47850401631S",
+            "ref_period_start_date": "2016-05-01",
+            "ref_period_end_date": "2016-05-31",
         },
-        "origin": "uk.gov.ons.edc.eq",
-        "submitted_at": "2021-10-12T10:41:23+00:00",
-        "survey_id": "0007",
-        "tx_id": "5d4e1a37-ed21-440a-8c4d-3054a124a104",
-        "type": "uk.gov.ons.edc.eq:feedback",
-        "version": "0.0.1",
-        "flushed": false,
-        "started_at": "2021-10-12T10:41:23+00:00",
-        "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d"
+        "started_at": "2019-06-21T16:33:30.665144",
+        "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
+        "case_type": "B",
+        "form_type": "0203",
+        "data": {
+                "feedback_text": "I like this survey",
+                "feedback_type": "Page design and structure",
+                "feedback_count": "7",
+        },
     }
 
 JWT envelope / transport
