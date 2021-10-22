@@ -35,6 +35,8 @@ The following metadata keys are always required for the survey runner, they do n
   The id assigned by the respondent management system
 ``period_id``
   A string representing the business area recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey
+``account_service_url``
+  The url of the account service used to launch the survey
 
 **Schema Selection Fields**
 
@@ -67,8 +69,6 @@ The runner can optionally accept the following keys.
   The case reference identified by the above UUID (e.g. "1000000000000001")
 ``case_type``
   The type of case
-``account_service_url``
-  The url of the account service used to launch the survey
 ``account_service_log_out_url``
   The logout url of the account service used to launch the survey.  Not required for services that don't have a log in function (i.e., respondent home)
 ``channel``
