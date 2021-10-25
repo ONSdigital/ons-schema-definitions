@@ -78,7 +78,7 @@
       "title": "Survey_id",
       "default": "",
       "examples": [
-        "census"
+        "001"
       ],
       "pattern": "^(.*)$"
     },
@@ -130,9 +130,7 @@
           "title": "Schema Name",
           "default": "",
           "examples": [
-            "census_household_gb_eng",
-            "census_household_gb_nir",
-            "census_individual_gb_wls"
+            "mbs_0253"
           ],
           "pattern": "^(.*)$"
         },
