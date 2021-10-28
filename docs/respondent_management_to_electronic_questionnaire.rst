@@ -77,10 +77,14 @@ The runner can optionally accept the following keys.
 Schema Defined Fields
 ---------------------
 
-In addition to the above required fields, some surveys require other data be passed. These can simply have their keys added as a claim in the main JWT body. e.g.
+In addition to the above required fields, some surveys require other data to be passed for use within a questionnaire. These can simply have their keys added as a claim in the main JWT body. e.g.
 
 ``display_address``
   The case's address to be displayed
+``ref_p_start_date``
+  The reference period's start date
+``ref_p_end_date``
+  The reference period's end date
 
 An example JSON claim
 =====================
@@ -91,21 +95,26 @@ An example JSON claim
     "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
     "iat": 1458047712,
     "exp": 1458057712,
-    "response_id": "2420000014903143",
-    "case_type": "B"
-    "region_code": "GB-ENG",
-    "collection_exercise_sid": "789",
+    "user_id": "64389274239",
     "ru_ref": "49900000001A",
-    "language_code": "en",
-    "account_service_url": "http://localhost:9092",
+    "ru_name": "ACME T&T Limited",
+    "eq_id": "mbs",
+    "collection_exercise_sid": "789",
+    "period_id": "202101",
+    "period_str": "January 2021",
+    "ref_p_start_date": "01-01-2021",
+    "ref_p_end_date": "31-12-2021",
+    "employment_date": "15-06-2021",
     "display_address": "ONS, Segensworth Road",
-    "channel": "rh",
-    "survey": "CENSUS",
-    "user_id": "1234567890",
-    "period_id": "1",
-    "schema_name": "census_individual_gb_eng",
+    "trad_as": "ACME T&T Limited",
+    "form_type": "0253",
+    "region_code": "GB-ENG",
+    "language_code": "en",
+    "schema_name": "mbs_0253",
+    "case_type": "B",
+    "case_ref": "1000000000000001"
+    "response_id": "QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="
   }
-
 
 JWT envelope / transport
 ========================
