@@ -87,7 +87,6 @@ Schema Definition
 
           - ``feedback_text``
           - ``feedback_type``
-          - ``feedback_type_question_category``
           - ``feedback_count``
 
   ``data`` version 0.0.3
