@@ -128,7 +128,7 @@ Example 0.0.1 surveyresponse JSON payloads
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "mbs_0203",
-            "period": "JAN2019"
+            "period": "JAN2019",
             "instrument_id": "0203"
         },
         "metadata": {
@@ -167,7 +167,7 @@ Example 0.0.3 surveyresponse JSON payload (inc. data lists and answers)
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "mbs_0203",
-            "period": "JAN2019"
+            "period": "JAN2019",
             "instrument_id": "0203"
         },
         "metadata": {
@@ -340,7 +340,7 @@ Example 0.0.1 feedback JSON payload
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "mbs_0203",
-            "period": "JAN2019"
+            "period": "JAN2019",
             "instrument_id": "0203"
         },
         "metadata": {

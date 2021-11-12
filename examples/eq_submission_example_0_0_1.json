@@ -9,7 +9,8 @@
     "collection": {
         "exercise_sid": "ae62cb63-be41-4160-8bff-eb2a3bab5c6e",
         "schema_name": "test_relationships",
-        "period": "201605"
+        "period": "201605",
+        "instrument_id": "0234"
     },
     "metadata": {
         "user_id": "UNKNOWN",
