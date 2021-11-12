@@ -73,6 +73,8 @@ The runner can optionally accept the following keys.
   The logout url of the account service used to launch the survey.  Not required for services that don't have a log in function (i.e., respondent home)
 ``channel``
   The channel (client) from which the questionnaire was launched
+``response_expires_at``
+  An ISO_8601 formatted date-time after which the unsubmitted partial response can be deleted from the database
 
 Schema Defined Fields
 ---------------------
@@ -114,6 +116,7 @@ An example JSON claim
     "case_type": "B",
     "case_ref": "1000000000000001"
     "response_id": "QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="
+    "response_expires_at": "2021-11-10T14:06:38+00:00"
   }
 
 JWT envelope / transport
