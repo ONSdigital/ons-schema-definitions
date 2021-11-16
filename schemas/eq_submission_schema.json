@@ -111,7 +111,8 @@
       "required": [
         "exercise_sid",
         "schema_name",
-        "period"
+        "period",
+        "instrument_id"
       ],
       "properties": {
         "exercise_sid": {
@@ -141,6 +142,16 @@
           "default": "",
           "examples": [
             "201605"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "instrument_id": {
+          "$id": "#/properties/instrument_id",
+          "type": "string",
+          "title": "Instrument ID",
+          "default": "",
+          "examples": [
+            "0001"
           ],
           "pattern": "^(.*)$"
         }

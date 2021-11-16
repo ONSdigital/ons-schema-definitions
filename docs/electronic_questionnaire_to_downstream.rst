@@ -35,7 +35,7 @@ Schema Definition
     The unique type identifier of this JSON file.
     Can be "uk.gov.ons.edc.eq:surveyresponse" or "uk.gov.ons.edc.eq:feedback"
   ``version``
-    The version number of the Runner data payload structure (one of ``0.0.1`` | ``0.0.3``)
+    The version number of the questionnaire schemas ``data_version``. This indicates the data payload convertor that was used (one of ``0.0.1`` | ``0.0.3``)
   ``origin``
     The name or identifier of the data capture system. Currently "uk.gov.ons.edc.eq" (historicaly named for Electronic Data Collection)
   ``survey_id``
@@ -52,6 +52,8 @@ Schema Definition
           The Runner schema representing the question set presented to the respondent
         ``period``
           A string representing the business area's time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey.
+        ``instrument_id`` (deprecated)
+          The same value as the top level ``form_type`` property (required by legacy downstream systems)
   ``case_id``
     The case UUID used to identify an instance of a survey response request (generated in RM, may not be included if no case has been linked at launch time)
   ``case_ref``
@@ -126,7 +128,8 @@ Example 0.0.1 surveyresponse JSON payloads
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "mbs_0203",
-            "period": "JAN2019"
+            "period": "JAN2019",
+            "instrument_id": "0203"
         },
         "metadata": {
             "user_id": "1234567890",
@@ -164,7 +167,8 @@ Example 0.0.3 surveyresponse JSON payload (inc. data lists and answers)
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "mbs_0203",
-            "period": "JAN2019"
+            "period": "JAN2019",
+            "instrument_id": "0203"
         },
         "metadata": {
             "user_id": "1234567890",
@@ -336,7 +340,8 @@ Example 0.0.1 feedback JSON payload
         "collection": {
             "exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
             "schema_name": "mbs_0203",
-            "period": "JAN2019"
+            "period": "JAN2019",
+            "instrument_id": "0203"
         },
         "metadata": {
             "user_id": "1234567890",
