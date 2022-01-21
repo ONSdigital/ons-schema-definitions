@@ -329,7 +329,7 @@ Example 0.0.1 feedback JSON payload
 
    {
         "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
-        "type": "uk.gov.ons.edc.eq:surveyresponse",
+        "type": "uk.gov.ons.edc.eq:feedback",
         "version": "0.0.1",
         "origin": "uk.gov.ons.edc.eq",
         "survey_id": "009",
