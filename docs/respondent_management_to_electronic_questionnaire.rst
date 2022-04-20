@@ -54,7 +54,7 @@ The runner can optionally accept the following keys.
   A display name for the ``period_id`` referenced above
 ``language_code``
   Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en"
-``survey_url``
+``schema_url``
   A URL for a remote survey JSON. This claim is used to tell Survey Runner to load the schema JSON from a remote location
 ``case_ref``
   The case reference identified by the above UUID (e.g. "1000000000000001")
