@@ -1,5 +1,5 @@
 Respondent Management to Electronic Questionnaire
-----------------------------------------------------------------
+=================================================
 
 When a respondent is ready to take a survey hosted on the eq system, a set of details
 need to be passed to eq to setup the survey correctly. This data is wrapped inside a json web
@@ -8,7 +8,7 @@ client application. This creates a clean interface for any respondent management
 to integrate with the eq system.
 
 Schema Definition
-=================
+***********************************
 
 Required Runner Fields
 ------------------------------
@@ -38,17 +38,33 @@ The following metadata keys are always required for the survey runner, they do n
 ``account_service_url``
   The url of the account service used to launch the survey
 
-**Schema Selection Fields**
+Schema Selection Fields
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The schema selection fields determine the mechanism used by survey runner to load the questionnaire schema JSON.
 
 ``schema_name``
-  The eQ schema to launch
+ The name of the schema.
 ``form_type``
   The particular form_type for a responding unit
 ``eq_id``
   The eQ questionnaire id
+``schema_url``
+	A URL for a remote survey JSON. This claim is used to tell Survey Runner to load the schema JSON from a remote location
 
-* if the ``schema_name`` claim is included this will be used to select the specified questionnaire schema to launch
-* if the ``schema_name`` claim is omitted both ``eq_id`` AND ``form_type`` must be included to map to the corresponding schema to launch
+The schema used by an eQ can be selected one of three ways.
+
+In priority order:
+
+#. ``schema_url`` with ``schema_name``
+	Launch eQ using a remote survey JSON. A ``schema_name`` is also required.
+
+#. ``schema_name``
+	The name of the schema to launch. Must be present in https://github.com/ONSdigital/eq-questionnaire-schemas/tree/main/schemas
+
+#. ``eq_id`` with ``form_type``
+	This is only used for schema selection if ``schema_name`` is omitted from the claims. Mapped as ``<eq_id>_<form_type>`` for schema selection purposes. Must be present in https://github.com/ONSdigital/eq-questionnaire-schemas/tree/main/schemas
+
 
 Optional Runner Fields
 ----------------------
@@ -63,8 +79,6 @@ The runner can optionally accept the following keys.
   A display name for the ``period_id`` referenced above
 ``language_code``
   Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en"
-``schema_url``
-  A URL for a remote survey JSON. This claim is used to tell Survey Runner to load the schema JSON from a remote location
 ``case_ref``
   The case reference identified by the above UUID (e.g. "1000000000000001")
 ``case_type``
