@@ -1,8 +1,8 @@
 
 # Generic launch and receipting pattern
 
-Start Date: 2022/06/13
-RFC PR: [#68](https://github.com/ONSdigital/ons-schema-definitions/pull/68)
+- Start Date: 2022/06/13
+- RFC PR: [#68](https://github.com/ONSdigital/ons-schema-definitions/pull/68)
 
 ## Overview
 
