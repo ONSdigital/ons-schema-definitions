@@ -1,4 +1,4 @@
-aRespondent Management (RM) to EQ Runner (eQ)
+Respondent Management (RM) to EQ Runner (eQ)
 ============================================
 
 When a respondent is ready to take a survey hosted on eQ Runner, a set of details need to be passed to eQ Runner to set up the survey correctly.

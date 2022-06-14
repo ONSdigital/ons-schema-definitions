@@ -65,7 +65,7 @@ For example:
 }  
 ```  
 
-The second property is `recepting_keys` (survey_metadata.recepting_keys), an array of key names from the `survey metadata.data` field that is necessary for receipting. The `recepting_keys` property is optional and is only required for RM systems that require more data in addition to the existing receipting data, which uses 'tx id' and 'case id'. The reason `recepting_keys` is required is to prevent hard-coding the receipting requirements of different survey types in eQ Runner, which means that RM systems can modify these receipting requirements in the future without requiring application changes in Runner. This is not required for business surveys, but RH will require it for social surveys because each `case_id` can have numerous responses. An RH social survey JWT `survey_metadata` payload would resemble something like this:
+The second property is `recepting_keys` (survey_metadata.recepting_keys), an array of key names from the `survey_metadata.data` field that is necessary for receipting. The `recepting_keys` property is optional and is only required for RM systems that require more data in addition to the existing receipting data, which uses 'tx id' and 'case id'. The reason `recepting_keys` is required is to prevent hard-coding the receipting requirements of different survey types in eQ Runner, which means that RM systems can modify these receipting requirements in the future without requiring application changes in Runner. This is not required for business surveys, but RH will require it for social surveys because each `case_id` can have numerous responses. An RH social survey JWT `survey_metadata` payload would resemble something like this:
 
 ```json  
 "survey_metadata": {  
@@ -140,7 +140,7 @@ i.e `{ "survey_metadata" : { "data" : {...} } }`
 
 For submissions, the current eQ implementation uses a Google Cloud Storage submitter. This means that an object containing the response ciphertext is written to a bucket for downstream consumption. The GCS response object includes metadata that can be used in a Pub/Sub messaging strategy for additional event-driven activities (e.g. receipting and triggering ingestion flow).
 
-The GCS metadata for both v1 and v2 data formats will always include a `tx_id` and a `case_id`. Additional receipting metadata specified by `survey metadata.receipting_keys` from the JTW launch token would be included for v2. Example social survey GCS metadata:
+The GCS metadata for both v1 and v2 data formats will always include a `tx_id` and a `case_id`. Additional receipting metadata specified by `survey_metadata.receipting_keys` from the JTW launch token would be included for v2. Example social survey GCS metadata:
 
 > Assuming JWT payload `survey_metadata.receipting_keys` contained only `questionnaire_id`, then the GCS metadata would look like this:
 
@@ -174,7 +174,7 @@ Another leaner data definition was considered, in which eQ is supplied with only
 
 ### Should eQ Runner store or pass data to downstream systems from the JWT payload that have not been explicitly defined?
 
-Historically, eQ has only ever kept JWT payload values that it is aware of as they are hard coded or defined in the schema, and it also has only ever delivered downstream expected properties. For example, if RAS sends eQ a property called `metadata_x`, eQ will ignore it. It is neither saved nor transmitted downstream. We must decide if eQ validates the JWT payload `survey metadata.data` and only uses keys defined in the schema or whether it passes whatever it receives to the downstream system.
+Historically, eQ has only ever kept JWT payload values that it is aware of as they are hard coded or defined in the schema, and it also has only ever delivered downstream expected properties. For example, if RAS sends eQ a property called `metadata_x`, eQ will ignore it. It is neither saved nor transmitted downstream. We must decide if eQ validates the JWT payload `survey_metadata.data` and only uses keys defined in the schema or whether it passes whatever it receives to the downstream system.
 
 - **Only use keys defined by schema JSON's metadata property**.   
   If we take this approach, eQ Author must ensure that they have a mapping of all the required metadata keys per survey type to build the schema JSON's metadata with those present, which will result in eQ handing those keys down to downstream. Given that the metadata keys are unlikely to change much, this solution is appropriate if we want to be specific about what eQ stores and transmits downstream.
