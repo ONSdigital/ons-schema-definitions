@@ -3,6 +3,7 @@
     "iat": 1458047712,
     "jti": "6b383088-b8f8-4167-8847-c4aaeda8fe16",
     "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
+    "version": "v2",
     "account_service_url": "https://upstream.example.com",
     "case_id": "628256cf-5c78-4896-8bec-f0ddb69aaa11",
     "channel": "RH",
