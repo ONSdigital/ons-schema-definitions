@@ -78,7 +78,8 @@ Example JSON payload
   {
     "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
     "type": "uk.gov.ons.edc.eq:surveyresponse",
-    "version": "0.0.1",
+    "version": "v2",
+		"data_version": "0.0.1",
     "origin": "uk.gov.ons.edc.eq",
     "flushed": false,
     "submitted_at": "2016-05-21T16:37:56.551086",
