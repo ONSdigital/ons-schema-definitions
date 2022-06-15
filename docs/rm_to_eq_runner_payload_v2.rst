@@ -76,9 +76,11 @@ In addition to the above `Required Runner Fields`_, some surveys require other d
   ``receipting_keys``
     An optional array of key names from the ``survey_metadata.data`` spec below that are required for downstream processing. The key names defined here must exist in ``survey_metadata.data``.
 
-	.. _survey_metadata.data:
+  .. _survey_metadata.data:
   ``data``
-    Key-value pairs of data about the survey. The key values required within this object dependent upon two things:
+    Key-value pairs of data about the survey. This data may contain a mixture of survey specific and respondent specific data.
+    For example, it may contain data common to all respondents for a given survey and data specific to the respondent filling in the survey.
+    The key values required within this object dependent upon two things:
 
     #. the ``survey_metadata.receipting_keys`` defined in the JWT payload. eQ Runner will validate that keys specified in this field exists within `survey_metadata.data`.
     #. the ``metadata`` defined in the schema JSON. These are commonly used for piping (rendering) / routing, but can also be used to require additional data in the payload that are sent downstream.

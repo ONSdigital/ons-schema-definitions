@@ -44,7 +44,8 @@ The v2 design removes all top-level properties not shared by all survey types or
 
 #### What about additional data about the survey?
 
-RM systems will almost always want to provide extra survey data, such as data that eQ needs to pipe (render) or other metadata that must be passed to downstream systems. A new property called `survey metadata` has been introduced to facilitate this. This property is an object with two sub-properties. First, there's the `data` (survey_metadata.data) property, which should contain any additional survey-specific metadata required by eQ or downstream.
+RM systems will almost always want to provide extra survey data, such as data that eQ needs to pipe (render) or other metadata that must be passed to downstream systems. This data may contain a mixture of survey specific and respondent specific data.
+For example, it may contain data common to all respondents for a given survey and data specific to the respondent filling in the survey. A new property called `survey_metadata` has been introduced to facilitate this. This property is an object with two sub-properties. First, there's the `data` (survey_metadata.data) property, which should contain any additional survey-specific metadata required by eQ or downstream.
 
 For example:
 
