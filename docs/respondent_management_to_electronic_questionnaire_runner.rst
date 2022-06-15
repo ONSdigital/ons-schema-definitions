@@ -8,12 +8,12 @@ This creates a clean interface for any respondent management system to integrate
 JWT payload
 ***********
 
-The structure of the JWT payload that the RM system uses can be defined in two ways, version 1 (v1) and 2 (v2).
+The structure of the JWT payload that the RM system uses can be defined in two ways, version 1 (v1) [DEPRECATED] and 2 (v2).
 The latest and the recommended version for launching eQ Runner is v2.
 From v2, the  JWT payload is required to define a ``version`` property with the associated version. To ensure backwards compatibility, the absence of this property indicates the token is v1.
 Depending on the value defined by the ``version`` property, the downstream data will also be structured in 2 different ways. For information regarding downstream data formats, see :doc:`electronic_questionnaire_runner_to_downstream`
 
-#. :doc:`rm_to_eq_runner_payload_v1`
+#. :doc:`rm_to_eq_runner_payload_v1` [DEPRECATED]
 #. :doc:`rm_to_eq_runner_payload_v2`
 
 JWT envelope / transport

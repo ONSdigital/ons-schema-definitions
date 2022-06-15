@@ -1,8 +1,8 @@
-RM to EQ Runner: Payload Version 1
-==================================
+RM to EQ Runner: Payload Version 1 [DEPRECATED]
+===============================================
 
 This document defines the JWT payload structure for version 1. This is the format used, if the ``version`` property
-was not provided in the launch token.
+was not provided in the launch token. This version is deprecated and should only be used by existing RM systems. Support for this format will be removed when eQ Runner v2 (AWS) reaches end of life. New RM systems should use v2. See: :doc:`rm_to_eq_runner_payload_v2`
 
 Prerequisites:
   * All non JWT specific date time properties are expressed using ISO 8601 and are assumed to be normalised to UTC unless a timezone identifier is given.

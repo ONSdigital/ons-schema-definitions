@@ -21,7 +21,7 @@ Although eQ was used for Census and business surveys, which had a different laun
 
 ## Design
 
-Because the new design is a breaking change, it will be referred to as version `v2`. The current format will be known as `v1`. The new launch and downstream payload spec was created to ensure that top-level attributes are consistent across survey types and RM systems. Top-level attributes should be independent of the survey we're running or the RM system we're utilising.
+Because the new design is a breaking change, it will be referred to as version `v2`. The current format will be known as `v1` and be deprecated. The new launch and downstream payload spec was created to ensure that top-level attributes are consistent across survey types and RM systems. Top-level attributes should be independent of the survey we're running or the RM system we're utilising.
 
 ### RM to eQ Runner JWT Payload Format v2
 
