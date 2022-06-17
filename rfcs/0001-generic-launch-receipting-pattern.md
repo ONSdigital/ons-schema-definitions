@@ -102,7 +102,7 @@ The platform does not have any specifications/limits on the JWT token length apa
 
 Although modern browsers have support for much larger URL lengths, the platforms still support Internet Explorer, which has a hard limit of 2,048 characters for the URL path. See: `IE URL Limit <https://support.microsoft.com/en-us/topic/maximum-url-length-is-2-083-characters-in-internet-explorer-174e7c8a-6666-f4e0-6fd6-908b53c12246>`_
 
-The example from `examples/payload_v2/rm_to_eq_runner/launch_jwt_business.json` would result in a JWT length of ~1200 characters. Therefore, we do have some headroom even with the new structure. The platform's goal to support IE is also likely to be dropped in the near future, given as of 15th June 2022, IE 11 has officially reached `end of life <https://docs.microsoft.com/en-us/lifecycle/products/internet-explorer-11>`_. Therefore, this might not be an issue.
+The platform's goal to support IE is also likely to be dropped in the near future, given as of 15th June 2022, IE 11 has officially reached `end of life <https://docs.microsoft.com/en-us/lifecycle/products/internet-explorer-11>`_. Therefore, this might not be an issue.
 
 ### eQ Runner to Downstream Payload Format v2
 
