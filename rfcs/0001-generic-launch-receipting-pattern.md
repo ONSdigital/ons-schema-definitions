@@ -179,7 +179,7 @@ A generic solution, such as the one presented here, does not require runner chan
 
 Another leaner data definition was considered, in which eQ is supplied with only the data it requires, and downstream systems communicate with the RM APIs using the identifiers passed by eQ to obtain any further survey metadata they need. This was deemed impractical for the time being due to time constraints and the unlikely prospect of downstream systems directly connecting with the RM APIs. This, however, is something that should be looked into further. The platforms should aim to have RM systems only supply what eQ requires, such as data to render, and eQ passes only the information necessary by downstream systems, such as response data and response identifiers.
 
-## Unresolved questions
+## Questions (Resolved)
 
 ### Should eQ Runner store or pass data to downstream systems from the JWT payload that have not been explicitly defined?
 
@@ -192,6 +192,18 @@ Historically, eQ has only ever kept JWT payload values that it is aware of as th
   With this approach, eQ Runner will store all data from `survey_metadata.data` and also pass it downstream, implying that the JWT and `survey_metadata.data` and downstream `survey_metadata` should always be a one-to-one mapping.
   - Should eQ Runner blindly store data from upstream and send it downstream?
   - Given that RM systems must be validated with eQ, is there enough confidence to justify naively storing and transmitting down values from upstream? What about the bad actors...?
+
+#### Decision
+
+The approach for the v2 pattern that eQ will take will be to "**Send all data from survey_metadata.data downstream**".
+
+Reasons for selection:
+- The most flexible solution with the fastest turnaround time to onboard new RM systems and new survey types with different receipting requirements.
+- Does not require mapping all the survey types and their metadata in eQ Author or eQ Runner Schema Validator.
+- The risk of large payloads due to bugs or bad actors in the upstream system is minimal, given eQ Runner's data limit is enforced at the infrastructure level by Google, which means payload can be at most 1 MB at the moment. It is unlikely this would change, and the platform should manage any changes on an as-is basis. If the limit is hit, eQ Runner gracefully handles the error, and there are no adverse effects on other respondents. https://cloud.google.com/datastore/docs/concepts/limits
+  - Any move to another Document DB service such as MongoDB, which has a 16 MB limit per document, can be managed on an as-is basis.
+- This does not introduce any new vulnerabilities. The existing launch pattern allows for large string values if the browser URL length is not exceeded.
+- Downstream systems of eQ Runner should be resilient and protect themselves against large payloads since eQ Runner itself could be the product that contains the bug/bad actor. Therefore, eQ Runner adding artificially high length checks does not mean downstream systems are protected.
 
 ---  
 
