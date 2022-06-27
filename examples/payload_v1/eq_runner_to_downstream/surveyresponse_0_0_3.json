@@ -59,16 +59,12 @@
             },
             {
                 "answer_id": "internet-answer",
-                "value": [
-                    "Broadband or WiFi",
-                    "A mobile phone network such as 3G, 4G or 5G",
-                    "Public WiFi hotspot"
-                ]
+                "value": ["Broadband or WiFi", "A mobile phone network such as 3G, 4G or 5G", "Public WiFi hotspot"]
             },
             {
                 "answer_id": "business-type-answer",
                 "value": "Enter Business type here!",
-                 "list_item_id": "EINoLs"
+                "list_item_id": "EINoLs"
             },
             {
                 "answer_id": "relationship-answer",
@@ -79,7 +75,7 @@
                         "relationship": "Husband or Wife"
                     },
                     {
-                         "list_item_id": "nEMpwe",
+                        "list_item_id": "nEMpwe",
                         "to_list_item_id": "adNCSi",
                         "relationship": "Son or daughter"
                     },
@@ -103,10 +99,7 @@
         ],
         "lists": [
             {
-                "items": [
-                    "zGBdpb",
-                    "cWGwcF"
-                ],
+                "items": ["zGBdpb", "cWGwcF"],
                 "name": "people"
             }
         ]

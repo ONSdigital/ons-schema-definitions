@@ -1,29 +1,35 @@
 {
-    "tx_id": "a8e1d41d-728c-47c4-89b2-2d087e6e01a4",
+    "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
     "type": "uk.gov.ons.edc.eq:surveyresponse",
-    "version": "0.0.3",
+    "version": "v2",
+    "data_version": "0.0.3",
     "origin": "uk.gov.ons.edc.eq",
-    "survey_id": "0",
     "flushed": false,
-    "submitted_at": "2019-08-20T11:05:44.541979",
-    "collection": {
-        "exercise_sid": "ae62cb63-be41-4160-8bff-eb2a3bab5c6e",
-        "schema_name": "test_relationships",
-        "period": "201605",
-        "instrument_id": "0123"
-    },
-    "metadata": {
-        "user_id": "UNKNOWN",
-        "ru_ref": "74117071486i",
-        "display_address": "1 Road, Town City"
-    },
-    "response_id": "6148064303271080",
-    "questionnaire_id": "9150293245728665",
+    "submitted_at": "2016-05-21T16:37:56.551086",
     "launch_language_code": "en",
-    "submission_language_code": "cy",
+    "submission_language_code": "en",
+    "collection_exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
+    "schema_name": "mbs_0001",
+    "started_at": "2016-05-21T16:33:30.665144",
+    "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
     "region_code": "GB-ENG",
-    "started_at": "2019-08-20T11:05:25.604330",
-    "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d",
+    "channel": "RAS",
+    "survey_metadata": {
+        "survey_id": "009",
+        "case_ref": "1000000000000001",
+        "case_type": "B",
+        "display_address": "ONS, Government Buildings, Cardiff Rd",
+        "employment_date": "2021-03-01",
+        "form_type": "0253",
+        "period_id": "202101",
+        "period_str": "January 2021",
+        "ref_p_end_date": "2021-06-01",
+        "ref_p_start_date": "2021-01-01",
+        "ru_name": "ACME T&T Limited",
+        "ru_ref": "49900000001A",
+        "trad_as": "ACME LTD.",
+        "user_id": "64389274239"
+    },
     "data": {
         "answers": [
             {
@@ -61,16 +67,12 @@
             },
             {
                 "answer_id": "internet-answer",
-                "value": [
-                    "Broadband or WiFi",
-                    "A mobile phone network such as 3G, 4G or 5G",
-                    "Public WiFi hotspot"
-                ]
+                "value": ["Broadband or WiFi", "A mobile phone network such as 3G, 4G or 5G", "Public WiFi hotspot"]
             },
             {
                 "answer_id": "business-type-answer",
                 "value": "Enter Business type here!",
-                 "list_item_id": "EINoLs"
+                "list_item_id": "EINoLs"
             },
             {
                 "answer_id": "relationship-answer",
@@ -81,7 +83,7 @@
                         "relationship": "Husband or Wife"
                     },
                     {
-                         "list_item_id": "nEMpwe",
+                        "list_item_id": "nEMpwe",
                         "to_list_item_id": "adNCSi",
                         "relationship": "Son or daughter"
                     },
@@ -105,10 +107,7 @@
         ],
         "lists": [
             {
-                "items": [
-                    "zGBdpb",
-                    "cWGwcF"
-                ],
+                "items": ["zGBdpb", "cWGwcF"],
                 "name": "people"
             }
         ]

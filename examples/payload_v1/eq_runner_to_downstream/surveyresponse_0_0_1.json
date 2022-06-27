@@ -6,6 +6,11 @@
     "survey_id": "0",
     "flushed": false,
     "submitted_at": "2019-08-20T11:05:44.541979",
+    "launch_language_code": "en",
+    "submission_language_code": "cy",
+    "region_code": "GB-ENG",
+    "started_at": "2019-08-20T11:05:25.604330",
+    "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d",
     "collection": {
         "exercise_sid": "ae62cb63-be41-4160-8bff-eb2a3bab5c6e",
         "schema_name": "test_relationships",
@@ -17,11 +22,6 @@
         "ru_ref": "74117071486i",
         "display_address": "1 Road, Town City"
     },
-    "launch_language_code": "en",
-    "submission_language_code": "cy",
-    "region_code": "GB-ENG",
-    "started_at": "2019-08-20T11:05:25.604330",
-    "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d",
     "data": {
         "0001": "This is an answer to q_code 0001",
         "0002": "This is an answer to q_code 0002",
