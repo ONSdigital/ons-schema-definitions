@@ -1,0 +1,36 @@
+{
+  "tx_id": "a8e1d41d-728c-47c4-89b2-2d087e6e01a4",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "survey_id": "0",
+  "flushed": false,
+  "submitted_at": "2019-08-20T11:05:44.541979",
+  "launch_language_code": "en",
+  "submission_language_code": "cy",
+  "region_code": "GB-ENG",
+  "started_at": "2019-08-20T11:05:25.604330",
+  "form_type": "0234",
+  "case_id": "6453e4d3-aac1-424c-be28-23c57aa9e17d",
+  "case_type": "B",
+  "case_ref": "1000000000000001",
+  "channel": "EQ",
+  "collection": {
+    "exercise_sid": "ae62cb63-be41-4160-8bff-eb2a3bab5c6e",
+    "schema_name": "test_relationships",
+    "period": "201605",
+    "instrument_id": "0234"
+  },
+  "metadata": {
+    "user_id": "UNKNOWN",
+    "ru_ref": "74117071486i",
+    "display_address": "1 Road, Town City",
+    "ref_period_start_date": "2019-07-01",
+    "ref_period_end_date": "2019-10-31"
+  },
+  "data": {
+    "0001": "This is an answer to q_code 0001",
+    "0002": "This is an answer to q_code 0002",
+    "0003": "This is an answer to q_code 0003"
+  }
+}

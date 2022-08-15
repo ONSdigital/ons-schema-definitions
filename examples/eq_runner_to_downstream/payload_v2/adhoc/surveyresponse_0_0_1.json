@@ -1,0 +1,27 @@
+{
+  "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "v2",
+  "data_version": "0.0.1",
+  "origin": "uk.gov.ons.edc.eq",
+  "flushed": false,
+  "submitted_at": "2016-05-21T16:37:56.551086",
+  "launch_language_code": "en",
+  "submission_language_code": "en",
+  "collection_exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
+  "schema_name": "mbs_0001",
+  "started_at": "2016-05-21T16:33:30.665144",
+  "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
+  "region_code": "GB-ENG",
+  "channel": "RH",
+  "survey_metadata": {
+    "survey_id": "009",
+    "case_ref": "1000000000000001",
+    "questionnaire_id": "0130000000000300"
+  },
+  "data": {
+    "0001": "This is an answer to q_code 0001",
+    "0002": "This is an answer to q_code 0002",
+    "0003": "This is an answer to q_code 0003"
+  }
+}

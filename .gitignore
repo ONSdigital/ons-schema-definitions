@@ -65,3 +65,9 @@ target/
 .DS_Store
 .idea
 .vscode
+
+# Node modules
+node_modules/
+
+# hidden files
+_*

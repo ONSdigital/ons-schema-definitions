@@ -19,7 +19,13 @@ This document defines the downstream payload structure for version v2.
 | **launch_language_code**     | The language code that the questionnaire was launched with (e.g. `en` / `cy` / `ga` / `eo`)                                                                                                                                                                                                                                 |
 | **submission_language_code** | The language code that was being used on submission (e.g. `en` / `cy` / `ga` / `eo`)                                                                                                                                                                                                                                        |
 | **flushed**                  | Whether the `surveyresponse` or `feedback` was flushed or not. This will be `true` if the `surveyresponse` has been flushed through Runner and `false` otherwise. It is not currently possible for feedback to be flushed.                                                                                                  |
+| **survey_metadata**         | An object that holds metadata about the survey. For allowed values, See: [Submission Survey Metadata][submission_survey_metadata]. |
 | **data**                     | The response data. See: [EQ Runner Data Versions][eq_runner_data_versions]                                                                                                                                                                                                                                                  |
+
+#### Submission Survey Metadata
+
+- The submission `survey_metadata` will contain all key values from the `survey_metadata.data` property from the launch token. For allowed values, See: [Survey Metadata: Data Property][survey_metadata_data_property].
+- It will also include a `survey_id` property which the survey identifier as used across the ONS (e.g. `009`).
 
 #### Schema Selection Fields
 
@@ -36,12 +42,11 @@ One of the following will be present:
 
 EQ Runner will pass the following keys if a value for them exists.
 
-| **Property**        | **Definition**                                                                                                                                                                                                                 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **survey_metadata** | An object that holds metadata about the survey. This should be a 1 to 1 mapping between the `survey_metadata.data` property from the launch token. For allowed values, See: [Survey Metadata Fields][survey_metadata_fields] . |
-| **region_code**     | The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) e.g. `GB-ENG` / `GB-WLS` / `GB-NIR`                                                                      |
-| **started_at**      | The datetime of the first form submission in the questionnaire.                                                                                                                                                                |
-| **channel**         | The channel used to launch the electronic questionnaire                                                                                                                                                                        |
+| **Property**        | **Definition**                                                                                                                     |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **region_code**     | The Region Code of the questionnaire response. Format as per ISO 3166-2 () e.g. `GB-ENG` / `GB-WLS` / `GB-NIR`                     |
+| **started_at**      | The datetime of the first form submission in the questionnaire.                                                                    |
+| **channel**         | The channel used to launch the electronic questionnaire                                                                            |
 
 ## Example JSON payload
 
@@ -96,4 +101,5 @@ For additional `data` version examples, see [EQ Runner Data Versions][eq_runner_
 
 [eq_runner_data_versions]: eq_runner_data_versions.md "EQ Runner Data Versions"
 [schemas_repo]: https://github.com/ONSdigital/eq-questionnaire-schemas/tree/main/schemas "Schemas Repo"
-[survey_metadata_fields]: rm_to_eq_runner_payload_v2.md#survey-metadata-fields "Survey Metadata Fields"
+[survey_metadata_data_property]: rm_to_eq_runner_payload_v2.md#data-property "Survey Metadata: Data Property"
+[submission_survey_metadata]: #submission-survey-metadata "Submission Survey Metadata"

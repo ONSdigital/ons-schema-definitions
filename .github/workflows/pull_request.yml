@@ -1,0 +1,21 @@
+name: PR
+
+'on':
+  pull_request:
+    branches:
+      - main
+      - remove-readthedoc-and-use-md
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node dependencies
+        run: npm install
+      - name: Lint JS/JSON files
+        run: npm run lint
+      - name: Validate JSON schemas
+        if: always()
+        run: ./scripts/validate-schemas.js
+

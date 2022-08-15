@@ -1,0 +1,78 @@
+{
+  "$id": "launch_v2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ONS EQ Launch Schema v2",
+  "type": "object",
+  "properties": {
+    "account_service_url": {
+      "$ref": "common/definitions.json#/account_service_url"
+    },
+    "case_id": {
+      "$ref": "common/definitions.json#/case_id"
+    },
+    "channel": {
+      "$ref": "common/definitions.json#/channel"
+    },
+    "collection_exercise_sid": {
+      "$ref": "common/definitions.json#/collection_exercise_sid"
+    },
+    "exp": {
+      "description": "JWT Issued At claim, see https://tools.ietf.org/html/rfc7519#section-4.1",
+      "type": "integer"
+    },
+    "iat": {
+      "description": "JWT Expiration Time claim, see https://tools.ietf.org/html/rfc7519#section-4.1",
+      "type": "integer"
+    },
+    "jti": {
+      "$ref": "common/definitions.json#/jti"
+    },
+    "language_code": {
+      "$ref": "common/definitions.json#/launch_language_code"
+    },
+    "region_code": {
+      "$ref": "common/definitions.json#/region_code"
+    },
+    "response_expires_at": {
+      "$ref": "common/definitions.json#/response_expires_at"
+    },
+    "response_id": {
+      "$ref": "common/definitions.json#/response_id"
+    },
+    "schema_name": {
+      "$ref": "common/definitions.json#/schema_name"
+    },
+    "schema_url": {
+      "$ref": "common/definitions.json#/schema_url"
+    },
+    "survey_metadata": {
+      "$ref": "common/survey_metadata.json#/survey_metadata"
+    },
+    "tx_id": {
+      "$ref": "common/definitions.json#/tx_id"
+    },
+    "version": {
+      "$ref": "common/definitions.json#/payload_version_v2"
+    }
+  },
+  "required": [
+    "exp",
+    "iat",
+    "jti",
+    "tx_id",
+    "version",
+    "account_service_url",
+    "case_id",
+    "collection_exercise_sid",
+    "response_id"
+  ],
+  "additionalProperties": false,
+  "oneOf": [
+    {
+      "required": ["schema_name"]
+    },
+    {
+      "required": ["schema_url"]
+    }
+  ]
+}

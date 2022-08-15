@@ -1,0 +1,38 @@
+{
+  "name": "ons-schema-definitions",
+  "version": "1.0.0",
+  "description": "This project holds the documentation for sharing and agreeing interfaces between different components in the SDC suite of components.",
+  "type": "module",
+  "scripts": {
+    "validate-schemas": "node scripts/validate-schemas.js",
+    "lint": "npm run lint:json && npm run lint:js",
+    "lint:json": "prettier --check \"**/*.json\" && eslint \"**/*.json\"",
+    "lint:js": "prettier --check \"**/*.js\" && eslint \"**/*.js\"",
+    "format": "npm run format:json && npm run format:js",
+    "format:json": "prettier \"**/*.json\" --write && eslint --fix \"**/*.json\"",
+    "format:js": "prettier \"**/*.js\" --write && eslint --fix \"**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONSdigital/ons-schema-definitions.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ONSdigital/ons-schema-definitions/issues"
+  },
+  "homepage": "https://github.com/ONSdigital/ons-schema-definitions#readme",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
+    "es-main": "^1.2.0",
+    "glob": "^8.0.3",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-json": "^3.1.0",
+    "prettier": "^2.7.1"
+  }
+}

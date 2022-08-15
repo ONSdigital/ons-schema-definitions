@@ -18,3 +18,52 @@ Documentation can be found in `/docs`.
 - [Electronic Questionnaire Runner Response To Downstream](docs/electronic_questionnaire_runner_to_downstream.md)
 - [Survey Data Exchange to and from Respondent Account Services](docs/survey_data_exchange_to_respondent_account_services.md)
 - [JSON Examples](examples)
+
+## JSON Schema Validation
+
+Both the launch and receipting JSON schema can be validated using JSON Schema definitions. The JSON schemas are defined using [Draft 2020-12](https://json-schema.org/specification-links.html#2020-12) and are validated via [AJV](https://ajv.js.org/). 
+
+### Prerequisites
+- Node installed matching the version specified in `.nvmrc`. It is recommended that you use [nvm](https://github.com/nvm-sh/nvm) to manage your Node versions.
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (JS package and dependency manager)
+
+**Install dependencies:**
+
+```bash
+npm install
+```
+
+**Validate all examples schemas**
+
+```bash
+./scripts/validate-schemas.js
+```
+
+**Validate a single file or folder**
+
+```bash
+./scripts/validate-schemas.js <schema-type> <schema-file-or-folder>
+```
+
+For example:
+```bash
+./scripts/validate-schemas.js submission_v2 examples/eq_runner_to_downstream/payload_v2/adhoc/
+```
+
+Help:
+```bash
+./scripts/validate-schemas.js --help
+```
+
+
+## Development
+
+Format JSON/JS files
+```bash
+npm run format
+```
+
+Lint JSON/JS files
+```bash
+npm run lint
+```

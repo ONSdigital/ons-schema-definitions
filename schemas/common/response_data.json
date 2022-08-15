@@ -1,0 +1,280 @@
+{
+  "$id": "common/response_data.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ONS EQ Submission Response Data",
+  "type": "object",
+  "$defs": {
+    "list_item_id": {
+      "type": "string",
+      "description": "The ID of a list item.",
+      "minLength": 6,
+      "maxLength": 6,
+      "pattern": "^[a-zA-Z]+$",
+      "examples": ["zGBdpb", "cWGwcF"]
+    },
+    "answer_id": {
+      "type": "string",
+      "description": "The ID of an answer.",
+      "pattern": "^[a-z0-9][a-z0-9\\-]*[a-z0-9]$",
+      "examples": [
+        "accommodation-type-answer",
+        "first-name",
+        "ethnic-group-answer"
+      ]
+    },
+    "generic_answer_value": {
+      "oneOf": [
+        {
+          "$ref": "definitions.json#/non_empty_string"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "description": "The value a non-composite answer.",
+      "examples": [1, "Yes"]
+    },
+    "checkbox_answer_value": {
+      "type": "array",
+      "description": "The value a checkbox answer.",
+      "items": {
+        "$ref": "definitions.json#/non_empty_string",
+        "examples": ["Christian", "Buddhist", "Yes", "No"]
+      },
+      "minItems": 1,
+      "examples": [["Christian", "Buddhist", "Yes", "No"]]
+    },
+    "duration_answer_value": {
+      "type": "object",
+      "description": "The value of a Duration answer.",
+      "properties": {
+        "years": {
+          "type": "integer",
+          "description": "The number of years.",
+          "examples": [1, 2, 3]
+        },
+        "months": {
+          "type": "integer",
+          "description": "The number of months.",
+          "examples": [1, 2, 3]
+        }
+      },
+      "examples": [
+        {
+          "years": 1,
+          "months": 2
+        },
+        {
+          "years": 2
+        }
+      ],
+      "additionalProperties": false,
+      "unevaluatedProperties": false,
+      "anyOf": [
+        {
+          "required": ["years"]
+        },
+        {
+          "required": ["months"]
+        }
+      ]
+    },
+    "address_answer_value": {
+      "type": "object",
+      "description": "The value of an Address answer.",
+      "properties": {
+        "line1": {
+          "$ref": "definitions.json#/non_empty_string",
+          "examples": ["1 Example Street"]
+        },
+        "line2": {
+          "$ref": "definitions.json#/non_empty_string",
+          "examples": ["Apartment 123"]
+        },
+        "town": {
+          "$ref": "definitions.json#/non_empty_string",
+          "examples": ["London"]
+        },
+        "postcode": {
+          "$ref": "definitions.json#/non_empty_string",
+          "examples": ["CF63 4EN"]
+        },
+        "uprn": {
+          "$ref": "definitions.json#/non_empty_string",
+          "description": "A unique identifier for the address. Only present for addresses that use the address lookup API.",
+          "examples": ["12345678912"]
+        }
+      },
+      "examples": [
+        {
+          "line1": "68 Abingdon Road",
+          "town": "London",
+          "postcode": "NP10 8XG",
+          "uprn": "12345678912"
+        }
+      ],
+      "additionalProperties": false,
+      "unevaluatedProperties": false,
+      "required": ["line1"]
+    },
+    "relationship_answer_value": {
+      "type": "array",
+      "description": "The value of a Relationship answer. This is a list of relationships.",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "description": "A relationship between two list items.",
+        "properties": {
+          "list_item_id": {
+            "$ref": "response_data.json#/$defs/list_item_id",
+            "description": "The relationship from."
+          },
+          "to_list_item_id": {
+            "$ref": "response_data.json#/$defs/list_item_id",
+            "description": "The relationship to."
+          },
+          "relationship": {
+            "$ref": "definitions.json#/non_empty_string",
+            "description": "The relationship type.",
+            "examples": ["Husband or Wife"]
+          }
+        },
+        "additionalProperties": false,
+        "unevaluatedProperties": false,
+        "required": ["list_item_id", "to_list_item_id", "relationship"]
+      },
+      "examples": [
+        [
+          {
+            "list_item_id": "zGBdpb",
+            "to_list_item_id": "cWGwcF",
+            "relationship": "Husband or Wife"
+          }
+        ]
+      ]
+    },
+    "data_version_0_0_3_lists": {
+      "type": "array",
+      "description": "An array of list item objects built up during the questionnaire completion.",
+      "items": {
+        "type": "object",
+        "required": ["items", "name"],
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "A list of the collected item ids.",
+            "items": {
+              "$ref": "response_data.json#/$defs/list_item_id"
+            }
+          },
+          "name": {
+            "$ref": "definitions.json#/non_empty_string",
+            "description": "The name of the list being collected.",
+            "examples": ["people", "countries"]
+          },
+          "primary_person": {
+            "$ref": "response_data.json#/$defs/list_item_id",
+            "description": "Optional ID of the primary person in a list being collected."
+          },
+          "same_name_items": {
+            "type": "array",
+            "description": "A list of item ids with the same set of values for given answer ids provided in the schema. For example, same first-name and last-name.",
+            "items": {
+              "$ref": "response_data.json#/$defs/list_item_id"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "unevaluatedProperties": false
+      }
+    },
+    "data_version_0_0_3_answers": {
+      "type": "array",
+      "description": "An array of answers built up during the questionnaire completion.",
+      "items": {
+        "type": "object",
+        "description": "An answer to a question.",
+        "properties": {
+          "answer_id": {
+            "$ref": "response_data.json#/$defs/answer_id"
+          },
+          "value": {
+            "oneOf": [
+              {
+                "$ref": "response_data.json#/$defs/generic_answer_value"
+              },
+              {
+                "$ref": "response_data.json#/$defs/checkbox_answer_value"
+              },
+              {
+                "$ref": "response_data.json#/$defs/duration_answer_value"
+              },
+              {
+                "$ref": "response_data.json#/$defs/address_answer_value"
+              },
+              {
+                "$ref": "response_data.json#/$defs/relationship_answer_value"
+              }
+            ]
+          },
+          "list_item_id": {
+            "$ref": "response_data.json#/$defs/list_item_id",
+            "description": "The ID of the list item the answer was provided for (if answering in the context of a list item). Related item will have the same ID e.g. first name and last name for the same person"
+          }
+        },
+        "additionalProperties": false,
+        "unevaluatedProperties": false,
+        "required": ["answer_id", "value"]
+      }
+    }
+  },
+  "feedback_response": {
+    "type": "object",
+    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions.",
+    "properties": {
+      "feedback_type": {
+        "$ref": "definitions.json#/non_empty_string",
+        "description": "The type of feedback."
+      },
+      "feedback_text": {
+        "$ref": "definitions.json#/non_empty_string",
+        "description": "The feedback text."
+      },
+      "feedback_count": {
+        "type": "string",
+        "description": "The number of times the feedback has been submitted.",
+        "pattern": "^[0-9]+$"
+      }
+    },
+    "additionalProperties": false,
+    "unevaluatedProperties": false,
+    "required": ["feedback_type", "feedback_text", "feedback_count"]
+  },
+  "survey_response_0_0_1": {
+    "type": "object",
+    "description": "This is used for data_version 0.0.1 survey submissions.",
+    "patternProperties": {
+      "^[0-9a-z]+$": {
+        "$ref": "definitions.json#/non_empty_string",
+        "description": "The answer value."
+      }
+    },
+    "additionalProperties": false,
+    "unevaluatedProperties": false
+  },
+  "survey_response_0_0_3": {
+    "type": "object",
+    "description": "This is used for data_version 0.0.3 survey submissions.",
+    "properties": {
+      "answers": {
+        "$ref": "response_data.json#/$defs/data_version_0_0_3_answers"
+      },
+      "lists": {
+        "$ref": "response_data.json#/$defs/data_version_0_0_3_lists"
+      }
+    },
+    "additionalProperties": false,
+    "unevaluatedProperties": false,
+    "required": ["answers", "lists"]
+  }
+}

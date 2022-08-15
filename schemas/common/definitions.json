@@ -1,0 +1,213 @@
+{
+  "$id": "common/definitions.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Common definitions used by launch/submission payloads.",
+  "type": "object",
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$",
+      "examples": ["1be356de-bde7-48bf-b169-00e0b3822a9c"]
+    },
+    "iso_8601_date": {
+      "type": "string",
+      "format": "date",
+      "examples": ["2019-08-21"]
+    },
+    "iso_8601_datetime": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2019-08-21T12:51:57.119678+00:00",
+        "2019-08-21T12:51:57+00:00",
+        "2019-08-21T12:51:57Z",
+        "2019-08-21T12:51:57"
+      ]
+    },
+    "language_code": {
+      "type": "string",
+      "description": "A runner language code.",
+      "enum": ["en", "cy", "ga", "eo"],
+      "default": "en"
+    }
+  },
+  "account_service_logout_url": {
+    "type": "string",
+    "format": "uri",
+    "description": "The base URL of the calling service used to launch EQ.",
+    "examples": ["https://surveys.ons.gov.uk/logout"]
+  },
+  "account_service_url": {
+    "type": "string",
+    "format": "uri",
+    "description": "The base URL of the calling service used to launch EQ.",
+    "examples": ["https://surveys.ons.gov.uk"]
+  },
+  "case_id": {
+    "$ref": "#/$defs/uuid",
+    "description": "The case UUID, used to identify a single instance of a survey collection for a respondent."
+  },
+  "case_ref": {
+    "$ref": "#/non_empty_string",
+    "description": "The case reference",
+    "examples": ["1000000000000001"]
+  },
+  "case_type": {
+    "type": "string",
+    "description": "The type of case.",
+    "pattern": "[A-Z]+",
+    "examples": ["B"]
+  },
+  "channel": {
+    "$ref": "#/non_empty_string",
+    "description": "The channel used to launch the EQ.",
+    "examples": ["RAS", "RH"]
+  },
+  "collection_exercise_sid": {
+    "$ref": "#/$defs/uuid",
+    "description": "A reference UUID used to represent the collection exercise inside the ONS."
+  },
+  "data_version": {
+    "type": "string",
+    "description": "The version number of the questionnaire schemas `data_version`. This indicates the data payload convertor that was used.",
+    "enum": ["0.0.1", "0.0.3"]
+  },
+  "display_address": {
+    "$ref": "#/non_empty_string",
+    "description": "The address displayed to the respondent when completing the questionnaire.",
+    "examples": ["68 Abingdon Road, Goathill"]
+  },
+  "employment_date": {
+    "$ref": "#/$defs/iso_8601_date",
+    "description": "The employment reference date."
+  },
+  "flushed": {
+    "type": "boolean",
+    "description": "Whether the surveyresponse or feedback was flushed or not. This will be `true` if the surveyresponse has been flushed through Runner and `false` otherwise. It is not currently possible for feedback to be flushed.",
+    "default": false
+  },
+  "form_type": {
+    "type": "string",
+    "pattern": "^[0-9A-Za-z_]+$",
+    "description": "The particular `form_type` for a responding unit.",
+    "examples": ["0001"]
+  },
+  "jti": {
+    "$ref": "#/$defs/uuid",
+    "description": "Set to a random UUID. See RFC 7519 definition of the `jti` claim."
+  },
+  "launch_language_code": {
+    "$ref": "#/$defs/language_code",
+    "description": "The language code that the questionnaire was launched with."
+  },
+  "non_empty_string": {
+    "type": "string",
+    "minLength": 1
+  },
+  "origin": {
+    "type": "string",
+    "description": "The name or identifier of the data capture system.",
+    "const": "uk.gov.ons.edc.eq"
+  },
+  "payload_version_v2": {
+    "type": "string",
+    "description": "The version number for the payload specification v2 that was used during EQ launch.",
+    "const": "v2"
+  },
+  "period_id": {
+    "$ref": "#/non_empty_string",
+    "description": "A string representing the business area recognised time period for the collection exercise.",
+    "examples": ["2019", "JAN2019"]
+  },
+  "period_str": {
+    "$ref": "#/non_empty_string",
+    "description": "A display name for the `period_id`.",
+    "examples": ["January 2019"]
+  },
+  "questionnaire_id": {
+    "type": "string",
+    "pattern": "[0-9]{16}",
+    "examples": ["0130000000000300"]
+  },
+  "ref_p_end_date": {
+    "$ref": "#/$defs/iso_8601_date",
+    "description": "The reference period\u2019s end date."
+  },
+  "ref_p_start_date": {
+    "$ref": "#/$defs/iso_8601_date",
+    "description": "The reference period\u2019s start date."
+  },
+  "region_code": {
+    "type": "string",
+    "description": "A region code defined as per ISO 3166-2:GB",
+    "examples": ["GB-ENG"],
+    "pattern": "^(GB-)[A-Z]{3}$"
+  },
+  "response_expires_at": {
+    "$ref": "#/$defs/iso_8601_datetime",
+    "description": "An ISO_8601 formatted date-time after which the unsubmitted partial response can be deleted from the database."
+  },
+  "response_id": {
+    "$ref": "#/non_empty_string",
+    "description": "A unique identifier for the questionnaire response.",
+    "examples": ["QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="]
+  },
+  "ru_name": {
+    "$ref": "#/non_empty_string",
+    "description": "The reporting unit\u2019s display name."
+  },
+  "ru_ref": {
+    "type": "string",
+    "description": "The reporting unit reference with the check letter appended.",
+    "minLength": 12,
+    "pattern": "^[a-zA-Z0-9]+[A-Za-z]+$",
+    "examples": ["34942807969m"]
+  },
+  "schema_name": {
+    "type": "string",
+    "description": "The name of the schema.",
+    "pattern": "[a-z0-9]+_[a-z0-9]+",
+    "examples": ["mbs_0253"]
+  },
+  "schema_url": {
+    "type": "string",
+    "format": "uri",
+    "description": "The URL to a schema JSON file that was used for the submitted response.",
+    "examples": ["https://example.com/schema.json"]
+  },
+  "started_at": {
+    "$ref": "#/$defs/iso_8601_datetime",
+    "description": "The datetime of when the first answer was saved in a questionnaire."
+  },
+  "submission_language_code": {
+    "$ref": "#/$defs/language_code",
+    "description": "The language code that was being used on submission."
+  },
+  "submission_type": {
+    "type": "string",
+    "description": "The unique type identifier of this JSON file.",
+    "enum": ["uk.gov.ons.edc.eq:surveyresponse", "uk.gov.ons.edc.eq:feedback"]
+  },
+  "submitted_at": {
+    "$ref": "#/$defs/iso_8601_datetime",
+    "description": "The datetime of the submitted survey response or feedback by the respondent."
+  },
+  "survey_id": {
+    "type": "string",
+    "description": "The survey identifier as used across the ONS.",
+    "examples": ["001"]
+  },
+  "trad_as": {
+    "$ref": "#/non_empty_string",
+    "description": "The reporting unit's 'trading as' name."
+  },
+  "tx_id": {
+    "$ref": "#/$defs/uuid",
+    "examples": ["411e12a2-e57f-4f07-917d-76c93b422460"]
+  },
+  "user_id": {
+    "$ref": "#/non_empty_string",
+    "description": "The id assigned by the respondent management system.",
+    "examples": ["UNKNOWN"]
+  }
+}

@@ -31,8 +31,6 @@ The schema selection field determine the mechanism used by EQ Runner to load the
 
 The schema used by an EQ Runner can be selected one of two ways.
 
-In priority order:
-
 | **Property**    | **Definition**                                                                                                      |
 | --------------- | ------------------------------------------------------------------------------------------------------------------- |
 | **schema_url**  | A URL for a remote survey JSON. This claim is used to tell EQ Runner to load the schema JSON from a remote location |
@@ -96,7 +94,6 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 | **Property**         | **Definition**                                              |
 | -------------------- | ----------------------------------------------------------- |
 | **case_ref**         | The case reference (e.g. "1000000000000001")                |
-| **case_type**        | The type of case                                            |
 | **questionnaire_id** | The identifier assigned by the respondent management system |
 
 ## An example JSON claim for a Business survey
@@ -156,7 +153,6 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
    "survey_metadata": {
       "data": {
          "case_ref": "1000000000000001",
-         "case_type": "B",
          "questionnaire_id": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"
       },
       "receipting_keys": [
