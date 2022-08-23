@@ -32,7 +32,7 @@
           "$ref": "common/definitions.json#/schema_name"
         }
       },
-      "required": ["exercise_sid", "period", "schema_name", "instrument_id"],
+      "required": ["exercise_sid", "period", "instrument_id"],
       "type": "object"
     },
     "data": {
@@ -135,15 +135,8 @@
     "origin",
     "survey_id",
     "flushed",
-    "form_type",
     "submitted_at",
-    "submission_language_code",
-    "region_code",
-    "started_at",
     "case_id",
-    "case_type",
-    "case_ref",
-    "channel",
     "collection",
     "metadata",
     "data"
