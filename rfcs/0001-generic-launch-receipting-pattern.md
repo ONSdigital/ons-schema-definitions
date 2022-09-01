@@ -25,7 +25,7 @@ Because the new design is a breaking change, it will be referred to as version `
 
 ### RM to eQ Runner JWT Payload Format v2
 
-This is an overview of the new launch payload format. Additional information is available in the official document, which may be accessed at `docs/respondent_management_to_electronic_questionnaire_runner.rst`.
+This is an overview of the new launch payload format. Additional information is available in the official document, which may be accessed at [respondent_management_to_electronic_questionnaire_runner.md](../docs/respondent_management_to_electronic_questionnaire_runner.md).
 
 To comply with the format, RM systems must include a `version` property in the JWT payload provided to eQ. This enables eQ to determine the payload's version and apply different validators and parsers. The option of doing this via the existence of specific keys by one survey type or another was avoided to make the version explicit and make future payload versions easier to manage. To avoid modifying the existing payload generators, this new `version` field is unnecessary for the current v1 format. If the property is not present, eQ will fall back to the v1 model. From version 2 onwards, however, this attribute is necessary.
 
@@ -106,7 +106,7 @@ The platform's goal to support IE is also likely to be dropped in the near futur
 
 ### eQ Runner to Downstream Payload Format v2
 
-This is an overview of eQ's new downstream payload format. More information is available in the official document at `docs/electronic questionnaire_runner_to_downstream.rst`.
+This is an overview of eQ's new downstream payload format. More information is available in the official document at [electronic_questionnaire_runner_to_downstream.md](../docs/electronic_questionnaire_runner_to_downstream.md).
 
 Because the downstream payload format relies on the JWT payload version used during the survey launch, it has also been modified to accommodate v2. The eQ to downstream v2 design, like the JWT payload v2, removes all top-level properties from the payload that are not shared by all survey types or RM systems. All submissions will have the following mandatory top-level properties:
 
@@ -211,6 +211,6 @@ Reasons for selection:
 
 Additional info can be found in the official docs.
 
-**RM to EQ**: [docs/respondent_management_to_electronic_questionnaire_runner.rst](../docs/respondent_management_to_electronic_questionnaire_runner.rst)  
-**EQ to Downstream**: [docs/electronic_questionnaire_runner_to_downstream.rst](../docs/electronic_questionnaire_runner_to_downstream.rst)  
-**Example payloads**: [examples/](../examples)
+- [**RM to EQ**](../docs/respondent_management_to_electronic_questionnaire_runner.md)
+- [**EQ to Downstream**](../docs/electronic_questionnaire_runner_to_downstream.md)  
+- [**Example Payloads**](../examples)
