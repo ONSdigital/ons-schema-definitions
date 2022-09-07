@@ -65,6 +65,8 @@ EQ Runner can optionally accept the following properties.
 | **region_code**                 | The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. `GB-ENG` / `GB-WLS` / `GB-NIR`. This is used in tactical legacy solutions for Individual Response, Email and Feedback features. |
 | **response_expires_at**         | An ISO 8601 formatted date time, after which the unsubmitted partial response can be deleted from the database                                                                                                                                             |
 | **survey**                      | The survey being launched (deprecated)                                                                                                                                                                                                                     |
+| **survey_id**                   | The survey identifier as used across the ONS (e.g. `009`) (deprecated)                                                                                                                                                                                                  |
+| **return_by**                   | The return by date (deprecated)                                                                                                                                                                                                  |
 
 ### Schema Defined Fields
 

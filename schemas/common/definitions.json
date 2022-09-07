@@ -152,6 +152,10 @@
     "description": "A unique identifier for the questionnaire response.",
     "examples": ["QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="]
   },
+  "return_by": {
+    "$ref": "#/$defs/iso_8601_date",
+    "description": "The return by date."
+  },
   "ru_name": {
     "$ref": "#/non_empty_string",
     "description": "The reporting unit\u2019s display name."

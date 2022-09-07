@@ -73,6 +73,9 @@
     "response_id": {
       "$ref": "common/definitions.json#/response_id"
     },
+    "return_by": {
+      "$ref": "common/definitions.json#/return_by"
+    },
     "ru_name": {
       "$ref": "common/definitions.json#/ru_name"
     },
@@ -85,6 +88,9 @@
     "survey": {
       "$ref": "common/definitions.json#/non_empty_string",
       "description": "[DEPRECATED] The survey being launched."
+    },
+    "survey_id": {
+      "$ref": "common/definitions.json#/survey_id"
     },
     "trad_as": {
       "$ref": "common/definitions.json#/trad_as"
