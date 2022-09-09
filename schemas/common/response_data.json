@@ -250,6 +250,31 @@
     "unevaluatedProperties": false,
     "required": ["feedback_type", "feedback_text", "feedback_count"]
   },
+  "feedback_response_legacy": {
+    "type": "object",
+    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions by legacy v2 runner.",
+    "properties": {
+      "email": {
+        "type": "string",
+        "description": "The email of the feedback respondent"
+      },
+      "message": {
+        "type": "string",
+        "description": "The feedback message."
+      },
+      "name": {
+        "type": "string",
+        "description": "The name of the feedback respondent."
+      },
+      "url": {
+        "type": "string",
+        "description": "The URL the feedback was submitted from."
+      }
+    },
+    "additionalProperties": false,
+    "unevaluatedProperties": false,
+    "required": ["email", "message", "name"]
+  },
   "survey_response_0_0_1": {
     "type": "object",
     "description": "This is used for data_version 0.0.1 survey submissions.",

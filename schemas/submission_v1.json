@@ -99,44 +99,60 @@
   },
   "additionalProperties": false,
   "unevaluatedProperties": false,
-  "if": {
-    "properties": { "type": { "const": "uk.gov.ons.edc.eq:feedback" } }
-  },
-  "then": {
-    "properties": {
-      "data": {
-        "$ref": "common/response_data.json#/feedback_response"
-      }
-    }
-  },
-  "else": {
-    "if": {
-      "properties": { "version": { "const": "0.0.3" } }
-    },
-    "then": {
-      "properties": {
-        "data": {
-          "$ref": "common/response_data.json#/survey_response_0_0_3"
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "uk.gov.ons.edc.eq:feedback" } }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "oneOf": [
+              { "$ref": "common/response_data.json#/feedback_response" },
+              { "$ref": "common/response_data.json#/feedback_response_legacy" }
+            ]
+          }
+        }
+      },
+      "else": {
+        "if": {
+          "properties": { "version": { "const": "0.0.3" } }
+        },
+        "then": {
+          "properties": {
+            "data": {
+              "$ref": "common/response_data.json#/survey_response_0_0_3"
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "data": {
+              "$ref": "common/response_data.json#/survey_response_0_0_1"
+            }
+          }
         }
       }
     },
-    "else": {
-      "properties": {
-        "data": {
-          "$ref": "common/response_data.json#/survey_response_0_0_1"
+    {
+      "if": {
+        "properties": {
+          "type": { "const": "uk.gov.ons.edc.eq:surveyresponse" }
         }
+      },
+      "then": {
+        "description": "These properties are required for survey responses but not for survey feedback.",
+        "required": ["case_id", "flushed"]
       }
     }
-  },
+  ],
   "required": [
     "tx_id",
     "type",
     "version",
     "origin",
     "survey_id",
-    "flushed",
     "submitted_at",
-    "case_id",
     "collection",
     "metadata",
     "data"
