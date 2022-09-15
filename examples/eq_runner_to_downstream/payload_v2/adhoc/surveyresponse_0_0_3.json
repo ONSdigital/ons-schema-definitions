@@ -1,0 +1,119 @@
+{
+  "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
+  "type": "uk.gov.ons.edc.eq:surveyresponse",
+  "version": "v2",
+  "data_version": "0.0.3",
+  "origin": "uk.gov.ons.edc.eq",
+  "flushed": false,
+  "submitted_at": "2016-05-21T16:37:56.551086",
+  "launch_language_code": "en",
+  "submission_language_code": "en",
+  "collection_exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
+  "schema_name": "mbs_0001",
+  "started_at": "2016-05-21T16:33:30.665144",
+  "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
+  "region_code": "GB-ENG",
+  "channel": "RH",
+  "survey_metadata": {
+    "survey_id": "009",
+    "case_ref": "1000000000000001",
+    "questionnaire_id": "0130000000000300"
+  },
+  "data": {
+    "answers": [
+      {
+        "answer_id": "first-name",
+        "value": "John",
+        "list_item_id": "zGBdpb"
+      },
+      {
+        "answer_id": "last-name",
+        "value": "Doe",
+        "list_item_id": "zGBdpb"
+      },
+      {
+        "answer_id": "first-name",
+        "value": "Marie",
+        "list_item_id": "cWGwcF"
+      },
+      {
+        "answer_id": "last-name",
+        "value": "Doe",
+        "list_item_id": "cWGwcF"
+      },
+      {
+        "answer_id": "anyone-else",
+        "value": "No"
+      },
+      {
+        "answer_id": "number-of-bedrooms-answer",
+        "value": 4
+      },
+      {
+        "answer_id": "date-of-birth-answer",
+        "value": "1990-01-01",
+        "list_item_id": "EINoLs"
+      },
+      {
+        "answer_id": "internet-answer",
+        "value": [
+          "Broadband or WiFi",
+          "A mobile phone network such as 3G, 4G or 5G",
+          "Public WiFi hotspot"
+        ]
+      },
+      {
+        "answer_id": "business-type-answer",
+        "value": "Enter Business type here!",
+        "list_item_id": "EINoLs"
+      },
+      {
+        "answer_id": "relationship-answer",
+        "value": [
+          {
+            "list_item_id": "zGBdpb",
+            "to_list_item_id": "cWGwcF",
+            "relationship": "Husband or Wife"
+          },
+          {
+            "list_item_id": "nEMpwe",
+            "to_list_item_id": "adNCSi",
+            "relationship": "Son or daughter"
+          },
+          {
+            "list_item_id": "ukGiCK",
+            "to_list_item_id": "adNCSi",
+            "relationship": "Mother or father"
+          }
+        ]
+      },
+      {
+        "answer_id": "other-address-uk-answer",
+        "value": {
+          "line1": "Address Line 1",
+          "town": "Town",
+          "postcode": "NP10 8XG",
+          "uprn": "12345678912"
+        },
+        "list_item_id": "cWGwcF"
+      },
+      {
+        "answer_id": "checkbox-answer",
+        "value": ["Checkbox 1", "Checkbox 2"]
+      },
+      {
+        "answer_id": "duration-answer",
+        "value": {
+          "years": 1,
+          "months": 2
+        }
+      }
+    ],
+    "lists": [
+      {
+        "items": ["zGBdpb", "cWGwcF"],
+        "name": "people"
+      }
+    ]
+  }
+}

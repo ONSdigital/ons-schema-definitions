@@ -1,0 +1,127 @@
+{
+  "$id": "launch_v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ONS EQ Launch Schema v1",
+  "type": "object",
+  "properties": {
+    "account_service_log_out_url": {
+      "$ref": "common/definitions.json#/account_service_logout_url"
+    },
+    "account_service_url": {
+      "$ref": "common/definitions.json#/account_service_url"
+    },
+    "case_id": {
+      "$ref": "common/definitions.json#/case_id"
+    },
+    "case_ref": {
+      "$ref": "common/definitions.json#/case_ref"
+    },
+    "case_type": {
+      "$ref": "common/definitions.json#/case_type"
+    },
+    "channel": {
+      "$ref": "common/definitions.json#/channel"
+    },
+    "collection_exercise_sid": {
+      "$ref": "common/definitions.json#/collection_exercise_sid"
+    },
+    "display_address": {
+      "$ref": "common/definitions.json#/display_address"
+    },
+    "employment_date": {
+      "$ref": "common/definitions.json#/employment_date"
+    },
+    "eq_id": {
+      "$ref": "common/definitions.json#/form_type",
+      "description": "The EQ questionnaire ID."
+    },
+    "exp": {
+      "description": "JWT Issued At claim, see https://tools.ietf.org/html/rfc7519#section-4.1",
+      "type": "integer"
+    },
+    "form_type": {
+      "$ref": "common/definitions.json#/form_type"
+    },
+    "iat": {
+      "description": "JWT Expiration Time claim, see https://tools.ietf.org/html/rfc7519#section-4.1",
+      "type": "integer"
+    },
+    "jti": {
+      "$ref": "common/definitions.json#/jti"
+    },
+    "language_code": {
+      "$ref": "common/definitions.json#/launch_language_code"
+    },
+    "period_id": {
+      "$ref": "common/definitions.json#/period_id"
+    },
+    "period_str": {
+      "$ref": "common/definitions.json#/period_str"
+    },
+    "ref_p_end_date": {
+      "$ref": "common/definitions.json#/ref_p_end_date"
+    },
+    "ref_p_start_date": {
+      "$ref": "common/definitions.json#/ref_p_start_date"
+    },
+    "region_code": {
+      "$ref": "common/definitions.json#/region_code"
+    },
+    "response_expires_at": {
+      "$ref": "common/definitions.json#/response_expires_at"
+    },
+    "response_id": {
+      "$ref": "common/definitions.json#/response_id"
+    },
+    "return_by": {
+      "$ref": "common/definitions.json#/return_by"
+    },
+    "ru_name": {
+      "$ref": "common/definitions.json#/ru_name"
+    },
+    "ru_ref": {
+      "$ref": "common/definitions.json#/ru_ref"
+    },
+    "schema_name": {
+      "$ref": "common/definitions.json#/schema_name"
+    },
+    "survey": {
+      "$ref": "common/definitions.json#/non_empty_string",
+      "description": "[DEPRECATED] The survey being launched."
+    },
+    "survey_id": {
+      "$ref": "common/definitions.json#/survey_id"
+    },
+    "trad_as": {
+      "$ref": "common/definitions.json#/trad_as"
+    },
+    "tx_id": {
+      "$ref": "common/definitions.json#/tx_id"
+    },
+    "user_id": {
+      "$ref": "common/definitions.json#/user_id"
+    }
+  },
+  "required": [
+    "exp",
+    "iat",
+    "jti",
+    "tx_id",
+    "account_service_url",
+    "case_id",
+    "collection_exercise_sid",
+    "response_id",
+    "period_id",
+    "ru_ref",
+    "user_id"
+  ],
+  "additionalProperties": false,
+  "anyOf": [
+    {
+      "required": ["schema_name"]
+    },
+    {
+      "required": ["eq_id", "form_type"]
+    }
+  ]
+}

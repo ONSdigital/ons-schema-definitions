@@ -1,0 +1,160 @@
+{
+  "$id": "submission_v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "ONS EQ Submission Schema v1",
+  "properties": {
+    "case_id": {
+      "$ref": "common/definitions.json#/case_id"
+    },
+    "case_ref": {
+      "$ref": "common/definitions.json#/case_ref"
+    },
+    "case_type": {
+      "$ref": "common/definitions.json#/case_type"
+    },
+    "channel": {
+      "$ref": "common/definitions.json#/channel"
+    },
+    "collection": {
+      "additionalProperties": false,
+      "properties": {
+        "exercise_sid": {
+          "$ref": "common/definitions.json#/collection_exercise_sid"
+        },
+        "instrument_id": {
+          "$ref": "common/definitions.json#/form_type"
+        },
+        "period": {
+          "$ref": "common/definitions.json#/period_id"
+        },
+        "schema_name": {
+          "$ref": "common/definitions.json#/schema_name"
+        }
+      },
+      "required": ["exercise_sid", "period", "instrument_id"],
+      "type": "object"
+    },
+    "data": {
+      "description": "This is conditionally defined in the schemas below."
+    },
+    "flushed": {
+      "$ref": "common/definitions.json#/flushed"
+    },
+    "form_type": {
+      "$ref": "common/definitions.json#/form_type"
+    },
+    "launch_language_code": {
+      "$ref": "common/definitions.json#/launch_language_code"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "properties": {
+        "display_address": {
+          "type": "string"
+        },
+        "ref_period_end_date": {
+          "$ref": "common/definitions.json#/ref_p_end_date"
+        },
+        "ref_period_start_date": {
+          "$ref": "common/definitions.json#/ref_p_start_date"
+        },
+        "ru_ref": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "required": ["user_id", "ru_ref"],
+      "type": "object"
+    },
+    "origin": {
+      "$ref": "common/definitions.json#/origin"
+    },
+    "region_code": {
+      "$ref": "common/definitions.json#/region_code"
+    },
+    "started_at": {
+      "$ref": "common/definitions.json#/started_at"
+    },
+    "submission_language_code": {
+      "$ref": "common/definitions.json#/submission_language_code"
+    },
+    "submitted_at": {
+      "$ref": "common/definitions.json#/submitted_at"
+    },
+    "survey_id": {
+      "$ref": "common/definitions.json#/survey_id"
+    },
+    "tx_id": {
+      "$ref": "common/definitions.json#/tx_id"
+    },
+    "type": {
+      "$ref": "common/definitions.json#/submission_type"
+    },
+    "version": {
+      "$ref": "common/definitions.json#/data_version"
+    }
+  },
+  "additionalProperties": false,
+  "unevaluatedProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "uk.gov.ons.edc.eq:feedback" } }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "oneOf": [
+              { "$ref": "common/response_data.json#/feedback_response" },
+              { "$ref": "common/response_data.json#/feedback_response_legacy" }
+            ]
+          }
+        }
+      },
+      "else": {
+        "if": {
+          "properties": { "version": { "const": "0.0.3" } }
+        },
+        "then": {
+          "properties": {
+            "data": {
+              "$ref": "common/response_data.json#/survey_response_0_0_3"
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "data": {
+              "$ref": "common/response_data.json#/survey_response_0_0_1"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": { "const": "uk.gov.ons.edc.eq:surveyresponse" }
+        }
+      },
+      "then": {
+        "description": "These properties are required for survey responses but not for survey feedback.",
+        "required": ["case_id", "flushed"]
+      }
+    }
+  ],
+  "required": [
+    "tx_id",
+    "type",
+    "version",
+    "origin",
+    "survey_id",
+    "submitted_at",
+    "collection",
+    "metadata",
+    "data"
+  ]
+}

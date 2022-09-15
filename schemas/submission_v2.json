@@ -1,0 +1,116 @@
+{
+  "$id": "submission_v2.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "title": "ONS EQ Submission Schema v2",
+  "properties": {
+    "case_id": {
+      "$ref": "common/definitions.json#/case_id"
+    },
+    "channel": {
+      "$ref": "common/definitions.json#/channel"
+    },
+    "collection_exercise_sid": {
+      "$ref": "common/definitions.json#/collection_exercise_sid"
+    },
+    "data": {
+      "description": "This is conditionally defined in the schemas below."
+    },
+    "data_version": {
+      "$ref": "common/definitions.json#/data_version"
+    },
+    "flushed": {
+      "$ref": "common/definitions.json#/flushed"
+    },
+    "launch_language_code": {
+      "$ref": "common/definitions.json#/launch_language_code"
+    },
+    "origin": {
+      "$ref": "common/definitions.json#/origin"
+    },
+    "region_code": {
+      "$ref": "common/definitions.json#/region_code"
+    },
+    "schema_name": {
+      "$ref": "common/definitions.json#/schema_name"
+    },
+    "schema_url": {
+      "$ref": "common/definitions.json#/schema_url"
+    },
+    "started_at": {
+      "$ref": "common/definitions.json#/started_at"
+    },
+    "submission_language_code": {
+      "$ref": "common/definitions.json#/submission_language_code"
+    },
+    "submitted_at": {
+      "$ref": "common/definitions.json#/submitted_at"
+    },
+    "survey_metadata": {
+      "$ref": "common/survey_metadata.json#/submission_survey_metadata"
+    },
+    "tx_id": {
+      "$ref": "common/definitions.json#/tx_id"
+    },
+    "type": {
+      "$ref": "common/definitions.json#/submission_type"
+    },
+    "version": {
+      "$ref": "common/definitions.json#/payload_version_v2"
+    }
+  },
+  "additionalProperties": false,
+  "unevaluatedProperties": false,
+  "if": {
+    "properties": { "type": { "const": "uk.gov.ons.edc.eq:feedback" } }
+  },
+  "then": {
+    "properties": {
+      "data": {
+        "$ref": "common/response_data.json#/feedback_response"
+      }
+    }
+  },
+  "else": {
+    "if": {
+      "properties": { "data_version": { "const": "0.0.3" } }
+    },
+    "then": {
+      "properties": {
+        "data": {
+          "$ref": "common/response_data.json#/survey_response_0_0_3"
+        }
+      }
+    },
+    "else": {
+      "properties": {
+        "data": {
+          "$ref": "common/response_data.json#/survey_response_0_0_1"
+        }
+      }
+    }
+  },
+  "required": [
+    "tx_id",
+    "type",
+    "version",
+    "data_version",
+    "origin",
+    "flushed",
+    "submitted_at",
+    "launch_language_code",
+    "submission_language_code",
+    "collection_exercise_sid",
+    "case_id",
+    "survey_metadata",
+    "data"
+  ],
+  "oneOf": [
+    {
+      "required": ["schema_name"]
+    },
+    {
+      "required": ["schema_url"]
+    }
+  ]
+}

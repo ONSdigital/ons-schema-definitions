@@ -1,0 +1,34 @@
+{
+  "origin": "uk.gov.ons.edc.eq",
+  "submitted_at": "2021-10-12T10:41:23+00:00",
+  "survey_id": "001",
+  "tx_id": "5d4e1a37-ed21-440a-8c4d-3054a124a104",
+  "type": "uk.gov.ons.edc.eq:feedback",
+  "launch_language_code": "en",
+  "submission_language_code": "en",
+  "version": "0.0.1",
+  "started_at": "2021-10-12T10:41:23+00:00",
+  "form_type": "0234",
+  "case_type": "B",
+  "case_ref": "1000000000000001",
+  "channel": "EQ",
+  "region_code": "GB-ENG",
+  "collection": {
+    "exercise_sid": "eedbdf46-adac-49f7-b4c3-2251807381c3",
+    "schema_name": "carbon_0007",
+    "period": "3003",
+    "instrument_id": "0123"
+  },
+  "metadata": {
+    "user_id": "UNKNOWN",
+    "ru_ref": "74117071486i",
+    "display_address": "1 Road, Town City",
+    "ref_period_start_date": "2019-07-01",
+    "ref_period_end_date": "2019-10-31"
+  },
+  "data": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "message": "Page design feedback"
+  }
+}

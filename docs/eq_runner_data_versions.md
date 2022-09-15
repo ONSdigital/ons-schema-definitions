@@ -12,11 +12,17 @@ The version of the data is determined by the `data_version` property defined in 
   An object of key-value pairings.
 
   - For the payload `type` of `surveyresponse` these will typically contain answer responses using the business defined `q_code` as the key for each answer value.
-  - For the payload `type` of `feedback` these will typically contain survey feedback form properties with corresponding user entered values.
-     - `feedback_text`
-     - `feedback_type`
-     - `feedback_count`
-
+  - For the payload `type` of `feedback` these will typically contain survey feedback form properties. Feedback can be in two formats.
+    - Format 1:
+      - `feedback_text`
+      - `feedback_type`
+      - `feedback_count`
+    - Format 2 (legacy):
+      - `name`
+      - `email`
+      - `message`
+      - `url` **[OPTIONAL]**
+    
 ### Example data version 0.0.1 for surveyresponse JSON payloads
 
 ```json
@@ -26,13 +32,23 @@ The version of the data is determined by the `data_version` property defined in 
 }
 ```
 
-### Example data version 0.0.1 for feedback JSON payload
+### Example data version 0.0.1 for feedback JSON payload (Format 1)
 
 ```json
 "data": {
     "feedback_text": "I like this survey",
     "feedback_type": "Page design and structure",
     "feedback_count": "7"
+}
+```
+
+### Example data version 0.0.1 for feedback JSON payload (Format 2)
+
+```json
+"data": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "message": "Page design feedback"
 }
 ```
 
@@ -224,4 +240,6 @@ The version of the data is determined by the `data_version` property defined in 
 
 ### Example data version 0.0.3 feedback JSON payload
 
-Feedback data format for `0.0.3` is the same as `0.0.1`. See: [Example data version 0.0.1 for feedback JSON payload](#example-data-version-001-for-feedback-json-payload)
+Feedback data format for `0.0.3` is the same as `0.0.1`. 
+ - Format 1: [Example data version 0.0.1 for feedback JSON payload (Format 1)](#example-data-version-001-for-feedback-json-payload-format-1)
+ - Format 2: [Example data version 0.0.1 for feedback JSON payload (Format 2)](#example-data-version-001-for-feedback-json-payload-format-2)
