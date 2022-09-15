@@ -4,7 +4,6 @@ name: PR
   pull_request:
     branches:
       - main
-      - remove-readthedoc-and-use-md
 
 jobs:
   lint-and-validate:
