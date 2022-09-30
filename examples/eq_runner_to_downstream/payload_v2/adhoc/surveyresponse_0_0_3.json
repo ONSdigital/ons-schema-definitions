@@ -17,7 +17,7 @@
   "survey_metadata": {
     "survey_id": "009",
     "case_ref": "1000000000000001",
-    "questionnaire_id": "0130000000000300"
+    "qid": "0130000000000300"
   },
   "data": {
     "answers": [
@@ -99,7 +99,10 @@
       },
       {
         "answer_id": "checkbox-answer",
-        "value": ["Checkbox 1", "Checkbox 2"]
+        "value": [
+          "Checkbox 1",
+          "Checkbox 2"
+        ]
       },
       {
         "answer_id": "duration-answer",
@@ -111,7 +114,10 @@
     ],
     "lists": [
       {
-        "items": ["zGBdpb", "cWGwcF"],
+        "items": [
+          "zGBdpb",
+          "cWGwcF"
+        ],
         "name": "people"
       }
     ]

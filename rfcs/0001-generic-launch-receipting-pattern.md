@@ -73,10 +73,10 @@ The second property is `recepting_keys` (survey_metadata.recepting_keys), an arr
   "data": {  
     "case_ref": "1000000000000001",  
     "case_type": "B",  
-    "questionnaire_id": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"  
+    "qid": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"  
   },  
   "receipting_keys": [  
-    "questionnaire_id"  
+    "qid"  
   ]  
 }  
 ```  
@@ -87,12 +87,12 @@ Something to consider is that `survey_metadata.data` can be `survey_metadata` an
 
 ```json  
 "receipting_keys": [  
-  "questionnaire_id"  
+  "qid"  
 ],  
 "survey_metadata": {  
   "case_ref": "1000000000000001",  
   "case_type": "B",  
-  "questionnaire_id": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"  
+  "qid": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"  
 }  
 ```  
 

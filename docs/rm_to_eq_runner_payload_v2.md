@@ -94,7 +94,7 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 | **Property**         | **Definition**                                              |
 | -------------------- | ----------------------------------------------------------- |
 | **case_ref**         | The case reference (e.g. "1000000000000001")                |
-| **questionnaire_id** | The identifier assigned by the respondent management system |
+| **qid** | The identifier assigned by the respondent management system |
 
 ## An example JSON claim for a Business survey
 
@@ -153,10 +153,10 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
    "survey_metadata": {
       "data": {
          "case_ref": "1000000000000001",
-         "questionnaire_id": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"
+         "qid": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"
       },
       "receipting_keys": [
-         "questionnaire_id"
+         "qid"
       ]
    }
 }
