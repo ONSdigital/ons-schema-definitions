@@ -36,7 +36,7 @@ For v2, additional receipting metadata may be added, which were defined by `surv
 {
 	"tx_id": "6fcf3ddc-a685-4aa1-8fcf-3e38aed5cbf7",
 	"case_id": "2859a8b5-34c3-4603-aad9-78198d8341c9",
-	"questionnaire_id": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"
+	"qid": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"
 }
 ```
 

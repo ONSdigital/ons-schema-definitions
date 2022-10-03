@@ -10,7 +10,7 @@ A new launch and receipting data definition, making the upstream and downstream 
 
 ## Background & Motivation
 
-Although eQ was used for Census and business surveys, which had a different launch and receipting requirements, they were handled by two separate versions of the application (v2 and v3). Both of these versions concerned themselves with the specific receipting information required for the different downstream services to identify and receipt a response. The current (single) target version of eQ supports the receipt of business survey responses by `case_id`. This first-class attribute will continue to be the primary key by which any given response is identified. However, social surveys require additional identifying data (e.g. questionnaire_id) to receipt the response at a lower level. Social surveys (ad-hoc) can have multiple responses for any given `case_id`. Other survey types (e.g. Health) may also define additional identifying attributes required for receipting. The current launch token and receipting payload definitions are primarily business-specific, making it difficult to onboard new survey types with varying receipting requirements.
+Although eQ was used for Census and business surveys, which had a different launch and receipting requirements, they were handled by two separate versions of the application (v2 and v3). Both of these versions concerned themselves with the specific receipting information required for the different downstream services to identify and receipt a response. The current (single) target version of eQ supports the receipt of business survey responses by `case_id`. This first-class attribute will continue to be the primary key by which any given response is identified. However, social surveys require additional identifying data (e.g. qid) to receipt the response at a lower level. Social surveys (ad-hoc) can have multiple responses for any given `case_id`. Other survey types (e.g. Health) may also define additional identifying attributes required for receipting. The current launch token and receipting payload definitions are primarily business-specific, making it difficult to onboard new survey types with varying receipting requirements.
 
 ## Goals
 
@@ -151,13 +151,13 @@ For submissions, the current eQ implementation uses a Google Cloud Storage submi
 
 The GCS metadata for both v1 and v2 data formats will always include a `tx_id` and a `case_id`. Additional receipting metadata specified by `survey_metadata.receipting_keys` from the JTW launch token would be included for v2. Example social survey GCS metadata:
 
-> Assuming JWT payload `survey_metadata.receipting_keys` contained only `questionnaire_id`, then the GCS metadata would look like this:
+> Assuming JWT payload `survey_metadata.receipting_keys` contained only `qid`, then the GCS metadata would look like this:
 
 ```json  
 "metadata": {  
   "tx_id": "6fcf3ddc-a685-4aa1-8fcf-3e38aed5cbf7",  
   "case_id": "2859a8b5-34c3-4603-aad9-78198d8341c9",  
-  "questionnaire_id": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"  
+  "qid": "bdf7dff2-1d73-4b97-bd2d-91f2e53160b9"  
 }  
 ```  
 
