@@ -47,11 +47,7 @@
           "$ref": "definitions.json#/user_id"
         }
       },
-      "required": [
-        "ru_name",
-        "user_id",
-        "period_id"
-      ]
+      "required": ["ru_name", "user_id", "period_id"]
     },
     "adhoc_metadata": {
       "description": "The metadata properties that can be for ad-hoc surveys.",
@@ -63,9 +59,7 @@
           "$ref": "definitions.json#/qid"
         }
       },
-      "required": [
-        "qid"
-      ]
+      "required": ["qid"]
     },
     "survey_metadata_data": {
       "description": "An object that holds metadata about the survey.",
@@ -92,9 +86,7 @@
       }
     },
     "unevaluatedProperties": false,
-    "required": [
-      "survey_id"
-    ]
+    "required": ["survey_id"]
   },
   "survey_metadata": {
     "type": "object",
@@ -107,9 +99,7 @@
         "type": "array",
         "items": {
           "type": "string",
-          "enum": [
-            "qid"
-          ]
+          "enum": ["qid"]
         },
         "minItems": 1
       }

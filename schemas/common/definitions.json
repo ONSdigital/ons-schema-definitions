@@ -7,16 +7,12 @@
     "uuid": {
       "type": "string",
       "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$",
-      "examples": [
-        "1be356de-bde7-48bf-b169-00e0b3822a9c"
-      ]
+      "examples": ["1be356de-bde7-48bf-b169-00e0b3822a9c"]
     },
     "iso_8601_date": {
       "type": "string",
       "format": "date",
-      "examples": [
-        "2019-08-21"
-      ]
+      "examples": ["2019-08-21"]
     },
     "iso_8601_datetime": {
       "type": "string",
@@ -31,12 +27,7 @@
     "language_code": {
       "type": "string",
       "description": "A runner language code.",
-      "enum": [
-        "en",
-        "cy",
-        "ga",
-        "eo"
-      ],
+      "enum": ["en", "cy", "ga", "eo"],
       "default": "en"
     }
   },
@@ -44,17 +35,13 @@
     "type": "string",
     "format": "uri",
     "description": "The base URL of the calling service used to launch EQ.",
-    "examples": [
-      "https://surveys.ons.gov.uk/logout"
-    ]
+    "examples": ["https://surveys.ons.gov.uk/logout"]
   },
   "account_service_url": {
     "type": "string",
     "format": "uri",
     "description": "The base URL of the calling service used to launch EQ.",
-    "examples": [
-      "https://surveys.ons.gov.uk"
-    ]
+    "examples": ["https://surveys.ons.gov.uk"]
   },
   "case_id": {
     "$ref": "#/$defs/uuid",
@@ -63,25 +50,18 @@
   "case_ref": {
     "$ref": "#/non_empty_string",
     "description": "The case reference",
-    "examples": [
-      "1000000000000001"
-    ]
+    "examples": ["1000000000000001"]
   },
   "case_type": {
     "type": "string",
     "description": "The type of case.",
     "pattern": "[A-Z]+",
-    "examples": [
-      "B"
-    ]
+    "examples": ["B"]
   },
   "channel": {
     "$ref": "#/non_empty_string",
     "description": "The channel used to launch the EQ.",
-    "examples": [
-      "RAS",
-      "RH"
-    ]
+    "examples": ["RAS", "RH"]
   },
   "collection_exercise_sid": {
     "$ref": "#/$defs/uuid",
@@ -90,17 +70,12 @@
   "data_version": {
     "type": "string",
     "description": "The version number of the questionnaire schemas `data_version`. This indicates the data payload convertor that was used.",
-    "enum": [
-      "0.0.1",
-      "0.0.3"
-    ]
+    "enum": ["0.0.1", "0.0.3"]
   },
   "display_address": {
     "$ref": "#/non_empty_string",
     "description": "The address displayed to the respondent when completing the questionnaire.",
-    "examples": [
-      "68 Abingdon Road, Goathill"
-    ]
+    "examples": ["68 Abingdon Road, Goathill"]
   },
   "employment_date": {
     "$ref": "#/$defs/iso_8601_date",
@@ -115,9 +90,7 @@
     "type": "string",
     "pattern": "^[0-9A-Za-z_]+$",
     "description": "The particular `form_type` for a responding unit.",
-    "examples": [
-      "0001"
-    ]
+    "examples": ["0001"]
   },
   "jti": {
     "$ref": "#/$defs/uuid",
@@ -144,24 +117,17 @@
   "period_id": {
     "$ref": "#/non_empty_string",
     "description": "A string representing the business area recognised time period for the collection exercise.",
-    "examples": [
-      "2019",
-      "JAN2019"
-    ]
+    "examples": ["2019", "JAN2019"]
   },
   "period_str": {
     "$ref": "#/non_empty_string",
     "description": "A display name for the `period_id`.",
-    "examples": [
-      "January 2019"
-    ]
+    "examples": ["January 2019"]
   },
   "qid": {
     "type": "string",
     "pattern": "[0-9]{16}",
-    "examples": [
-      "0130000000000300"
-    ]
+    "examples": ["0130000000000300"]
   },
   "ref_p_end_date": {
     "$ref": "#/$defs/iso_8601_date",
@@ -174,9 +140,7 @@
   "region_code": {
     "type": "string",
     "description": "A region code defined as per ISO 3166-2:GB",
-    "examples": [
-      "GB-ENG"
-    ],
+    "examples": ["GB-ENG"],
     "pattern": "^(GB-)[A-Z]{3}$"
   },
   "response_expires_at": {
@@ -186,9 +150,7 @@
   "response_id": {
     "$ref": "#/non_empty_string",
     "description": "A unique identifier for the questionnaire response.",
-    "examples": [
-      "QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="
-    ]
+    "examples": ["QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="]
   },
   "return_by": {
     "$ref": "#/$defs/iso_8601_date",
@@ -203,25 +165,19 @@
     "description": "The reporting unit reference with the check letter appended.",
     "minLength": 12,
     "pattern": "^[a-zA-Z0-9]+[A-Za-z]+$",
-    "examples": [
-      "34942807969m"
-    ]
+    "examples": ["34942807969m"]
   },
   "schema_name": {
     "type": "string",
     "description": "The name of the schema.",
     "pattern": "[a-z0-9]+_[a-z0-9]+",
-    "examples": [
-      "mbs_0253"
-    ]
+    "examples": ["mbs_0253"]
   },
   "schema_url": {
     "type": "string",
     "format": "uri",
     "description": "The URL to a schema JSON file that was used for the submitted response.",
-    "examples": [
-      "https://example.com/schema.json"
-    ]
+    "examples": ["https://example.com/schema.json"]
   },
   "started_at": {
     "$ref": "#/$defs/iso_8601_datetime",
@@ -234,10 +190,7 @@
   "submission_type": {
     "type": "string",
     "description": "The unique type identifier of this JSON file.",
-    "enum": [
-      "uk.gov.ons.edc.eq:surveyresponse",
-      "uk.gov.ons.edc.eq:feedback"
-    ]
+    "enum": ["uk.gov.ons.edc.eq:surveyresponse", "uk.gov.ons.edc.eq:feedback"]
   },
   "submitted_at": {
     "$ref": "#/$defs/iso_8601_datetime",
@@ -246,9 +199,7 @@
   "survey_id": {
     "type": "string",
     "description": "The survey identifier as used across the ONS.",
-    "examples": [
-      "001"
-    ]
+    "examples": ["001"]
   },
   "trad_as": {
     "$ref": "#/non_empty_string",
@@ -256,15 +207,11 @@
   },
   "tx_id": {
     "$ref": "#/$defs/uuid",
-    "examples": [
-      "411e12a2-e57f-4f07-917d-76c93b422460"
-    ]
+    "examples": ["411e12a2-e57f-4f07-917d-76c93b422460"]
   },
   "user_id": {
     "$ref": "#/non_empty_string",
     "description": "The id assigned by the respondent management system.",
-    "examples": [
-      "UNKNOWN"
-    ]
+    "examples": ["UNKNOWN"]
   }
 }

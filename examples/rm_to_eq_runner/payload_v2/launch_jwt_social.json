@@ -17,8 +17,6 @@
       "case_ref": "1000000000000001",
       "qid": "0130000000000300"
     },
-    "receipting_keys": [
-      "qid"
-    ]
+    "receipting_keys": ["qid"]
   }
 }

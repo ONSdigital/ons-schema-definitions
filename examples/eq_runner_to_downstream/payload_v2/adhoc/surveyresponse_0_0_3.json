@@ -99,10 +99,7 @@
       },
       {
         "answer_id": "checkbox-answer",
-        "value": [
-          "Checkbox 1",
-          "Checkbox 2"
-        ]
+        "value": ["Checkbox 1", "Checkbox 2"]
       },
       {
         "answer_id": "duration-answer",
@@ -114,10 +111,7 @@
     ],
     "lists": [
       {
-        "items": [
-          "zGBdpb",
-          "cWGwcF"
-        ],
+        "items": ["zGBdpb", "cWGwcF"],
         "name": "people"
       }
     ]
