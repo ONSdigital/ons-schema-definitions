@@ -13,6 +13,9 @@
     "channel": {
       "$ref": "common/definitions.json#/channel"
     },
+    "source": {
+      "$ref": "common/definitions.json#/source"
+    },
     "collection_exercise_sid": {
       "$ref": "common/definitions.json#/collection_exercise_sid"
     },
