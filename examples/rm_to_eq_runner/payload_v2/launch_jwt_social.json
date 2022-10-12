@@ -7,6 +7,7 @@
   "account_service_url": "https://upstream.example.com",
   "case_id": "628256cf-5c78-4896-8bec-f0ddb69aaa11",
   "channel": "RH",
+  "source": "SRM",
   "collection_exercise_sid": "9ced8dc9-f2f3-49f3-95af-2f3ca0b74ee3",
   "region_code": "GB-WLS",
   "response_expires_at": "2022-12-01T00:00:00+00:00",
