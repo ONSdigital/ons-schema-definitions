@@ -41,8 +41,9 @@ The schema used by an EQ Runner can be selected one of two ways.
 EQ Runner can optionally accept the following keys.
 
 | **Property**            | **Definition**                                                                                                                                                                                                                                             |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **channel**             | The channel (client) from which the questionnaire was launched                                                                                                                                                                                             |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **channel**             | The channel (client) from which the questionnaire was launched                                                                                                                                                                                             
+| **source**              | The system where the submission originated from i.e. SRM                                                                                                                                                                                                   |                                                                                                                                                                                                  |
 | **language_code**       | Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en"              |
 | **region_code**         | The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. `GB-ENG` / `GB-WLS` / `GB-NIR`. This is used in tactical legacy solutions for Individual Response, Email and Feedback features. |
 | **response_expires_at** | An ISO_8601 formatted date-time after which the unsubmitted partial response can be deleted from the database                                                                                                                                              |
@@ -145,6 +146,7 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
    "account_service_url": "https://upstream.example.com",
    "case_id": "628256cf-5c78-4896-8bec-f0ddb69aaa11",
    "channel": "RH",
+   "source": "SRM",
    "collection_exercise_sid": "789",
    "region_code": "GB-WLS",
    "response_expires_at": "2022-12-01T00:00:00+00:00",
