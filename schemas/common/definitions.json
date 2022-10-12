@@ -63,6 +63,11 @@
     "description": "The channel used to launch the EQ.",
     "examples": ["RAS", "RH"]
   },
+  "source": {
+    "$ref": "string",
+    "description": "The system to launch EQ",
+    "examples": ["SRM"]
+  },
   "collection_exercise_sid": {
     "$ref": "#/$defs/uuid",
     "description": "A reference UUID used to represent the collection exercise inside the ONS."
