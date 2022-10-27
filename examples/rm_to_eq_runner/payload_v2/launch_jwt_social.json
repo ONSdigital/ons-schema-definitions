@@ -15,8 +15,8 @@
   "survey_metadata": {
     "data": {
       "case_ref": "1000000000000001",
-      "questionnaire_id": "0130000000000300"
+      "qid": "0130000000000300"
     },
-    "receipting_keys": ["questionnaire_id"]
+    "receipting_keys": ["qid"]
   }
 }

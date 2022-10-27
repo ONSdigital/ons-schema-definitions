@@ -55,11 +55,11 @@
         "case_ref": {
           "$ref": "definitions.json#/case_ref"
         },
-        "questionnaire_id": {
-          "$ref": "definitions.json#/questionnaire_id"
+        "qid": {
+          "$ref": "definitions.json#/qid"
         }
       },
-      "required": ["questionnaire_id"]
+      "required": ["qid"]
     },
     "survey_metadata_data": {
       "description": "An object that holds metadata about the survey.",
@@ -99,7 +99,7 @@
         "type": "array",
         "items": {
           "type": "string",
-          "enum": ["questionnaire_id"]
+          "enum": ["qid"]
         },
         "minItems": 1
       }

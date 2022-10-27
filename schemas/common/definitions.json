@@ -124,7 +124,7 @@
     "description": "A display name for the `period_id`.",
     "examples": ["January 2019"]
   },
-  "questionnaire_id": {
+  "qid": {
     "type": "string",
     "pattern": "[0-9]{16}",
     "examples": ["0130000000000300"]
