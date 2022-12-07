@@ -68,6 +68,7 @@ The version of the data is determined by the `data_version` property defined in 
     - `answer_codes`
         - An array of [answer code objects](#answer-code-object) to represent the `answer_id` (optionally the `answer_value`) to user-defined code relationship.
         - Only contains the mapping for responses provided in `data.answers`. It does not contain the mapping for the entire survey. However, mappings for all option values are provided for answers with option values, regardless of whether the response data contains all option values. eQ only filters the answer codes by `answer_id`. In other words, eQ will send answer codes for all answer_ids for which there is a response.
+        - **Note: answer_codes in the payload are temporary and will be removed once the Collection Instrument Registry (CIR) is in place. Systems requiring the answer_codes will be able to fetch the eQ schema from the CIR which contains the full answer codes mapping avoiding the need to couple it in the eQ payload.**
 
   - For the payload `type` of `feedback` these will typically contain survey feedback form properties with corresponding user entered values.
      - `feedback_text`
