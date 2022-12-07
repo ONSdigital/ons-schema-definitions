@@ -59,39 +59,56 @@ The version of the data is determined by the `data_version` property defined in 
 `data`
   An object of key-value pairing.
 
-  - For the payload `type` of `surveyresponse` these will typically contain the list items and answers arrays
+  - For the payload `type` of `surveyresponse` these will typically contain the list items, the answers array and an optional answer codes array.
 
-    `lists`
-      An array of list item objects built up during the questionnaire completion
-
-      **List Item Object**
-
-      - `name`: the name of the list (e.g. `people-who-live-here`)
-      - `items`: an array of strings of the item identifiers in the list
-      - `primary_person`: [optional] the item identifier of the primary person in the list
-
-    `answers`
-      An array of answer objects
-
-      **Answer Object**
-
-      - `value`: the value of the answer(s) provided for the answer_id
-      - `answer_id`: the business defined answer identifier
-      - `list_item_id`: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
+    - `lists`
+        - An array of [list item objects](#list-item-object) built up during the questionnaire completion [list item object]
+    - `answers`
+        - An array of [answer objects](#answer-object)
+    - `answer_codes`
+        - An array of [answer code objects](#answer-code-object) to represent the `answer_id` (optionally the `answer_value`) to user-defined code relationship.
+        - Only contains the mapping for responses provided in `data.answers`. It does not contain the mapping for the entire survey. However, mappings for all option values are provided for answers with option values, regardless of whether the response data contains all option values. eQ only filters the answer codes by `answer_id`. In other words, eQ will send answer codes for all answer_ids for which there is a response.
 
   - For the payload `type` of `feedback` these will typically contain survey feedback form properties with corresponding user entered values.
      - `feedback_text`
      - `feedback_type`
      - `feedback_count`
 
+#### List Item Object
+
+- `name`: the name of the list (e.g. `people-who-live-here`)
+- `items`: an array of strings of the item identifiers in the list
+- `primary_person`: [optional] the item identifier of the primary person in the list
+
+#### Answer Object
+
+- `answer_id`: the answer identifier
+- `value`: the value of the answer(s) provided for the `answer_id`
+- `list_item_id`: [optional] the ID of the list item the answer was provided for (if answering in the context of a list item)
+
+#### Answer Code Object
+
+- `answer_id`: the answer identifier
+- `code`: the user-defined answer code
+- `answer_value`: [optional] the option value for answers that support options.
+
+**Rules**
+- The `answer_id` for the answer code object will be present in at least one of the answer objects in `data.answers` and vice versa.
+- The value for `code` is globally unique among all answers.
+- The `answer_value` is an optional key that will only exist for answers that support options such as Radio, Dropdown, Relationship and Checkbox.
+    - The key will only exist when there is a user-defined code against each option.
+
 ### Example data version 0.0.3 for surveyresponse JSON payload
 
 ```json
 "data": {
+    "lists": [
+        ...
+    ],
     "answers": [
         ...
     ],
-    "lists": [
+    "answer_codes": [
         ...
     ]
 }
@@ -210,7 +227,7 @@ The version of the data is determined by the `data_version` property defined in 
 ]
 ```
 
-**Answer Array Example (address type)**
+**Answer Array Example (Address type)**
 
 ```json
 "answers": [
@@ -236,6 +253,35 @@ The version of the data is determined by the `data_version` property defined in 
     }
   }
 ]
+```
+
+**Answer Codes Example**
+
+```json
+"answer_codes": [
+    {
+      "answer_id": "textfield-answer",
+      "code": "1"
+    },
+    {
+      "answer_id": "number-answer",
+      "code": "2"
+    },
+    {
+      "answer_id": "radio-dropdown-checkbox-relationship-answer",
+      "code": "3" // This should only exist and be used for dynamic answers or when codes for each option aren't given.
+    },
+    {
+      "answer_id": "radio-dropdown-checkbox-relationship-answer",
+      "answer_value": "RAD1",  // This is the value of the Dropdown/Radio/Checkbox/Relationship, not the label.
+      "code": "3a"
+    },
+    {
+      "answer_id": "radio-dropdown-checkbox-relationship-answer",
+      "answer_value": "RAD2",  // This is the value of the Dropdown/Radio/Checkbox/Relationship, not the label.
+      "code": "3b"
+    }
+  ],
 ```
 
 ### Example data version 0.0.3 feedback JSON payload
