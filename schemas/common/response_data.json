@@ -153,6 +153,25 @@
         ]
       ]
     },
+    "answer_values": {
+      "oneOf": [
+        {
+          "$ref": "response_data.json#/$defs/generic_answer_value"
+        },
+        {
+          "$ref": "response_data.json#/$defs/checkbox_answer_value"
+        },
+        {
+          "$ref": "response_data.json#/$defs/duration_answer_value"
+        },
+        {
+          "$ref": "response_data.json#/$defs/address_answer_value"
+        },
+        {
+          "$ref": "response_data.json#/$defs/relationship_answer_value"
+        }
+      ]
+    },
     "data_version_0_0_3_lists": {
       "type": "array",
       "description": "An array of list item objects built up during the questionnaire completion.",
@@ -188,6 +207,32 @@
         "unevaluatedProperties": false
       }
     },
+    "data_version_0_0_3_answer_codes": {
+      "type": "array",
+      "description": "An array of answer code objects to represent the `answer_id` (optionally the `answer_value`) to user-defined code relationship",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "description": "An answer code mapping object.",
+        "properties": {
+          "answer_id": {
+            "$ref": "response_data.json#/$defs/answer_id"
+          },
+          "code": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9._-]+$",
+            "description": "The user-defined answer code."
+          },
+          "answer_value": {
+            "$ref": "response_data.json#/$defs/answer_values"
+          }
+        },
+        "additionalProperties": false,
+        "unevaluatedProperties": false,
+        "required": ["answer_id", "code"]
+      }
+    },
     "data_version_0_0_3_answers": {
       "type": "array",
       "description": "An array of answers built up during the questionnaire completion.",
@@ -199,23 +244,7 @@
             "$ref": "response_data.json#/$defs/answer_id"
           },
           "value": {
-            "oneOf": [
-              {
-                "$ref": "response_data.json#/$defs/generic_answer_value"
-              },
-              {
-                "$ref": "response_data.json#/$defs/checkbox_answer_value"
-              },
-              {
-                "$ref": "response_data.json#/$defs/duration_answer_value"
-              },
-              {
-                "$ref": "response_data.json#/$defs/address_answer_value"
-              },
-              {
-                "$ref": "response_data.json#/$defs/relationship_answer_value"
-              }
-            ]
+            "$ref": "response_data.json#/$defs/answer_values"
           },
           "list_item_id": {
             "$ref": "response_data.json#/$defs/list_item_id",
@@ -291,6 +320,9 @@
     "type": "object",
     "description": "This is used for data_version 0.0.3 survey submissions.",
     "properties": {
+      "answer_codes": {
+        "$ref": "response_data.json#/$defs/data_version_0_0_3_answer_codes"
+      },
       "answers": {
         "$ref": "response_data.json#/$defs/data_version_0_0_3_answers"
       },

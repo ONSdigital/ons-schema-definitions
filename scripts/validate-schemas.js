@@ -48,12 +48,83 @@ const loadCommonSchemas = () => {
   });
 };
 
-const validateSchemaForFile = (fileName, baseSchema) => {
+const validateSubmissionAnswerCodes = (jsonData) => {
+  /**
+   * This function validates:
+   *  - data.answer_codes.code is globally unique
+   *  - data.answer_codes.answer_id exists in data.answers
+   *  - data.answers.answer_id exists in data.answer_codes
+   */
+
+  const errors = [];
+
+  const answerCodes = jsonData.data.answer_codes;
+  if (!answerCodes) {
+    return errors;
+  }
+
+  const answers = jsonData.data.answers;
+
+  // Create a Set to store the answer_id values from the answers array
+  const answerIds = new Set(answers.map((answer) => answer.answer_id));
+  // Create a Set to store the code values from the answer_codes array
+  const codes = new Set(answerCodes.map((entry) => entry.code));
+
+  const missingCodes = codes.size - answerCodes.length;
+  if (missingCodes) {
+    errors.push(
+      `data.answer_codes.code must be globally unique. Found ${Math.abs(
+        missingCodes
+      )} duplicate code(s).`
+    );
+  }
+
+  // Iterate over the answer_codes array and check if the answer_id exists in the answerIds Set
+  for (const code of answerCodes) {
+    if (!answerIds.has(code.answer_id)) {
+      errors.push(
+        `Answer ID '${code.answer_id}' from data.answer_codes does not exist in the data.answers array`
+      );
+    }
+  }
+
+  // Iterate over the answers array and check if the answer_id exists in the answer_codes array
+  for (const answer of answers) {
+    // eslint-disable-next-line camelcase
+    if (!answerCodes.some((code) => code.answer_id === answer.answer_id)) {
+      // If the answer_id doesn't exist, log out a message
+      errors.push(
+        // eslint-disable-next-line camelcase
+        `Answer ID '${answer.answer_id}' from data.answers does not exist in the data.answer_codes array`
+      );
+    }
+  }
+
+  return errors;
+};
+
+const validateSchemaForFile = (fileName, baseSchema, schemaType) => {
   const validate = ajValidator.compile(baseSchema);
 
   const jsonData = JSON.parse(fs.readFileSync(fileName));
   const result = validate(jsonData);
   if (result) {
+    // Validate answer_codes for submission schemas
+    if (schemaType.includes("submission")) {
+      const errors = validateSubmissionAnswerCodes(jsonData);
+
+      if (errors.length) {
+        console.error(foregroundRed, `\n---\n${fileName} - FAILED`);
+        console.dir(
+          { Errors: errors },
+          {
+            depth: null,
+          }
+        );
+        return false;
+      }
+    }
+
     console.log(foregroundGreen, `${fileName} - PASSED`);
     return true;
   }
@@ -88,7 +159,7 @@ const validateSchemas = (schemaType, filepathOrGlob) => {
   );
 
   files.forEach((file) => {
-    const isValid = validateSchemaForFile(file, baseSchema);
+    const isValid = validateSchemaForFile(file, baseSchema, schemaType);
 
     if (isValid === true) {
       passed++;
