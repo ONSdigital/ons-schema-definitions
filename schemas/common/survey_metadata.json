@@ -80,7 +80,14 @@
           "$ref": "definitions.json#/first_name"
         }
       },
-      "required": ["qid","PARTICIPANT_ID","TEST_QUESTIONS","COLLEX_OPEN_DATE","COLLEX_CLOSE_DATE","FIRST_NAME"]
+      "required": [
+        "qid",
+        "PARTICIPANT_ID",
+        "TEST_QUESTIONS",
+        "COLLEX_OPEN_DATE",
+        "COLLEX_CLOSE_DATE",
+        "FIRST_NAME"
+      ]
     },
     "survey_metadata_data": {
       "description": "An object that holds metadata about the survey.",
