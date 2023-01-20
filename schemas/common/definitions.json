@@ -221,7 +221,7 @@
   },
   "swab_test_barcode": {
     "type": "string",
-    "description": "Barcode for respondents swap test (PHM specific)",
+    "description": "Barcode for respondents swab test (PHM specific)",
     "examples": ["swT11111111"]
   },
   "participant_id": {
