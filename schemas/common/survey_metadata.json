@@ -81,12 +81,7 @@
         }
       },
       "required": [
-        "qid",
-        "PARTICIPANT_ID",
-        "TEST_QUESTIONS",
-        "COLLEX_OPEN_DATE",
-        "COLLEX_CLOSE_DATE",
-        "FIRST_NAME"
+        "qid"
       ]
     },
     "survey_metadata_data": {
