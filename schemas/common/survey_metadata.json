@@ -80,9 +80,7 @@
           "$ref": "definitions.json#/first_name"
         }
       },
-      "required": [
-        "qid"
-      ]
+      "required": ["qid"]
     },
     "survey_metadata_data": {
       "description": "An object that holds metadata about the survey.",
