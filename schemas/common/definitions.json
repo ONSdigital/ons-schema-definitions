@@ -213,5 +213,40 @@
     "$ref": "#/non_empty_string",
     "description": "The id assigned by the respondent management system.",
     "examples": ["UNKNOWN"]
+  },
+  "blood_test_barcode": {
+    "type": "string",
+    "description": "Barcode for respondents blood test (PHM specific)",
+    "examples": ["BLT11111111"]
+  },
+  "swab_test_barcode": {
+    "type": "string",
+    "description": "Barcode for respondents swab test (PHM specific)",
+    "examples": ["swT11111111"]
+  },
+  "participant_id": {
+    "$ref": "#/non_empty_string",
+    "description": "ID of the participant (PHM specific)",
+    "examples": ["DHR-12345678901"]
+  },
+  "test_questions": {
+    "type": "string",
+    "description": "flag to toggle the test questions (PHM specific)",
+    "enum": ["T", "F"]
+  },
+  "collex_open_date": {
+    "$ref": "#/non_empty_string",
+    "description": "Formatted date to display in questionnaire (PHM specific)",
+    "examples": ["08 Jan 2023"]
+  },
+  "collex_close_date": {
+    "$ref": "#/non_empty_string",
+    "description": "Formatted date to display in questionnaire (PHM specific)",
+    "examples": ["08 Jan 2023"]
+  },
+  "first_name": {
+    "$ref": "#/non_empty_string",
+    "description": "Respondents first name for display (PHM specific)",
+    "examples": ["08 Jan 2023"]
   }
 }

@@ -17,7 +17,14 @@
   "survey_metadata": {
     "survey_id": "009",
     "case_ref": "1000000000000001",
-    "qid": "0130000000000300"
+    "qid": "0130000000000300",
+    "BLOOD_TEST_BARCODE": "BLT11111111",
+    "SWAB_TEST_BARCODE": "swT11111111",
+    "PARTICIPANT_ID": "1234567891011122",
+    "TEST_QUESTIONS": "F",
+    "COLLEX_OPEN_DATE": "08 Jan 2023",
+    "COLLEX_CLOSE_DATE": "28 Jan 2023",
+    "FIRST_NAME": "Vinny"
   },
   "data": {
     "answers": [

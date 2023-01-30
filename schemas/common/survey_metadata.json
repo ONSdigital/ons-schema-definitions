@@ -57,6 +57,27 @@
         },
         "qid": {
           "$ref": "definitions.json#/qid"
+        },
+        "BLOOD_TEST_BARCODE": {
+          "$ref": "definitions.json#/blood_test_barcode"
+        },
+        "SWAB_TEST_BARCODE": {
+          "$ref": "definitions.json#/swab_test_barcode"
+        },
+        "PARTICIPANT_ID": {
+          "$ref": "definitions.json#/participant_id"
+        },
+        "TEST_QUESTIONS": {
+          "$ref": "definitions.json#/test_questions"
+        },
+        "COLLEX_OPEN_DATE": {
+          "$ref": "definitions.json#/collex_open_date"
+        },
+        "COLLEX_CLOSE_DATE": {
+          "$ref": "definitions.json#/collex_close_date"
+        },
+        "FIRST_NAME": {
+          "$ref": "definitions.json#/first_name"
         }
       },
       "required": ["qid"]
