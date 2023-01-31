@@ -30,6 +30,6 @@
     "ABC-123": "This is an answer to q_code ABC-123",
     "0002": "This is an answer to q_code 0002",
     "xyz1": "This is an answer to q_code xyz1",
-    "ABC-123-xyz": "This is an answer to q_code ABC-123-xyz"
+    "ABC_123_xyz": "This is an answer to q_code ABC-123-xyz"
   }
 }
