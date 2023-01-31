@@ -308,7 +308,7 @@
     "type": "object",
     "description": "This is used for data_version 0.0.1 survey submissions.",
     "patternProperties": {
-      "^[0-9a-z]+$": {
+      "^[a-zA-Z0-9._-]+$": {
         "$ref": "definitions.json#/non_empty_string",
         "description": "The answer value."
       }
