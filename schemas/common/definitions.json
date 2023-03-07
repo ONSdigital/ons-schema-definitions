@@ -9,11 +9,6 @@
       "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$",
       "examples": ["1be356de-bde7-48bf-b169-00e0b3822a9c"]
     },
-    "iso_8601_date": {
-      "type": "string",
-      "format": "date",
-      "examples": ["2019-08-21"]
-    },
     "iso_8601_datetime": {
       "type": "string",
       "format": "date-time",
@@ -30,6 +25,11 @@
       "enum": ["en", "cy", "ga", "eo"],
       "default": "en"
     }
+  },
+  "iso_8601_date": {
+    "type": "string",
+    "format": "date",
+    "examples": ["2019-08-21"]
   },
   "account_service_logout_url": {
     "type": "string",
@@ -78,7 +78,7 @@
     "examples": ["68 Abingdon Road, Goathill"]
   },
   "employment_date": {
-    "$ref": "#/$defs/iso_8601_date",
+    "$ref": "#/iso_8601_date",
     "description": "The employment reference date."
   },
   "flushed": {
@@ -130,11 +130,11 @@
     "examples": ["0130000000000300"]
   },
   "ref_p_end_date": {
-    "$ref": "#/$defs/iso_8601_date",
+    "$ref": "#/iso_8601_date",
     "description": "The reference period\u2019s end date."
   },
   "ref_p_start_date": {
-    "$ref": "#/$defs/iso_8601_date",
+    "$ref": "#/iso_8601_date",
     "description": "The reference period\u2019s start date."
   },
   "region_code": {
@@ -153,7 +153,7 @@
     "examples": ["QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w="]
   },
   "return_by": {
-    "$ref": "#/$defs/iso_8601_date",
+    "$ref": "#/iso_8601_date",
     "description": "The return by date."
   },
   "ru_name": {
@@ -226,8 +226,22 @@
   },
   "participant_id": {
     "$ref": "#/non_empty_string",
+    "maxLength": 17,
     "description": "ID of the participant (PHM specific)",
     "examples": ["DHR-12345678901"]
+  },
+  "participant_window_id": {
+    "$ref": "#/non_empty_string",
+    "maxLength": 21,
+    "description": "ID of the participant appended with a hyphen and 3 digits (PHM specific)",
+    "examples": ["DHR-12345678901-001"]
+  },
+  "portal_id": {
+    "type": "number",
+    "minimum": 1000000,
+    "maximum": 9999999,
+    "description": "The customer facing version of a participant ID used for telephony support (PHM specific)",
+    "examples": [1234567]
   },
   "test_questions": {
     "type": "string",
