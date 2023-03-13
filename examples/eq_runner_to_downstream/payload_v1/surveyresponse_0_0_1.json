@@ -29,8 +29,9 @@
     "ref_period_end_date": "2019-10-31"
   },
   "data": {
-    "0001": "This is an answer to q_code 0001",
+    "ABC-123": "This is an answer to q_code ABC-123",
     "0002": "This is an answer to q_code 0002",
-    "0003": "This is an answer to q_code 0003"
+    "xyz1": "This is an answer to q_code xyz1",
+    "ABC_123_xyz": "This is an answer to q_code ABC-123-xyz"
   }
 }

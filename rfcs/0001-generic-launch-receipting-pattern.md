@@ -118,7 +118,6 @@ Because the downstream payload format relies on the JWT payload version used dur
 - case_id
 - submitted_at
 - launch_language_code
-- submission_language_code
 - flushed
 - data
 - either schema_url or schema_name

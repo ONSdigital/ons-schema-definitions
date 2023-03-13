@@ -17,7 +17,18 @@
   "survey_metadata": {
     "survey_id": "009",
     "case_ref": "1000000000000001",
-    "qid": "0130000000000300"
+    "qid": "0130000000000300",
+    "BLOOD_TEST_BARCODE": "BLT11111111",
+    "SWAB_TEST_BARCODE": "swT11111111",
+    "PARTICIPANT_ID": "DHRF-123456789012",
+    "TEST_QUESTIONS": "F",
+    "COLLEX_OPEN_DATE": "08 Jan 2023",
+    "COLLEX_CLOSE_DATE": "28 Jan 2023",
+    "FIRST_NAME": "Vinny",
+    "WINDOW_START_DATE": "2023-01-08",
+    "WINDOW_CLOSE_DATE": "2023-01-28",
+    "PORTAL_ID": 1234567,
+    "PARTICIPANT_WINDOW_ID": "DHRF-123456789012-001"
   },
   "data": {
     "feedback_text": "Page design feedback",

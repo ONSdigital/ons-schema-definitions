@@ -61,35 +61,51 @@
   },
   "additionalProperties": false,
   "unevaluatedProperties": false,
-  "if": {
-    "properties": { "type": { "const": "uk.gov.ons.edc.eq:feedback" } }
-  },
-  "then": {
-    "properties": {
-      "data": {
-        "$ref": "common/response_data.json#/feedback_response"
-      }
-    }
-  },
-  "else": {
-    "if": {
-      "properties": { "data_version": { "const": "0.0.3" } }
-    },
-    "then": {
-      "properties": {
-        "data": {
-          "$ref": "common/response_data.json#/survey_response_0_0_3"
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "uk.gov.ons.edc.eq:feedback" } }
+      },
+      "then": {
+        "properties": {
+          "data": {
+            "$ref": "common/response_data.json#/feedback_response"
+          }
+        }
+      },
+      "else": {
+        "if": {
+          "properties": { "data_version": { "const": "0.0.3" } }
+        },
+        "then": {
+          "properties": {
+            "data": {
+              "$ref": "common/response_data.json#/survey_response_0_0_3"
+            }
+          }
+        },
+        "else": {
+          "properties": {
+            "data": {
+              "$ref": "common/response_data.json#/survey_response_0_0_1"
+            }
+          }
         }
       }
     },
-    "else": {
-      "properties": {
-        "data": {
-          "$ref": "common/response_data.json#/survey_response_0_0_1"
+    {
+      "if": {
+        "properties": {
+          "flushed": {
+            "const": false
+          }
         }
+      },
+      "then": {
+        "required": ["submission_language_code"]
       }
     }
-  },
+  ],
   "required": [
     "tx_id",
     "type",
@@ -99,7 +115,6 @@
     "flushed",
     "submitted_at",
     "launch_language_code",
-    "submission_language_code",
     "collection_exercise_sid",
     "case_id",
     "survey_metadata",

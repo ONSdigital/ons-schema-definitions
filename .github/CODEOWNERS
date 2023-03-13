@@ -10,3 +10,12 @@ docs/eq_runner_to_downstream_payload_v2.md @ONSdigital/eq-runner @ONSdigital/sdx
 docs/eq_runner_data_versions.md @ONSdigital/eq-runner @ONSdigital/sdx
 
 docs/survey_data_exchange_to_respondent_account_services.md @ONSdigital/sdx @ONSdigital/sdc-rmras
+
+examples/rm_to_eq_runner/* @ONSdigital/eq-runner @ONSdigital/sdc-rmras @ONSdigital/census-response-management
+examples/eq_runner_to_downstream/* @ONSdigital/eq-runner @ONSdigital/sdx
+
+schemas/launch_v1.json @ONSdigital/eq-runner @ONSdigital/sdc-rmras @ONSdigital/census-response-management
+schemas/launch_v2.json @ONSdigital/eq-runner @ONSdigital/sdc-rmras @ONSdigital/census-response-management
+
+schemas/submission_v1.json @ONSdigital/eq-runner @ONSdigital/sdx
+schemas/submission_v2.json @ONSdigital/eq-runner @ONSdigital/sdx
