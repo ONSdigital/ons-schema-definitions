@@ -67,6 +67,9 @@
         "PARTICIPANT_ID": {
           "$ref": "definitions.json#/participant_id"
         },
+        "PARTICIPANT_WINDOW_ID": {
+          "$ref": "definitions.json#/participant_window_id"
+        },
         "TEST_QUESTIONS": {
           "$ref": "definitions.json#/test_questions"
         },
@@ -78,9 +81,20 @@
         },
         "FIRST_NAME": {
           "$ref": "definitions.json#/first_name"
+        },
+        "WINDOW_START_DATE": {
+          "$ref": "definitions.json#/iso_8601_date",
+          "description": "The ISO 8601 date of COLLEX_OPEN_DATE"
+        },
+        "WINDOW_CLOSE_DATE": {
+          "$ref": "definitions.json#/iso_8601_date",
+          "description": "The ISO 8601 date of COLLEX_CLOSE_DATE"
+        },
+        "PORTAL_ID": {
+          "$ref": "definitions.json#/portal_id"
         }
       },
-      "required": ["qid"]
+      "required": ["qid", "PARTICIPANT_WINDOW_ID", "PORTAL_ID"]
     },
     "survey_metadata_data": {
       "description": "An object that holds metadata about the survey.",
