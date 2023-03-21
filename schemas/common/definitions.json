@@ -237,11 +237,12 @@
     "examples": ["DHR-12345678901-001"]
   },
   "portal_id": {
-    "type": "number",
-    "minimum": 1000000,
-    "maximum": 9999999,
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 7,
+    "pattern": "^[0-9]+$",
     "description": "The customer facing version of a participant ID used for telephony support (PHM specific)",
-    "examples": [1234567]
+    "examples": ["1", "1234567"]
   },
   "test_questions": {
     "type": "string",
