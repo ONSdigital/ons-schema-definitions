@@ -88,6 +88,7 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 | **ru_name**          | The reporting unit’s display name                                                                                                                                             |
 | **trad_as**          | The reporting unit's 'trading as' name                                                                                                                                        |
 | **user_id**          | The id assigned by the respondent management system                                                                                                                           |
+| **survey_id**        | The survey identifier as used across the ONS.                                                                                                                                                                              |
 
 ##### Ad-hoc Survey Metadata
 
@@ -127,7 +128,8 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
          "ru_name": "ACME T&T Limited",
          "ru_ref": "49900000001A",
          "trad_as": "ACME LTD.",
-         "user_id": "64389274239"
+         "user_id": "64389274239",
+         "survey_id": "345"
       }
    }
 }

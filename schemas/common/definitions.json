@@ -198,7 +198,9 @@
   },
   "survey_id": {
     "type": "string",
-    "description": "The survey identifier as used across the ONS.",
+    "description": "The ONS id of the survey derived from the inquiry code already in use for that survey.",
+    "pattern": "^[0-9a-z]+$",
+    "minLength": 1,
     "examples": ["001"]
   },
   "trad_as": {
