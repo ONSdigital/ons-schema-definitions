@@ -28,7 +28,7 @@
           "$ref": "definitions.json#/non_empty_string"
         },
         {
-          "type": "integer"
+          "type": "number"
         }
       ],
       "description": "The value a non-composite answer.",
