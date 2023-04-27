@@ -57,6 +57,10 @@
         "value": 4
       },
       {
+        "answer_id": "number-of-items-answer",
+        "value": 4.5
+      },
+      {
         "answer_id": "date-of-birth-answer",
         "value": "1990-01-01",
         "list_item_id": "EINoLs"
