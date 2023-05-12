@@ -64,7 +64,8 @@
     "account_service_url",
     "case_id",
     "collection_exercise_sid",
-    "response_id"
+    "response_id",
+    "response_expires_at"
   ],
   "additionalProperties": false,
   "oneOf": [
