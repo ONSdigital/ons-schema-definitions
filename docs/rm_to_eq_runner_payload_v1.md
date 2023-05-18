@@ -27,6 +27,7 @@ do not appear in individual survey metadata definitions.
 | **response_id**             | A unique identifier for the questionnaire response                                                                                                                          |
 | **ru_ref**                  | The reporting unit reference - with check letter appended.                                                                                                                  |
 | **user_id**                 | The identifier assigned by the respondent management system                                                                                                                 |
+| **response_expires_at**     | An ISO 8601 formatted date time, after which the unsubmitted partial response can be deleted from the database                                                              |
 
 #### Schema Selection Fields
 
@@ -63,7 +64,6 @@ EQ Runner can optionally accept the following properties.
 | **language_code**               | Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en"              |
 | **period_str**                  | A display name for the `period_id` referenced above                                                                                                                                                                                                        |
 | **region_code**                 | The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. `GB-ENG` / `GB-WLS` / `GB-NIR`. This is used in tactical legacy solutions for Individual Response, Email and Feedback features. |
-| **response_expires_at**         | An ISO 8601 formatted date time, after which the unsubmitted partial response can be deleted from the database                                                                                                                                             |
 | **survey**                      | The survey being launched (deprecated)                                                                                                                                                                                                                     |
 | **survey_id**                   | The survey identifier as used across the ONS (e.g. `009`) (deprecated)                                                                                                                                                                                                  |
 | **return_by**                   | The return by date (deprecated)                                                                                                                                                                                                  |

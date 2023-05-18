@@ -113,7 +113,8 @@
     "response_id",
     "period_id",
     "ru_ref",
-    "user_id"
+    "user_id",
+    "response_expires_at"
   ],
   "additionalProperties": false,
   "anyOf": [

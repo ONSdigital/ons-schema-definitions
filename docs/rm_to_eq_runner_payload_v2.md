@@ -13,17 +13,18 @@ This document defines the JWT payload structure for v2.
 
 The following metadata properties are always required for the EQ Runner, they do not appear in individual survey metadata definitions.
 
-| **Property**                | **Definition**                                                                             |
-| --------------------------- | ------------------------------------------------------------------------------------------ |
-| **iat**                     | JWT Issued At claim, see https://tools.ietf.org/html/rfc7519#section-4.1.6                 |
-| **exp**                     | JWT Expiration Time claim, see https://tools.ietf.org/html/rfc7519#section-4.1.4           |
-| **jti**                     | See [JWT Profile][jwt_profile]                                                             |
-| **account_service_url**     | The base URL of the calling service used to launch the survey                              |
-| **case_id**                 | The case UUID, used to identify a single instance of a survey collection for a respondent  |
-| **collection_exercise_sid** | A reference UUID used to represent the collection exercise inside the ONS                  |
-| **response_id**             | A unique identifier for the questionnaire response                                         |
-| **tx_id**                   | See: [JWT Profile][jwt_profile]                                                            |
-| **version**                 | The version number for this JWT payload specification. For this format, this must be `v2`. |
+| **Property**                | **Definition**                                                                                                |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------|
+| **iat**                     | JWT Issued At claim, see https://tools.ietf.org/html/rfc7519#section-4.1.6                                    |
+| **exp**                     | JWT Expiration Time claim, see https://tools.ietf.org/html/rfc7519#section-4.1.4                              |
+| **jti**                     | See [JWT Profile][jwt_profile]                                                                                |
+| **account_service_url**     | The base URL of the calling service used to launch the survey                                                 |
+| **case_id**                 | The case UUID, used to identify a single instance of a survey collection for a respondent                     |
+| **collection_exercise_sid** | A reference UUID used to represent the collection exercise inside the ONS                                     |
+| **response_id**             | A unique identifier for the questionnaire response                                                            |
+| **tx_id**                   | See: [JWT Profile][jwt_profile]                                                                               |
+| **version**                 | The version number for this JWT payload specification. For this format, this must be `v2`.                    |
+| **response_expires_at**     | An ISO_8601 formatted date-time after which the unsubmitted partial response can be deleted from the database |
 
 #### Schema Selection Fields
 
@@ -45,7 +46,6 @@ EQ Runner can optionally accept the following keys.
 | **channel**             | The channel (client) from which the questionnaire was launched                                                                                                                                                                                             |
 | **language_code**       | Language code identifier, used to change language displayed. Format as per ISO-639-1 (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) e.g. "en" for English; "cy" for Welsh. This parameter is currently optional; the default is "en"              |
 | **region_code**         | The Region Code of the questionnaire response. Format as per ISO 3166-2 (https://en.wikipedia.org/wiki/ISO_3166-2:GB) i.e. `GB-ENG` / `GB-WLS` / `GB-NIR`. This is used in tactical legacy solutions for Individual Response, Email and Feedback features. |
-| **response_expires_at** | An ISO_8601 formatted date-time after which the unsubmitted partial response can be deleted from the database                                                                                                                                              |
 | **survey_metadata**     | See: [Survey Metadata Fields][survey_metadata_fields]                                                                                                                                                                                                      |
 
 ### Survey Metadata Fields
