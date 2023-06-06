@@ -90,50 +90,15 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 | **user_id**          | The id assigned by the respondent management system                                                                                                                           |
 | **survey_id**        | The survey identifier as used across the ONS.                                                                                                                                                                              |
 
+For a list of required fields please view [survey metadata definition schema](../schemas/common/survey_metadata.json#L53).
+An example of a valid schema can be found in examples, payload_v2, [launch_jwt_business](../examples/rm_to_eq_runner/payload_v2/launch_jwt_business.json)
+
 ##### Ad-hoc Survey Metadata
 
 | **Property**         | **Definition**                                              |
 | -------------------- | ----------------------------------------------------------- |
 | **case_ref**         | The case reference (e.g. "1000000000000001")                |
 | **qid** | The identifier assigned by the respondent management system |
-
-## An example JSON claim for a Business survey
-
-```json
-{
-   "exp": 1458057712,
-   "iat": 1458047712,
-   "jti": "6b383088-b8f8-4167-8847-c4aaeda8fe16",
-   "tx_id": "0f534ffc-9442-414c-b39f-a756b4adc6cb",
-   "version": "v2",
-   "account_service_url": "https://example.com",
-   "case_id": "628256cf-5c78-4896-8bec-f0ddb69aaa11",
-   "channel": "RAS",
-   "collection_exercise_sid": "789",
-   "region_code": "GB-WLS",
-   "response_expires_at": "2021-07-01T00:00:00+00:00",
-   "response_id": "QzXMrPqoLiyEyerrED88AbkQoQK0sVVX72ZtVphHr0w=",
-   "schema_name": "mbs_0253",
-   "survey_metadata": {
-      "data": {
-         "case_ref": "1000000000000001",
-         "case_type": "B",
-         "display_address": "ONS, Government Buildings, Cardiff Rd",
-         "employment_date": "2021-03-01",
-         "form_type": "0253",
-         "period_id": "202101",
-         "period_str": "January 2021",
-         "ref_p_end_date": "2021-06-01",
-         "ref_p_start_date": "2021-01-01",
-         "ru_name": "ACME T&T Limited",
-         "ru_ref": "49900000001A",
-         "trad_as": "ACME LTD.",
-         "user_id": "64389274239",
-         "survey_id": "345"
-      }
-   }
-}
-```
 
 ## An example JSON claim for an Ad-hoc survey
 
