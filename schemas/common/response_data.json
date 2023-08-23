@@ -201,6 +201,16 @@
             "items": {
               "$ref": "response_data.json#/$defs/list_item_id"
             }
+          },
+          "supplementary_data_mapping": {
+            "type": "object",
+            "description": "A map of supplementary data list item identifiers to their corresponding list item ids in runner",
+            "patternProperties": {
+              "^[a-zA-Z0-9._-]+$": {
+                "$ref": "response_data.json#/$defs/list_item_id",
+                "description": "The list item id."
+              }
+            }
           }
         },
         "additionalProperties": false,
@@ -255,6 +265,10 @@
         "unevaluatedProperties": false,
         "required": ["answer_id", "value"]
       }
+    },
+    "supplementary_data": {
+      "type": "object",
+      "description": "the unedited contents of a supplementary data schema"
     }
   },
   "feedback_response": {
@@ -328,6 +342,9 @@
       },
       "lists": {
         "$ref": "response_data.json#/$defs/data_version_0_0_3_lists"
+      },
+      "supplementary_data": {
+        "$ref": "response_data.json#/$defs/supplementary_data"
       }
     },
     "additionalProperties": false,

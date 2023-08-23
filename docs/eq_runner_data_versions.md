@@ -69,7 +69,9 @@ The version of the data is determined by the `data_version` property defined in 
         - An array of [answer code objects](#answer-code-object) to represent the `answer_id` (optionally the `answer_value`) to user-defined code relationship.
         - Only contains the mapping for responses provided in `data.answers`. It does not contain the mapping for the entire survey. However, mappings for all option values are provided for answers with option values, regardless of whether the response data contains all option values. eQ only filters the answer codes by `answer_id`. In other words, eQ will send answer codes for all answer_ids for which there is a response.
         - **Note: answer_codes in the payload are temporary and will be removed once the Collection Instrument Registry (CIR) is in place. Systems requiring the answer_codes will be able to fetch the eQ schema from the CIR which contains the full answer codes mapping avoiding the need to couple it in the eQ payload.**
-
+    - `supplementary_data`
+        - The contents of a [supplementary data schema][sds_schemas_repo]
+      
   - For the payload `type` of `feedback` these will typically contain survey feedback form properties with corresponding user entered values.
      - `feedback_text`
      - `feedback_type`
@@ -80,6 +82,7 @@ The version of the data is determined by the `data_version` property defined in 
 - `name`: the name of the list (e.g. `people-who-live-here`)
 - `items`: an array of strings of the item identifiers in the list
 - `primary_person`: [optional] the item identifier of the primary person in the list
+- `supplementary_data_mapping`: [optional] a map of supplementary data list item identifiers to their corresponding list item id in runner
 
 #### Answer Object
 
@@ -132,6 +135,31 @@ The version of the data is determined by the `data_version` property defined in 
         "items": [
             "vgeYGW"
         ]
+    }
+]
+```
+
+**Lists Array Example (supplementary data)**
+
+```json
+"lists": [
+    {
+        "name": "products",
+        "items": [
+            "ywFBww",
+            "XtjjTB"
+        ],
+        "supplementary_data_mapping": {
+            "89929001": "ywFBww",
+            "202346331": "XtjjTB"
+        }     
+    },
+    {
+        "items": [
+            "UqlQQY",
+            "zfqCLS"
+        ],
+        "name": "additional-employees"
     }
 ]
 ```
@@ -285,8 +313,47 @@ The version of the data is determined by the `data_version` property defined in 
   ],
 ```
 
+**Supplementary Data Example**
+
+```json
+{
+  "schema_version": "v1",
+  "identifier": "50000035606",
+  "items": {
+    "local_units": [
+      {
+        "identifier": "3340224",
+        "lu_name": "STUBBS BUILDING PRODUCTS LTD",
+        "lu_address": [
+          "WELLINGTON ROAD",
+          "LOCHMABEN",
+          "SWINDON",
+          "BEDS",
+          "GLOS",
+          "DE41 2WA"
+        ]
+      },
+      {
+        "identifier": "20047673",
+        "lu_name": "HOPSCOTCH INDUSTRIES UK LTD",
+        "lu_address": [
+          "SOUTH CERNEY WORKS",
+          "SHAWELL LANE",
+          "BEENHAM",
+          "STAFFS",
+          "BEDFORDSHIRE",
+          "GL4 5YU"
+        ]
+      }
+    ]
+  }
+}
+```
+
 ### Example data version 0.0.3 feedback JSON payload
 
 Feedback data format for `0.0.3` is the same as `0.0.1`. 
  - Format 1: [Example data version 0.0.1 for feedback JSON payload (Format 1)](#example-data-version-001-for-feedback-json-payload-format-1)
  - Format 2: [Example data version 0.0.1 for feedback JSON payload (Format 2)](#example-data-version-001-for-feedback-json-payload-format-2)
+
+[sds_schemas_repo]: https://github.com/ONSdigital/sds-schema-definitions/tree/main/schemas "Supplementary Data Schemas Repo"

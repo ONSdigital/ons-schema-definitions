@@ -81,7 +81,8 @@ EQ Runner will pass the following keys if a value for them exists.
 		"ru_name": "ACME T&T Limited",
 		"ru_ref": "49900000001A",
 		"trad_as": "ACME LTD.",
-		"user_id": "64389274239"
+		"user_id": "64389274239",
+		"sds_dataset_id": "c067f6de-6d64-42b1-8b02-431a3486c178"
 	},
 
 	// For data version 0.0.1 surveyresponse or both 0.0.1 and 0.0.3 versions of feedback
@@ -92,7 +93,8 @@ EQ Runner will pass the following keys if a value for them exists.
 	// For data version 0.0.3 surveyresponse
 	"data": {
 		"answers": [...]
-		"lists": [...]
+		"lists": [...],
+		"supplementary_data": {...}
 	}
 }
 ```

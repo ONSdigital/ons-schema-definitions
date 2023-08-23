@@ -74,7 +74,7 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 ##### Business Survey Metadata
 
 | **Property**         | **Definition**                                                                                                                                                                |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **case_ref**         | The case reference (e.g. "1000000000000001")                                                                                                                                  |
 | **case_type**        | The type of case                                                                                                                                                              |
 | **display_address**  | The case's address to be displayed                                                                                                                                            |
@@ -88,7 +88,8 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 | **ru_name**          | The reporting unit’s display name                                                                                                                                             |
 | **trad_as**          | The reporting unit's 'trading as' name                                                                                                                                        |
 | **user_id**          | The id assigned by the respondent management system                                                                                                                           |
-| **survey_id**        | The survey identifier as used across the ONS.                                                                                                                                                                              |
+| **survey_id**        | The survey identifier as used across the ONS                                                                                                                                  |
+| **sds_dataset_id**   | The UUID of the dataset eQ runner will use to query SDS                                                                                                                       |
 
 For a list of required fields please view [survey metadata definition schema](../schemas/common/survey_metadata.json#L53).
 An example of a valid schema can be found in examples, payload_v2, [launch_jwt_business](../examples/rm_to_eq_runner/payload_v2/launch_jwt_business.json)
