@@ -269,7 +269,6 @@
   "sds_dataset_id": {
     "type": "string",
     "description": "The id of the dataset that eQ will use to query SDS",
-    "pattern": "^[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$",
-    "examples": ["1be356de-bde7-48bf-b169-00e0b3822a9c"]
+    "$ref": "#/$defs/uuid"
   }
 }

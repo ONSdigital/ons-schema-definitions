@@ -30,14 +30,6 @@
         "value": "1947-11-30"
       },
       {
-        "answer_id": "sales-bristol-answer",
-        "value": 12345
-      },
-      {
-        "answer_id": "sales-london-answer",
-        "value": 98765
-      },
-      {
         "answer_id": "list-collector-employees-answer",
         "value": "No"
       },
@@ -83,31 +75,9 @@
         "answer_id": "additional-employment-start",
         "value": "2000-11-30",
         "list_item_id": "zfqCLS"
-      },
-      {
-        "answer_id": "list-collector-products-answer",
-        "value": "No"
-      },
-      {
-        "answer_id": "product-sales-answer",
-        "value": 20,
-        "list_item_id": "ywFBww"
-      },
-      {
-        "answer_id": "product-sales-answer",
-        "value": 30,
-        "list_item_id": "XtjjTB"
       }
     ],
     "lists": [
-      {
-        "items": ["ywFBww", "XtjjTB"],
-        "name": "products",
-        "supplementary_data_mapping": {
-          "89929001": "ywFBww",
-          "202346331": "XtjjTB"
-        }
-      },
       {
         "items": ["zPDHbT"],
         "name": "employees",
@@ -123,64 +93,6 @@
     "supplementary_data": {
       "schema_version": "v1",
       "items": {
-        "products": [
-          {
-            "identifier": "89929001",
-            "guidance_exclude": {
-              "title": "Exclude",
-              "list": [
-                "sports holdalls, gloves, clothing of textile materials, footwear, protective eyewear, rackets, balls, skates",
-                "for skiing, water sports, golf, fishing', for skiing, water sports, golf, fishing, table tennis, PE, gymnastics, athletics"
-              ]
-            },
-            "total_volume": {
-              "answer_code": "89929005",
-              "label": "Total volume produced",
-              "unit_label": "Tonnes"
-            },
-            "guidance_include": {
-              "title": "Include",
-              "list": [
-                "for children's playgrounds",
-                "swimming pools and paddling pools"
-              ]
-            },
-            "cn_codes": "2504 + 250610 + 2512 + 2519 + 2524",
-            "value_sales": {
-              "answer_code": "89929001",
-              "label": "Value of sales"
-            },
-            "name": "Articles and equipment for sports or outdoor games",
-            "volume_sales": {
-              "answer_code": "89929002",
-              "label": "Volume of sales",
-              "unit_label": "Tonnes"
-            }
-          },
-          {
-            "identifier": "202346331",
-            "total_volume": {
-              "answer_code": "20234633103",
-              "label": "Total volume produced",
-              "unit_label": "Kilogram"
-            },
-            "guidance_include": {
-              "title": "Include",
-              "list": ["pots and pans", "chopping board"]
-            },
-            "cn_codes": "1028 + 5908 + 5910 + 591110 + 591120",
-            "value_sales": {
-              "answer_code": "20234633101",
-              "label": "Value of sales"
-            },
-            "name": "Kitchen Equipment",
-            "volume_sales": {
-              "answer_code": "20234633102",
-              "label": "Volume of sales",
-              "unit_label": "Kilogram"
-            }
-          }
-        ],
         "employees": [
           {
             "identifier": "429001",
@@ -192,35 +104,16 @@
                 "house_number": "12",
                 "city": "Bristol"
               }
-            },
-            "employment_details": {
-              "job_title": "Customer assistant",
-              "start_date": "2020-01-01",
-              "salary": {
-                "payroll_number": "54345",
-                "value": "25000",
-                "currency": "GBP"
-              }
             }
           }
         ]
       },
       "identifier": "12346789012A",
-      "total_uk_sales": 555000.0,
-      "note": {
-        "title": "Value of total sales",
-        "description": "Total value of goods sold during the period of the return",
-        "example": {
-          "title": "Including",
-          "description": "Sales across all UK stores"
-        }
-      },
       "company_details": {
         "telephone_number": "01171231231",
         "email": "contact@tesco.org"
       },
       "company_name": "Tesco",
-      "guidance": "Some supplementary guidance about the survey",
       "incorporation_date": "1947-11-27"
     }
   },
