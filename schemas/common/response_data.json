@@ -12,6 +12,25 @@
       "pattern": "^[a-zA-Z]+$",
       "examples": ["zGBdpb", "cWGwcF"]
     },
+    "supplementary_data_mapping": {
+      "type": "object",
+      "description": "An object containing a supplementary data list item identifier and its corresponding list item id.",
+      "properties": {
+        "identifier": {
+          "type": ["string", "integer"],
+          "description": "The supplementary data list item identifier.",
+          "minLength": 1,
+          "minimum": 0
+        },
+        "list_item_id": {
+          "$ref": "response_data.json#/$defs/list_item_id",
+          "description": "The list item id."
+        }
+      },
+      "required": ["identifier", "list_item_id"],
+      "additionalProperties": false,
+      "unevaluatedProperties": false
+    },
     "answer_id": {
       "type": "string",
       "description": "The ID of an answer.",
@@ -202,14 +221,11 @@
               "$ref": "response_data.json#/$defs/list_item_id"
             }
           },
-          "supplementary_data_mapping": {
-            "type": "object",
-            "description": "A map of supplementary data list item identifiers to their corresponding list item ids in runner",
-            "patternProperties": {
-              "^[a-zA-Z0-9._-]+$": {
-                "$ref": "response_data.json#/$defs/list_item_id",
-                "description": "The list item id."
-              }
+          "supplementary_data_mappings": {
+            "type": "array",
+            "description": "A list of supplementary data list item identifier and runner list item id pairs",
+            "items": {
+              "$ref": "response_data.json#/$defs/supplementary_data_mapping"
             }
           }
         },

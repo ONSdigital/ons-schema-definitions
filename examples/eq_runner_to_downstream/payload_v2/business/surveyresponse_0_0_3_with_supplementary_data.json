@@ -81,9 +81,12 @@
       {
         "items": ["zPDHbT"],
         "name": "employees",
-        "supplementary_data_mapping": {
-          "429001": "zPDHbT"
-        }
+        "supplementary_data_mappings": [
+          {
+            "identifier": "429001",
+            "list_item_id": "zPDHbT"
+          }
+        ]
       },
       {
         "items": ["UqlQQY", "zfqCLS"],

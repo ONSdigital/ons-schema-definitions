@@ -82,7 +82,7 @@ The version of the data is determined by the `data_version` property defined in 
 - `name`: the name of the list (e.g. `people-who-live-here`)
 - `items`: an array of strings of the item identifiers in the list
 - `primary_person`: [optional] the item identifier of the primary person in the list
-- `supplementary_data_mapping`: [optional] a map of supplementary data list item identifiers to their corresponding list item id in runner
+- `supplementary_data_mappings`: [optional] an array of pairs of a supplementary data list item identifier and its corresponding list item id in runner
 
 #### Answer Object
 
@@ -149,10 +149,16 @@ The version of the data is determined by the `data_version` property defined in 
             "ywFBww",
             "XtjjTB"
         ],
-        "supplementary_data_mapping": {
-            "89929001": "ywFBww",
-            "202346331": "XtjjTB"
-        }     
+        "supplementary_data_mappings": [
+            {
+                "identifier": "89929001",
+                "list_item_id": "ywFBww"
+            },
+            {
+                "identifier": "202346331",
+                "list_item_id": "XtjjTB"
+            }
+        ]
     },
     {
         "items": [
