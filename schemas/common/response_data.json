@@ -286,7 +286,8 @@
     },
     "supplementary_data": {
       "type": "object",
-      "description": "the unedited contents of a supplementary data schema"
+      "description": "the unedited contents of a supplementary data schema",
+      "minProperties": 1
     }
   },
   "feedback_response": {
