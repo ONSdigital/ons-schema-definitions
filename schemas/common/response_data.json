@@ -286,7 +286,7 @@
     },
     "supplementary_data": {
       "type": "object",
-      "description": "the unedited contents of a supplementary data schema",
+      "description": "The unedited contents of a supplementary data schema https://github.com/ONSdigital/sds-schema-definitions/tree/main/schemas",
       "minProperties": 1
     }
   },
