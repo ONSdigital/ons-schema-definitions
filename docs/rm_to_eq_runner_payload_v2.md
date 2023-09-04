@@ -89,7 +89,7 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 | **trad_as**          | The reporting unit's 'trading as' name                                                                                                                                        |
 | **user_id**          | The id assigned by the respondent management system                                                                                                                           |
 | **survey_id**        | The survey identifier as used across the ONS                                                                                                                                  |
-| **sds_dataset_id**   | The UUID of the dataset eQ runner will use to query SDS                                                                                                                       |
+| **sds_dataset_id**   | The UUID of the dataset eQ Runner will use to query SDS                                                                                                                       |
 
 For a list of required fields please view [survey metadata definition schema](../schemas/common/survey_metadata.json#L53).
 An example of a valid schema can be found in examples, payload_v2, [launch_jwt_business](../examples/rm_to_eq_runner/payload_v2/launch_jwt_business.json)

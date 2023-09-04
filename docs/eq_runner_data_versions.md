@@ -70,7 +70,7 @@ The version of the data is determined by the `data_version` property defined in 
         - Only contains the mapping for responses provided in `data.answers`. It does not contain the mapping for the entire survey. However, mappings for all option values are provided for answers with option values, regardless of whether the response data contains all option values. eQ only filters the answer codes by `answer_id`. In other words, eQ will send answer codes for all answer_ids for which there is a response.
         - **Note: answer_codes in the payload are temporary and will be removed once the Collection Instrument Registry (CIR) is in place. Systems requiring the answer_codes will be able to fetch the eQ schema from the CIR which contains the full answer codes mapping avoiding the need to couple it in the eQ payload.**
     - `supplementary_data`
-        - The contents of a [supplementary data schema][sds_schemas_repo]
+        - A supplementary dataset conforming to a [supplementary data schema][sds_schemas_repo]
       
   - For the payload `type` of `feedback` these will typically contain survey feedback form properties with corresponding user entered values.
      - `feedback_text`
@@ -82,7 +82,7 @@ The version of the data is determined by the `data_version` property defined in 
 - `name`: the name of the list (e.g. `people-who-live-here`)
 - `items`: an array of strings of the item identifiers in the list
 - `primary_person`: [optional] the item identifier of the primary person in the list
-- `supplementary_data_mappings`: [optional] an array of pairs of a supplementary data list item identifier and its corresponding list item id in runner
+- `supplementary_data_mappings`: [optional] an array of objects that map the supplementary data list item identifier and its corresponding list item id in runner
 
 #### Answer Object
 

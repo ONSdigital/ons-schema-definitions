@@ -22,18 +22,6 @@
   "data": {
     "answers": [
       {
-        "answer_id": "same-email-answer",
-        "value": "Yes"
-      },
-      {
-        "answer_id": "trading-answer",
-        "value": "1947-11-30"
-      },
-      {
-        "answer_id": "list-collector-employees-answer",
-        "value": "No"
-      },
-      {
         "answer_id": "any-additional-employee-answer",
         "value": "Yes"
       },

@@ -24,7 +24,7 @@
         },
         "list_item_id": {
           "$ref": "response_data.json#/$defs/list_item_id",
-          "description": "The list item id."
+          "description": "The Runner list item id."
         }
       },
       "required": ["identifier", "list_item_id"],
@@ -223,10 +223,12 @@
           },
           "supplementary_data_mappings": {
             "type": "array",
-            "description": "A list of supplementary data list item identifier and runner list item id pairs",
+            "description": "A list of mappings between the supplementary data list item identifier and runner list item id.",
             "items": {
               "$ref": "response_data.json#/$defs/supplementary_data_mapping"
-            }
+            },
+            "minItems": 1,
+            "uniqueItems": true
           }
         },
         "additionalProperties": false,
