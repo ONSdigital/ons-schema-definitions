@@ -61,6 +61,34 @@
   },
   "additionalProperties": false,
   "unevaluatedProperties": false,
+  "$defs": {
+    "sds_dataset_id_exists": {
+      "properties": {
+        "survey_metadata": {
+          "properties": {
+            "sds_dataset_id": {
+              "$ref": "common/definitions.json#/sds_dataset_id"
+            }
+          },
+          "required": ["sds_dataset_id"]
+        }
+      },
+      "required": ["survey_metadata"]
+    },
+    "data_supplementary_data_exists": {
+      "properties": {
+        "data": {
+          "properties": {
+            "supplementary_data": {
+              "type": "object"
+            }
+          },
+          "required": ["supplementary_data"]
+        }
+      },
+      "required": ["data"]
+    }
+  },
   "allOf": [
     {
       "if": {
@@ -103,6 +131,22 @@
       },
       "then": {
         "required": ["submission_language_code"]
+      }
+    },
+    {
+      "if": {
+        "$ref": "#/$defs/sds_dataset_id_exists"
+      },
+      "then": {
+        "$ref": "#/$defs/data_supplementary_data_exists"
+      }
+    },
+    {
+      "if": {
+        "$ref": "#/$defs/data_supplementary_data_exists"
+      },
+      "then": {
+        "$ref": "#/$defs/sds_dataset_id_exists"
       }
     }
   ],

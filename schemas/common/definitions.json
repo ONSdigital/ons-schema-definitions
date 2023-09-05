@@ -265,5 +265,10 @@
     "$ref": "#/non_empty_string",
     "description": "Respondents first name for display (PHM specific)",
     "examples": ["08 Jan 2023"]
+  },
+  "sds_dataset_id": {
+    "type": "string",
+    "description": "The id of the dataset that eQ will use to query SDS",
+    "$ref": "#/$defs/uuid"
   }
 }
