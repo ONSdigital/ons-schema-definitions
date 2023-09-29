@@ -109,7 +109,7 @@
         ]
       },
       {
-        "answer_id": "address-answer",
+        "answer_id": "other-address-uk-answer",
         "value": {
           "line1": "Address Line 1",
           "town": "Town",
@@ -122,7 +122,8 @@
     "lists": [
       {
         "items": ["zGBdpb", "cWGwcF", "nEMpwe"],
-        "name": "people"
+        "name": "people",
+        "primary_person": "zGBdpb"
       }
     ]
   }
