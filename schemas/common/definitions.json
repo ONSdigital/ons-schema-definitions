@@ -63,6 +63,10 @@
     "description": "The channel used to launch the EQ.",
     "examples": ["RAS", "RH"]
   },
+  "cir_instrument_id": {
+    "$ref": "#/$defs/uuid",
+    "description": "The UUID for the matching collection instrument in the Collection Instrument Registry."
+  },
   "collection_exercise_sid": {
     "$ref": "#/$defs/uuid",
     "description": "A reference UUID used to represent the collection exercise inside the ONS."
