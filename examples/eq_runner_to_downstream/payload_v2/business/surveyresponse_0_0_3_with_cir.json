@@ -43,26 +43,6 @@
         "list_item_id": "zGBdpb"
       },
       {
-        "answer_id": "first-name",
-        "value": "Marie",
-        "list_item_id": "cWGwcF"
-      },
-      {
-        "answer_id": "last-name",
-        "value": "Doe",
-        "list_item_id": "cWGwcF"
-      },
-      {
-        "answer_id": "first-name",
-        "value": "Jane",
-        "list_item_id": "nEMpwe"
-      },
-      {
-        "answer_id": "last-name",
-        "value": "Doe",
-        "list_item_id": "nEMpwe"
-      },
-      {
         "answer_id": "anyone-else",
         "value": "No"
       },
@@ -93,26 +73,6 @@
         "list_item_id": "zGBdpb"
       },
       {
-        "answer_id": "relationship-answer",
-        "value": [
-          {
-            "list_item_id": "zGBdpb",
-            "to_list_item_id": "cWGwcF",
-            "relationship": "Husband or Wife"
-          },
-          {
-            "list_item_id": "zGBdpb",
-            "to_list_item_id": "nEMpwe",
-            "relationship": "Son or daughter"
-          },
-          {
-            "list_item_id": "cWGwcF",
-            "to_list_item_id": "nEMpwe",
-            "relationship": "Son or daughter"
-          }
-        ]
-      },
-      {
         "answer_id": "other-address-uk-answer",
         "value": {
           "line1": "Address Line 1",
@@ -136,7 +96,7 @@
     ],
     "lists": [
       {
-        "items": ["zGBdpb", "cWGwcF", "nEMpwe"],
+        "items": ["zGBdpb"],
         "name": "people",
         "primary_person": "zGBdpb"
       }

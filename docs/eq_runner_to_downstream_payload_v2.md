@@ -31,7 +31,7 @@ This document defines the downstream payload structure for version v2.
 
 In additional to the field above, a schema selection field will be provided which defines the mechanism that was used by EQ Runner to load the questionnaire schema JSON.
 
-One of the following will be present:
+One of the following must be present:
 
 | **Property**          | **Definition**                                                                   |
 |-----------------------|----------------------------------------------------------------------------------|
