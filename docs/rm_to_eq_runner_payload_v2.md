@@ -36,7 +36,7 @@ The schema used by an EQ Runner can be selected one of three ways.
 |-----------------------|---------------------------------------------------------------------------------------------------------------------|
 | **schema_url**        | A URL for a remote survey JSON. This claim is used to tell EQ Runner to load the schema JSON from a remote location |
 | **schema_name**       | The name of the schema to launch. Must be present in [Schemas Repo][schemas_repo]                                   |
-| **cir_instrument_id** | The UUID of the collection instrument launched from the Collection Instrument Registry                              |
+| **cir_instrument_id** | The UUID of the collection instrument to launch from the Collection Instrument Registry                              |
 
 ### Optional Fields
 
