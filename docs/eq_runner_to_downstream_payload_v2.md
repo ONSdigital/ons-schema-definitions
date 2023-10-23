@@ -35,7 +35,7 @@ One of the following will be present:
 
 | **Property**          | **Definition**                                                                   |
 |-----------------------|----------------------------------------------------------------------------------|
-| **schema_url**        | A URL for to the remote survey JSON.                                             |
+| **schema_url**        | The URL to the remote survey JSON.                                             |
 | **schema_name**       | The name of the schema launched. Will be present in [Schemas Repo][schemas_repo] |
 | **cir_instrument_id** | The UUID of the collection instrument launched from the registry                 |
 
