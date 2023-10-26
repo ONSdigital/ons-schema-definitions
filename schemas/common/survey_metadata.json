@@ -48,6 +48,9 @@
         },
         "survey_id": {
           "$ref": "definitions.json#/survey_id"
+        },
+        "sds_dataset_id": {
+          "$ref": "definitions.json#/sds_dataset_id"
         }
       },
       "required": [
