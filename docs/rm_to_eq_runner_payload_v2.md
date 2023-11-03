@@ -30,12 +30,13 @@ The following metadata properties are always required for the EQ Runner, they do
 
 The schema selection field determine the mechanism used by EQ Runner to load the questionnaire schema JSON.
 
-The schema used by an EQ Runner can be selected one of two ways.
+The schema used by an EQ Runner can be selected one of three ways.
 
-| **Property**    | **Definition**                                                                                                      |
-| --------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **schema_url**  | A URL for a remote survey JSON. This claim is used to tell EQ Runner to load the schema JSON from a remote location |
-| **schema_name** | The name of the schema to launch. Must be present in [Schemas Repo][schemas_repo]                                   |
+| **Property**          | **Definition**                                                                                                      |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------|
+| **schema_url**        | A URL for a remote survey JSON. This claim is used to tell EQ Runner to load the schema JSON from a remote location |
+| **schema_name**       | The name of the schema to launch. Must be present in [Schemas Repo][schemas_repo]                                   |
+| **cir_instrument_id** | The UUID of the collection instrument to launch from the Collection Instrument Registry                              |
 
 ### Optional Fields
 
@@ -73,23 +74,23 @@ The data property must adhere to one of [Business Survey Metadata][business_surv
 
 ##### Business Survey Metadata
 
-| **Property**         | **Definition**                                                                                                                                                                |
-|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **case_ref**         | The case reference (e.g. "1000000000000001")                                                                                                                                  |
-| **case_type**        | The type of case                                                                                                                                                              |
-| **display_address**  | The case's address to be displayed                                                                                                                                            |
-| **employment_date**  | The employment reference date                                                                                                                                                 |
-| **form_type**        | The particular `form_type` for a responding unit                                                                                                                              |
-| **period_id**        | A string representing the business area recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey |
-| **period_str**       | A display name for the `period_id` referenced above                                                                                                                           |
-| **ref_p_start_date** | The reference period's start date                                                                                                                                             |
-| **ref_p_end_date**   | The reference period's end date                                                                                                                                               |
-| **ru_ref**           | The reporting unit reference                                                                                                                                                  |
-| **ru_name**          | The reporting unit’s display name                                                                                                                                             |
-| **trad_as**          | The reporting unit's 'trading as' name                                                                                                                                        |
-| **user_id**          | The id assigned by the respondent management system                                                                                                                           |
-| **survey_id**        | The survey identifier as used across the ONS                                                                                                                                  |
-| **sds_dataset_id**   | The UUID of the dataset eQ Runner will use to query SDS                                                                                                                       |
+| **Property**          | **Definition**                                                                                                                                                                |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **case_ref**          | The case reference (e.g. "1000000000000001")                                                                                                                                  |
+| **case_type**         | The type of case                                                                                                                                                              |
+| **display_address**   | The case's address to be displayed                                                                                                                                            |
+| **employment_date**   | The employment reference date                                                                                                                                                 |
+| **form_type**         | The particular `form_type` for a responding unit                                                                                                                              |
+| **period_id**         | A string representing the business area recognised time period for the collection exercise (e.g. "2019" or "JAN2019" or "2019Q3". This is not the start/end dates of a survey |
+| **period_str**        | A display name for the `period_id` referenced above                                                                                                                           |
+| **ref_p_start_date**  | The reference period's start date                                                                                                                                             |
+| **ref_p_end_date**    | The reference period's end date                                                                                                                                               |
+| **ru_ref**            | The reporting unit reference                                                                                                                                                  |
+| **ru_name**           | The reporting unit’s display name                                                                                                                                             |
+| **trad_as**           | The reporting unit's 'trading as' name                                                                                                                                        |
+| **user_id**           | The id assigned by the respondent management system                                                                                                                           |
+| **survey_id**         | The survey identifier as used across the ONS                                                                                                                                  |
+| **sds_dataset_id**    | The UUID of the dataset eQ Runner will use to query SDS                                                                                                                       |                                                                                       |
 
 For a list of required fields please view [survey metadata definition schema](../schemas/common/survey_metadata.json#L53).
 An example of a valid schema can be found in examples, payload_v2, [launch_jwt_business](../examples/rm_to_eq_runner/payload_v2/launch_jwt_business.json)
