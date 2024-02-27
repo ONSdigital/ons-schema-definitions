@@ -1,0 +1,30 @@
+{
+  "exp": 1684501576,
+  "iat": 1684501276,
+  "jti": "47c97acf-ebc2-46bc-b2d0-75e2fcf3ad33",
+  "tx_id": "c44c7942-9956-421e-80d4-c4fa813e13b4",
+  "version": "v2",
+  "account_service_url": "https://upstream.example.com/surveys/todo",
+  "case_id": "c3756c53-28ee-41a4-a382-2dd4f50edf94",
+  "collection_exercise_sid": "b5458b19-8a4e-43ad-8ead-60e900441615",
+  "response_id": "49900000001Fb5458b19-8a4e-43ad-8ead-60e90044161520001",
+  "response_expires_at": "2023-05-23T07:00:00+01:00",
+  "cir_instrument_id": "7cf6ccfd-74e6-49c4-bb37-53385c98d682",
+  "survey_metadata": {
+    "data": {
+      "case_ref": "1000000000000007",
+      "form_type": "0001",
+      "period_id": "1912",
+      "period_str": "December",
+      "ref_p_end_date": "2023-05-18",
+      "ref_p_start_date": "2023-05-23",
+      "ru_name": " RUNAME1_COMPANY1 RUNNAME2_COMPANY1",
+      "ru_ref": "49900000001F",
+      "trad_as": "TOTAL UK ACTIVITY  ",
+      "user_id": "855a454c-c6d8-4fcb-94c6-26a4b9732b42",
+      "survey_id": "139",
+      "employment_date": "2023-05-18",
+      "sds_dataset_id": "c067f6de-6d64-42b1-8b02-431a3486c178"
+    }
+  }
+}

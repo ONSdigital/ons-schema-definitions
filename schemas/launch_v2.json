@@ -13,6 +13,9 @@
     "channel": {
       "$ref": "common/definitions.json#/channel"
     },
+    "cir_instrument_id": {
+      "$ref": "common/definitions.json#/cir_instrument_id"
+    },
     "collection_exercise_sid": {
       "$ref": "common/definitions.json#/collection_exercise_sid"
     },
@@ -74,6 +77,9 @@
     },
     {
       "required": ["schema_url"]
+    },
+    {
+      "required": ["cir_instrument_id"]
     }
   ]
 }
