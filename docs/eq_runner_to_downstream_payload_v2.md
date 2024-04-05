@@ -86,7 +86,7 @@ EQ Runner will pass the following keys if a value for them exists.
 		"sds_dataset_id": "c067f6de-6d64-42b1-8b02-431a3486c178"
 	},
 
-	// For data version 0.0.1 surveyresponse or both 0.0.1 and 0.0.3 versions of feedback
+	// For data version 0.0.1 surveyresponse, both 0.0.1 and 0.0.3 versions of feedback or both 0.0.1 and 0.0.3 versions of user_research
 	"data": {
 		...
 	}
