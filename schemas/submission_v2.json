@@ -100,25 +100,42 @@
       "then": {
         "properties": {
           "data": {
-            "$ref": "common/response_data.json#/feedback_response"
+            "oneOf": [
+              { "$ref": "common/response_data.json#/feedback_response" },
+              { "$ref": "common/response_data.json#/feedback_response_legacy" }
+            ]
           }
         }
       },
       "else": {
         "if": {
-          "properties": { "data_version": { "const": "0.0.3" } }
+          "properties": {
+            "type": { "const": "uk.gov.ons.edc.eq:user_research" }
+          }
         },
         "then": {
           "properties": {
             "data": {
-              "$ref": "common/response_data.json#/survey_response_0_0_3"
+              "$ref": "common/response_data.json#/user_research_response"
             }
           }
         },
         "else": {
-          "properties": {
-            "data": {
-              "$ref": "common/response_data.json#/survey_response_0_0_1"
+          "if": {
+            "properties": { "data_version": { "const": "0.0.3" } }
+          },
+          "then": {
+            "properties": {
+              "data": {
+                "$ref": "common/response_data.json#/survey_response_0_0_3"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "data": {
+               "$ref": "common/response_data.json#/survey_response_0_0_1"
+              }
             }
           }
         }
