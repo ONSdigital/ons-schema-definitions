@@ -1,6 +1,6 @@
 # Electronic Questionnaire Runner Response To Downstream
 
-All submitted survey responses and feedback for a collection exercise (a periodic questionnaire within a survey series) are transformed into data formats described below for downstream processing and analysis. The downstream data format can be defined in two ways, version 1 (v1) and 2 (v2) (See: [Payload Formats][payload_formats]). The format used is derived by the `version` that was provided in the launch JWT token. For backwards compatibility, tokens that do not provide a `version` are assumed to be v1. For more information on launch tokens, see [RM to EQ][rm_to_eq_runner].
+All submitted survey responses, feedback and user research for a collection exercise (a periodic questionnaire within a survey series) are transformed into data formats described below for downstream processing and analysis. The downstream data format can be defined in two ways, version 1 (v1) and 2 (v2) (See: [Payload Formats][payload_formats]). The format used is derived by the `version` that was provided in the launch JWT token. For backwards compatibility, tokens that do not provide a `version` are assumed to be v1. For more information on launch tokens, see [RM to EQ][rm_to_eq_runner].
 
 The data structures created by EQ Runner (e.g. the answer store) are designed and optimised primarily for the purposes of generic functionality within the Runner application. As a general principle, the extent of the transform carried out by Runner on submitted response data beyond its native data models, as well as on claims received by the launching system, is minimal. It is not the responsibility of Runner to carry out bespoke data transforms. Historically, SDX has been responsible for more extensive and complex data transforms.
 
@@ -15,7 +15,7 @@ When the Runner Rabbit MQ submitter is used, the ciphertext message is published
 When the Runner GCS submitter is used, an object containing the response ciphertext is written to a bucket for downstream consumption.
 
 - For `surveyresponse` objects, the object ID is named for the response's `tx_id`.
-- For `feedback` objects, the object ID is named with a uniquely generated UUID.
+- For `feedback` and `user_research` objects, the object ID is named with a uniquely generated UUID.
 
 The GCS response object contains associated [metadata][gcs_metadata] which can be used in a Pub/Sub messaging strategy for further event driven processes (e.g. receipting and triggering ingestion flow).
 For both v1 and v2 data formats, the metadata will always contain a `tx_id` and a `case_id`.
