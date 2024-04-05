@@ -134,7 +134,7 @@
           "else": {
             "properties": {
               "data": {
-               "$ref": "common/response_data.json#/survey_response_0_0_1"
+                "$ref": "common/response_data.json#/survey_response_0_0_1"
               }
             }
           }

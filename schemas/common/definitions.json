@@ -194,7 +194,11 @@
   "submission_type": {
     "type": "string",
     "description": "The unique type identifier of this JSON file.",
-    "enum": ["uk.gov.ons.edc.eq:surveyresponse", "uk.gov.ons.edc.eq:feedback"]
+    "enum": [
+      "uk.gov.ons.edc.eq:surveyresponse",
+      "uk.gov.ons.edc.eq:feedback",
+      "uk.gov.ons.edc.eq:user_research"
+    ]
   },
   "submitted_at": {
     "$ref": "#/$defs/iso_8601_datetime",
