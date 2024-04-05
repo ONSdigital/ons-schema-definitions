@@ -31,7 +31,8 @@
     "user_id": "64389274239"
   },
   "data": {
-    "feedback_rating": "Easy",
-    "feedback_text": "Page design feedback"
+    "feedback_text": "Page design feedback",
+    "feedback_type": "Page design and structure",
+    "feedback_count": "7"
   }
 }
