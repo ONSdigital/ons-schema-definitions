@@ -40,7 +40,7 @@ Additional receipting metadata may be added, which are defined by `survey_metada
 
 ## Payload Formats
 
-The downstream payload format is set using the `version` that was provided in the launch token, currently one v2 is supported. This is not to be confused with runner's `data_version` which is responsible for the structure of the `data` property within the payload.
+The downstream payload format is set using the `version` that was provided in the launch token, currently only v2 is supported. This is not to be confused with runner's `data_version` which is responsible for the structure of the `data` property within the payload.
 
 The v2 payload format is documented below.
 
