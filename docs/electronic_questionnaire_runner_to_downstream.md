@@ -52,7 +52,6 @@ This payload is part of a JWT, as specified in [JWT Profile][jwt_profile].
 
 [gcs_metadata]: https://cloud.google.com/storage/docs/viewing-editing-metadata "GCS Metadata"
 [jwt_profile]: jwt_profile.md "JWT Profile Definition"
-[eq_runner_to_downstream_payload_v1]: eq_runner_to_downstream_payload_v1.md "EQ to Downstream Runner Payload v1 Definition"
 [eq_runner_to_downstream_payload_v2]: eq_runner_to_downstream_payload_v2.md "EQ to Downstream Runner Payload v2 Definition"
 [rm_to_eq_runner]: respondent_management_to_electronic_questionnaire_runner.md "RM to EQ Runner"
 [payload_formats]: electronic_questionnaire_runner_to_downstream#payload-formats "Payload Formats"
