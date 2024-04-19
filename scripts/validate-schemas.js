@@ -20,16 +20,12 @@ const ajValidator = new Ajv2020({
 addFormats(ajValidator);
 
 const baseSchemaToSchemaTypeMapping = {
-  launch_v1: "schemas/launch_v1.json",
   launch_v2: "schemas/launch_v2.json",
-  submission_v1: "schemas/submission_v1.json",
   submission_v2: "schemas/submission_v2.json",
 };
 
 const schemaTypesToExamplesGlob = {
-  launch_v1: "examples/rm_to_eq_runner/*v1*/**/*.json",
   launch_v2: "examples/rm_to_eq_runner/*v2*/**/*.json",
-  submission_v1: "examples/eq_runner_to_downstream/*v1*/**/*.json",
   submission_v2: "examples/eq_runner_to_downstream/*v2*/**/*.json",
 };
 
