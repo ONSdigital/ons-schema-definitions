@@ -292,7 +292,7 @@
   },
   "feedback_response_legacy": {
     "type": "object",
-    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions by legacy v2 runner..",
+    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions by the soon to be deprecated feedback format.",
     "properties": {
       "feedback_type": {
         "$ref": "definitions.json#/non_empty_string",
@@ -335,11 +335,11 @@
     "properties": {
       "full_name": {
         "$ref": "definitions.json#/non_empty_string",
-        "description": "The full name of the feedback respondent."
+        "description": "The full name of the user research participant."
       },
       "email_address": {
         "$ref": "definitions.json#/non_empty_string",
-        "description": "The email of the feedback respondent"
+        "description": "The email of the user research participant."
       }
     },
     "additionalProperties": false,
