@@ -2,7 +2,7 @@
   "tx_id": "ea82c224-0f80-41cc-b877-8a7804b56c26",
   "type": "uk.gov.ons.edc.eq:feedback",
   "version": "v2",
-  "data_version": "0.0.1",
+  "data_version": "0.0.3",
   "origin": "uk.gov.ons.edc.eq",
   "flushed": false,
   "submitted_at": "2016-05-21T16:37:56.551086",
@@ -13,25 +13,26 @@
   "started_at": "2016-05-21T16:33:30.665144",
   "case_id": "a386b2de-a615-42c8-a0f4-e274f9eb28ee",
   "region_code": "GB-ENG",
-  "channel": "RH",
+  "channel": "RAS",
   "survey_metadata": {
     "survey_id": "009",
     "case_ref": "1000000000000001",
-    "qid": "0130000000000300",
-    "BLOOD_TEST_BARCODE": "BLT11111111",
-    "SWAB_TEST_BARCODE": "swT11111111",
-    "PARTICIPANT_ID": "DHRF-123456789012",
-    "TEST_QUESTIONS": "F",
-    "COLLEX_OPEN_DATE": "08 Jan 2023",
-    "COLLEX_CLOSE_DATE": "28 Jan 2023",
-    "FIRST_NAME": "Vinny",
-    "WINDOW_START_DATE": "2023-01-08",
-    "WINDOW_CLOSE_DATE": "2023-01-28",
-    "PORTAL_ID": "1234567",
-    "PARTICIPANT_WINDOW_ID": "DHRF-123456789012-001"
+    "case_type": "B",
+    "display_address": "ONS, Government Buildings, Cardiff Rd",
+    "employment_date": "2021-03-01",
+    "form_type": "0253",
+    "period_id": "202101",
+    "period_str": "January 2021",
+    "ref_p_end_date": "2021-06-01",
+    "ref_p_start_date": "2021-01-01",
+    "ru_name": "ACME T&T Limited",
+    "ru_ref": "49900000001A",
+    "trad_as": "ACME LTD.",
+    "user_id": "64389274239"
   },
   "data": {
-    "feedback_rating": "Easy",
-    "feedback_text": "Page design feedback"
+    "feedback_text": "Page design feedback",
+    "feedback_type": "Page design and structure",
+    "feedback_count": "7"
   }
 }

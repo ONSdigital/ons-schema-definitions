@@ -14,14 +14,13 @@ The version of the data is determined by the `data_version` property defined in 
   - For the payload `type` of `surveyresponse` these will typically contain answer responses using the business defined `q_code` as the key for each answer value.
   - For the payload `type` of `feedback` these will typically contain survey feedback form properties. Feedback can be in two formats.
     - Format 1:
+      - `feedback_rating`
+      - `feedback_text`
+    - Format 2 (legacy):
       - `feedback_text`
       - `feedback_type`
       - `feedback_count`
-    - Format 2 (legacy):
-      - `name`
-      - `email`
-      - `message`
-      - `url` **[OPTIONAL]**
+  - For the payload `type` of `user_research` these will typically contain user details using the keys `full_name` and `email_address` for these values.
     
 ### Example data version 0.0.1 for surveyresponse JSON payloads
 
@@ -36,9 +35,8 @@ The version of the data is determined by the `data_version` property defined in 
 
 ```json
 "data": {
+    "feedback_rating": "Very easy"
     "feedback_text": "I like this survey",
-    "feedback_type": "Page design and structure",
-    "feedback_count": "7"
 }
 ```
 
@@ -46,9 +44,18 @@ The version of the data is determined by the `data_version` property defined in 
 
 ```json
 "data": {
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "message": "Page design feedback"
+    "feedback_text": "I like this survey",
+    "feedback_type": "Page design and structure",
+    "feedback_count": "7"
+}
+```
+
+### Example data version 0.0.1 for user_research JSON payloads
+
+```json
+"data": {
+    "full_name": "Erling Haaland"
+    "email_address": "erling_haaland@example.com"
 }
 ```
 
@@ -73,9 +80,18 @@ The version of the data is determined by the `data_version` property defined in 
         - A supplementary dataset conforming to a [supplementary data schema][sds_schemas_repo]
       
   - For the payload `type` of `feedback` these will typically contain survey feedback form properties with corresponding user entered values.
-     - `feedback_text`
-     - `feedback_type`
-     - `feedback_count`
+    - Current:
+      - `feedback_rating` 
+      - `feedback_text`
+    - Legacy:
+      - `feedback_text`
+      - `feedback_type`
+      - `feedback_count`
+
+  - For the payload `type` of `user_research` these will typically contain user details with corresponding user entered values.
+    - `full_name`
+    - `email_address`
+
 
 #### List Item Object
 
@@ -361,5 +377,9 @@ The version of the data is determined by the `data_version` property defined in 
 Feedback data format for `0.0.3` is the same as `0.0.1`. 
  - Format 1: [Example data version 0.0.1 for feedback JSON payload (Format 1)](#example-data-version-001-for-feedback-json-payload-format-1)
  - Format 2: [Example data version 0.0.1 for feedback JSON payload (Format 2)](#example-data-version-001-for-feedback-json-payload-format-2)
+
+### Example data version 0.0.3 user_research JSON payload
+The user_research data format for `0.0.3` is the same as `0.0.1`. See:
+[Example data version 0.0.1 for user_research JSON payloads](#example-data-version-001-for-feedback-json-payload-format-2)
 
 [sds_schemas_repo]: https://github.com/ONSdigital/sds-schema-definitions/tree/main/schemas "Supplementary Data Schemas Repo"

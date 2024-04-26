@@ -290,9 +290,9 @@
       "minProperties": 1
     }
   },
-  "feedback_response": {
+  "feedback_response_legacy": {
     "type": "object",
-    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions.",
+    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions by the soon to be deprecated feedback format.",
     "properties": {
       "feedback_type": {
         "$ref": "definitions.json#/non_empty_string",
@@ -312,30 +312,39 @@
     "unevaluatedProperties": false,
     "required": ["feedback_type", "feedback_text", "feedback_count"]
   },
-  "feedback_response_legacy": {
+  "feedback_response": {
     "type": "object",
-    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions by legacy v2 runner.",
+    "description": "This is used for data_version 0.0.1 or 0.0.3 feedback submissions",
     "properties": {
-      "email": {
-        "type": "string",
-        "description": "The email of the feedback respondent"
+      "feedback_rating": {
+        "enum": ["Very easy", "Easy", "Neutral", "Difficult", "Very Difficult"],
+        "description": "The feedback rating"
       },
-      "message": {
-        "type": "string",
-        "description": "The feedback message."
-      },
-      "name": {
-        "type": "string",
-        "description": "The name of the feedback respondent."
-      },
-      "url": {
-        "type": "string",
-        "description": "The URL the feedback was submitted from."
+      "feedback_text": {
+        "$ref": "definitions.json#/non_empty_string",
+        "description": "The feedback text."
       }
     },
     "additionalProperties": false,
     "unevaluatedProperties": false,
-    "required": ["email", "message", "name"]
+    "required": ["feedback_rating"]
+  },
+  "user_research_response": {
+    "type": "object",
+    "description": "This is used for data_version 0.0.1 or 0.0.3 user research submissions",
+    "properties": {
+      "full_name": {
+        "$ref": "definitions.json#/non_empty_string",
+        "description": "The full name of the user research participant."
+      },
+      "email_address": {
+        "$ref": "definitions.json#/non_empty_string",
+        "description": "The email of the user research participant."
+      }
+    },
+    "additionalProperties": false,
+    "unevaluatedProperties": false,
+    "required": ["email_address"]
   },
   "survey_response_0_0_1": {
     "type": "object",
