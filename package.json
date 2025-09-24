@@ -23,27 +23,16 @@
   },
   "homepage": "https://github.com/ONSdigital/ons-schema-definitions#readme",
   "dependencies": {
-    "ajv": "^8.11.0",
-    "ajv-formats": "^2.1.1",
-    "es-main": "^1.2.0",
-    "glob": "^8.0.3",
-    "yargs": "^17.5.1"
+    "ajv": "8.11.0",
+    "ajv-formats": "2.1.1",
+    "es-main": "1.2.0",
+    "glob": "8.0.3",
+    "yargs": "17.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.21.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-json": "^3.1.0",
-    "prettier": "^2.8.7"
-  },
-  "overrides": {
-    "ansi-regex": "5.0.1",
-    "ansi-styles": "4.3.0",
-    "chalk": "4.1.2",
-    "color-convert": "2.0.1",
-    "color-name": "1.1.4",
-    "debug": "4.3.4",
-    "strip-ansi": "6.0.1",
-    "supports-color": "7.2.0",
-    "wrap-ansi": "7.0.0"
+    "eslint": "8.21.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-json": "3.1.0",
+    "prettier": "2.8.7"
   }
 }
